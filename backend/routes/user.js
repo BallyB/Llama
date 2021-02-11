@@ -10,6 +10,7 @@ const userCtr = require('../controllers/userController.js');
 //router.get('/:id', userCtr.login);
 
 router.post('/signup', userCtr.signup);
+router.get('/signin', userCtr.login);
 
 
 module.exports = router;
