@@ -17,6 +17,8 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
-    "sirv-cli": "^1.0.0"
+    "materialize-css": "^1.0.0-rc.2",
+    "sirv-cli": "^1.0.0",
+    "svelte-routing": "^1.5.0"
   }
 }
