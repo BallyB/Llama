@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt'); //Inutile ici, permet de crypter un mot de passe lors de l'enregistrement d'un user
+
 //On récupère le modèle qui nous intéresse
 const User = require('../models/exemple');
 
