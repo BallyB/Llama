@@ -28,8 +28,6 @@
 </div>
 </body>
 
-
-
 <style>
 
     body {
@@ -46,6 +44,7 @@
         /* overflow-x: hidden; */
         /* padding-top: 20px; */
     }
+
     /* Control the left side */
     .left {
         left: 0;
@@ -73,8 +72,8 @@
 
 
     #logo {
-        width:28%;
-        margin:left;
+        width: 28%;
+        margin: left;
     }
 
     /* Control the right side */
