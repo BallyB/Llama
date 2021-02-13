@@ -10,7 +10,7 @@ import PopupInscription from './Popup_inscription.svelte';
 		<div style="text-align: left"><img id='logo' src="images/logo.png" alt="Logo"></div>
 		  	<div id="left-part">
 				<p id="accroche">Participez à des expériences en <b>linguistique</b> et faites avancer la <b>recherche</b></p>
-                <p style="text-align:center; margin-top:50%"> Vous avez déjà un compte ? </p>
+                <p style="text-align:center; margin-top:10%"> Vous avez déjà un compte ? </p>
                 <a href='/' class="button"><b>Connexion</b></a>
 			</div>
 	  	</div>
@@ -52,21 +52,16 @@ import PopupInscription from './Popup_inscription.svelte';
 
 	#accroche{
 		font-size:26px;
-        position:absolute;
-        margin: auto;
-        top : 25%;
+        /* position:absolute; */
+		margin-left: 10%;
+		margin-right:10%;
+        margin-top : 15%;
 		/* width:85%; */
 		/* margin:auto; */
 		/* position:absolute; */
 		/* top:20%; */
 	}
 
-    #connexion {
-        position:absolute;
-        margin : auto;
-        top:40%;
-        /* text-align:center; */
-    }
 
 	#logo {
 		width:28%;
