@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  llama:
+    container_name: llama
+    image: node
+    ports: 
+      - "3000:3000"
+    volumes: 
+      - ./api:/usr/src/api
+    working_dir: /usr/src/api
+    command: >
+      bash -c "npm install --save express 
+      && npm install --save mongoose 
+      && npm install --save body-parser 
+      && npm install -g nodemon 
+      && npm install --save bcrypt
+      && npm install --save mongoose-unique-validator 
+      && npm install --save jsonwebtoken 
+      && nodemon server"
