@@ -1,14 +1,7 @@
 
 back :
 se placer dans /backend puis :
-$ npm init   (entry point server.js sinon enter)
-$ npm install --save express
-$ npm install --save mongoose
-$ npm install --save body-parser
-$ npm install -g nodemon
-$ npm install --save mongoose-unique-validator
-$ npm install --save jsonwebtoken
-$ nodemon server
+$ docker-compose up
 
 
 front :
