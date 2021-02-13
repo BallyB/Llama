@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
+const bodyParser = require('body-parser');
 const userRoutes = require('./routes/user');
 
 mongoose.connect('mongodb+srv://Llama:lamatitia@cluster0.vavcg.mongodb.net/Llama?retryWrites=true&w=majority',

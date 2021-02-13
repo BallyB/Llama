@@ -7,12 +7,12 @@ const userSchema = mongoose.Schema({
   password: { type: String, required: true },
   dateNaissance: { type: Date, required: true},
   sexe: { type: String, required: true},
-  laboratoire: { type: Int32Array, required: false},
+  laboratoire: { type: Number, required: false},
   trouble: {type: Boolean, required: false},
-  niveauScolaireID: { type: Int32Array, required: false},
-  langueMatID: { type: Int32Array, required: false},
-  langueParleID: { type: Int32Array, required: false},
-  villeID: { type: Int32Array, required: true}
+  niveauScolaireID: { type: Number, required: false},
+  langueMatID: { type: Number, required: false},
+  langueParleID: { type: Number, required: false},
+  villeID: { type: Number, required: true}
 });
 
 userSchema.plugin(uniqueValidator);
