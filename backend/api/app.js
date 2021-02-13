@@ -33,10 +33,10 @@ app.use(bodyParser.json());
 app.use('/api/auth', userRoutes);
 
 
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
   res.status(201).json({
     message: 'request received successfully!'
   });
-});
+});*/
 
 module.exports = app;

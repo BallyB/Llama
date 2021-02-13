@@ -14,10 +14,10 @@ exports.signup = (req, res, next) => {
             sexe: req.body.sexe,
             laboratoire: req.body.laboratoire,
             trouble: req.body.trouble,
-            niveauScolaireID: req.body.niveauScolaire,
-            langueMatID: req.body.langueMeternelle, //Liste d'id?
-            langueParleID: req.body.langueParle,
-            villeID: req.body.ville
+            niveauScolaireID: req.body.niveauScolaireID,
+            langueMatID: req.body.langueMatID, //Liste d'id?
+            langueParleID: req.body.langueParleID,
+            villeID: req.body.villeID
           });
           user.save().then(
               () => {
