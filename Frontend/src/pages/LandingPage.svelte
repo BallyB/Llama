@@ -1,6 +1,10 @@
 <script>
     import Modal from "../layout/Modal.svelte";
     import ConnexionComponent from '../layout/connexionComponent.svelte';
+    import SignupParticipants from '../layout/SignupParticipantsComponent.svelte';
+    import SignupResearchers from '../layout/SignupResearchersComponent.svelte';
+import SignupParticipantsComponent from "../layout/SignupParticipantsComponent.svelte";
+
 </script>
 <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -25,25 +29,108 @@
 
 <div class="split right" style="width:70%">
     <h2>Rejoignez-nous <br/> <hr/> dès maintenant</h2>
-    <p>Some text here too.</p>
+    <div class="row">
+        <div class="column"> 
+            <ul class="no_bullet">
+                <li class="creation"><h3> Créez vos expériences </h3></li>
+                <li class="participants"><h3> Trouvez des participants </h3></li>
+                <li class="followup"><h3> Réalisez le suivi </h3></li>
+            </ul>
+            <Modal>
+                <SignupResearchers />
+            </Modal>
+           
+        </div>
+        <div class="column">
+            <div dir="rtl">
+            <ul class="no_bullet">
+                <li class="participation"><h3> Participez aux expériences </h3></li>
+                <li class="results"><h3> Accédez aux résultats</h3></li>
+                <li class="reward"><h3> Soyez récompensés </h3></li>
+            </ul>
+            <Modal>
+                <SignupParticipants />
+            </Modal>
+        </div>
+        </div>
+    </div>
 
 </div>
 </body>
 
 <style>
-    hr {
-    display: block;
-    height: 1px;
-    width: 70px;
-    border: 0;
-    border-top: 1px solid #FFF;
-    padding: 0;
+    li.creation {
+        background: url('images/creation.png') no-repeat left top;
+        background-size: 15%;
+        height: 85px;
+        padding-top: 1px;
     }
 
-    body {
+    li.participants {
+        background: url('images/participants.png') no-repeat left top;
+        background-size: 15%;
+        height: 85px;
+        padding-top: 1px;
+    }
+
+    li.followup {
+        background: url('images/followup.png') no-repeat left top;
+        background-size: 15%;
+        height: 85px;
+        padding-top: 1px;
+    }
+    li.participation {
+        background: url('images/participation.png') no-repeat left top;
+        background-size: 15%;
+        height: 85px;
+        padding-top: 1px;
+    }
+
+    li.results {
+        background: url('images/results.png') no-repeat left top;
+        background-size: 15%;
+        height: 85px;
+        padding-top: 1px;
+    }
+
+    li.reward {
+        background: url('images/reward.png') no-repeat left top;
+        background-size: 15%;
+        height: 85px;
+        padding-top: 1px;
+    }
+    ul.no_bullet {
+        list-style-type: none;
+        margin-left: 5%;
+    }
+
+
+    hr {
+        display: block;
+        height: 1px;
+        width: 70px;
+        border: 0;
+        border-top: 1px solid #FFF;
+        padding: 0;
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+        margin-top:10%;
+    }
+
+/* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* body {
         width : 100vw;
         height:100vh;
-    }
+    } */
 
     p{
         text-align:'center';
@@ -55,9 +142,13 @@
         font-size:36px;
     }
 
+    h3 {
+        font-size : 20px;
+    }
+
     .quote{
         margin-top:30%;
-        font-size: 30px;
+        font-size: 22px;
         font-family: 'Nothing you could do';
     }
     
@@ -78,6 +169,7 @@
         text-align: center;
         font-size: 20px;
         font-family: 'Varta', sans-serif;
+        z-index: 0;
     }
     .accroche{
         font-size:26px;
@@ -87,7 +179,7 @@
     }
 
     .accroche em{
-        font-size: 28px;
+        font-size: 26px;
         font-family: "Nothing You Could Do", cursive;
         font-weight: bold;
     }
