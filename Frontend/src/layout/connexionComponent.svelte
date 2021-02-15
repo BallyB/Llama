@@ -18,8 +18,7 @@
 </script>
 
 <section>
-    <button on:click={showPopup}><b>Connexion !</b></button>
-    <br/>
+    <button type="submit" class="primary-button" on:click={showPopup}><b>Connexion !</b></button>
 
 
     <div id="state">
@@ -38,29 +37,6 @@
 <style>
     section {
         padding-top: 0.5em;
-    }
-
-    button {
-        font-size: 16px;
-        cursor: pointer;
-        color:#FFFFFF;
-        background: #F6B93B;
-        border: none;
-        border-radius: 26px;
-        box-shadow: 0px 10px 13px -7px #313131;
-        width: 133px;
-        height: 56px;
-        left: 394px;
-        top: 509px;
-        transition: all 0.34s;
-    }
-
-    button:hover {
-        background-color: #e58e26;
-    }
-
-    button:focus {
-        outline: 0;
     }
 
     #state {
