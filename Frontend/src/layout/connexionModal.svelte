@@ -1,6 +1,4 @@
 <script>
-    let email = '';
-    let password = '';
 </script>
 
 
@@ -11,12 +9,11 @@
 
     <form>
         <div class="txt">
-            <p>Adresse email</p>
-            <input placeholder="Entrez votre adresse mail">
+            <input type="email" placeholder="Adresse mail">
         </div>
         <div class="txt">
-            <p>Mot de passe</p>
-            <input placeholder="Entrez votre mot de passe">
+            <input type="password" placeholder="Mot de passe">
+            <a style="position: absolute; text-align: left; left: 115px" href="#"> Mot de passe oublié ? </a>
         </div>
 
         <button type="submit" class="primary-button">Connexion</button>
@@ -40,13 +37,32 @@
     }
 
     .primary-button {
+        font-weight: bolder;
         background-color: black;
         display: block;
         margin: 2.5rem auto;
+        width: 115px;
+        height: 47px;
     }
 
     .primary-button:hover {
         background-color: #313131;
+    }
+
+    a {
+        color: red;
+        display: block;
+        margin: 0.5rem auto;
+    }
+
+    input {
+        background-color: #eee;
+        border: none;
+        box-sizing: border-box;
+        border-radius: 6px;
+        padding: 12px 15px;
+        margin: 8px auto;
+        width: 70%;
     }
 
 </style>
