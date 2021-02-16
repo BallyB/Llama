@@ -26,8 +26,8 @@
                     faites avancer la <em>recherche</em>
                 </p>
                 <p>Vous avez déjà un compte ?</p>
-                <Modal class="test">
-                    <ConnexionComponent class="test" />
+                <Modal>
+                    <ConnexionComponent />
                 </Modal>
                 <p class="quote">
                     "LE meilleur (seul) site pour participer à des expériences
@@ -71,7 +71,7 @@
                                 <h3>Soyez récompensés</h3>
                             </li>
                         </ul>
-                        <Modal class="test">
+                        <Modal>
                             <SignupParticipants />
                         </Modal>
                     </div>
