@@ -1,16 +1,9 @@
-<script type="text/javascript" src="city_state.js">
+<script>
     import Component from './SignupResearchersComponent.svelte';
     // import Select from './svelte-select';
     let error_boolean = false;
     const items = ['Ain', 'Aisne', 'Alpes'];
 
-
-    async function handleSubmit(event) {
-        console.log(event);
-        console.log(event.target);
-        console.log(event.target.email.value);
-        console.log(event.target.password.value);
-    }
 
     function validateMessageEmail(event) {
         let textbox = event.target;
@@ -25,15 +18,39 @@
         }
         return true;
     }
+
+	
+	function validation(){
+		confirmPassword.setCustomValidity("")
+		if (password.value !== confirmPassword.value){
+			  confirmPassword.setCustomValidity("Les mots de passe saisis ne correspondent pas");
+    		confirmPassword.reportValidity()
+				return
+		}         
+		if (formSignup.checkValidity()){
+				alert('Votre inscription a bien été prise en compte !')
+		}
+	}
+
+    function handleSubmit(event) {
+        console.log(event);
+        console.log(event.target);
+        console.log(event.target.email.value);
+        console.log(event.target.password.value);
+    }
+
 </script>
   
     <h1> Inscription Chercheur </h1>
-    <form
+    <form id= "formSignup"
+        on:submit|preventDefault={() => {}}
+			target="_self"
         on:submit|preventDefault = "{handleSubmit}"
         on:invalid = {validateMessageEmail}
         on:changed = {validateMessageEmail}
         on:input = {validateMessageEmail}
     >
+
         <input required type = "firstname" id = "firstname" placeholder = "Prénom" />
         <br/>
 
@@ -65,26 +82,60 @@
 
         <select required id="lab" name="lab">
             <option value="" disabled selected>Sélectionnez votre laboratoire de rattachement</option>
+            <option value="Labo1">Laboratoire 1</option>
         </select>  
         <br/>
-
+        <!-- Penser à ajouter required pour lab -->
 
         <label for="email" id="profEmail">Votre adresse email professionnelle nous permet de limiter l'accès aux chercheurs uniquement.</label>
         <input required type = "email" name = "email" id = "email" placeholder = "Adresse email professionnelle valide" /> 
         <br/>
+
         <input required type = "password" id = "password" placeholder = "Mot de passe (entre 8 et 50 caractères)" />
         <br/>
-        <input required type = "password" id = "password" placeholder = "Confirmation du mot de passe" />
-<!-- Penser à ajouter si confirmation différent de mdp = FALSE -->
+        <input required type = "password" id = "confirmPassword" placeholder = "Confirmation du mot de passe" />
+
+        <!-- <span id = "message"> </span> -->
+        <!-- Penser à ajouter si confirmation différent de mdp = FALSE -->
         <br/>
+
         <p id="terms">En poursuivant je reconnais avoir pris connaissance des termes et conditions d'utilisation. <br/>
         <a href="#">Comment sont utilisées mes données ?</a></p>
+        <br/>
+        <!-- <input type="submit" name="submit"  value="registration"  id="submit" disabled/> -->
+        <!-- <Component on:click={() => validation()} type = "submit" name = "submit" id = "submit" /> -->
+        <!-- disabled=true si mdp et confirmation différents, sinon disabled = false  -->
 
-        <Component type = "submit" id = "signupResearcher" />
+        <input on:click={() => validation()} value="Inscription chercheur" type="submit" >
+
         <br/>
     </form>
 
 <style>
+    input[type="submit"] {
+        font-size: 14px;
+        cursor: pointer;
+        color:#FFFFFF;
+        background: #313131;
+        border: none;
+        border-radius: 26px;
+        box-shadow: 0px 10px 13px -7px #313131;
+        width: 193px;
+        height: 46px;
+        left: 394px;
+        top: 509px;
+        transition: all 0.34s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #202020;
+    }
+
+    input[type="submit"]:focus {
+        outline: 0;
+    }
+
+
     h1{
         margin-top: 2em;
         text-align : left;
@@ -104,7 +155,7 @@
         color : #b71540;
         font-weight: bold;
     }
-    input[type=password],input[type=email],input[type=surname],input[type=firstname], select[id=dept], select[id=lab] {
+    input[type=password],input[type=email],input[type=surname],input[type=firstname],select[id=dept],select[id=lab] {
         width : 70%;
         font-size : 14px;
         margin-bottom : 20px;
