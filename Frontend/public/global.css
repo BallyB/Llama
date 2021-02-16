@@ -3,3 +3,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
 
 
+.primary-button {
+    font-family: 'Varta', sans-serif;
+    font-size: 16px;
+    color:#FFFFFF;
+    background: #F6B93B;
+    width: 133px;
+    height: 56px;
+    left: 394px;
+    top: 509px;
+    border: none;
+    border-radius: 26px;
+    box-shadow: 0 10px 13px -7px #313131;
+    transition: all 0.34s;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background-color: #e58e26;
+}
+
+.primary-button:focus {
+    outline: 0;
+}

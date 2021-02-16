@@ -182,63 +182,36 @@
         display: block;
         box-sizing: border-box;
         position: absolute;
-        z-index: 1000;
-        top: 1rem;
-        right: 1rem;
-        margin: 0;
-        padding: 0;
-        width: 1.5rem;
-        height: 1.5rem;
-        border: 0;
-        color: black;
+        z-index: 1;
+        top: 2.5rem;
+        left: 38.5rem;
+        width: 3.0rem;
+        height: 3.0rem;
         border-radius: 1.5rem;
-        background: white;
-        box-shadow: 0 0 0 1px black;
+        border: none;
+        background-color: #F6B93B;
+        box-shadow: 0px 10px 13px -7px #313131;
         transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
         background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
         -webkit-appearance: none;
     }
 
     .close:before, .close:after {
-        content: '';
         display: block;
         box-sizing: border-box;
         position: absolute;
         top: 50%;
-        width: 1rem;
-        height: 1px;
+        width: 25px;
+        height: 25px;
         background: black;
         transform-origin: center;
         transition: height 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
         background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
 
-    .close:before {
-        -webkit-transform: translate(0, -50%) rotate(45deg);
-        -moz-transform: translate(0, -50%) rotate(45deg);
-        transform: translate(0, -50%) rotate(45deg);
-        left: 0.25rem;
-    }
-
-    .close:after {
-        -webkit-transform: translate(0, -50%) rotate(-45deg);
-        -moz-transform: translate(0, -50%) rotate(-45deg);
-        transform: translate(0, -50%) rotate(-45deg);
-        left: 0.25rem;
-    }
-
     .close:hover {
-        background: black;
-    }
-
-    .close:hover:before, .close:hover:after {
-        height: 2px;
-        background: white;
-    }
-
-    .close:focus {
-        border-color: #3399ff;
-        box-shadow: 0 0 0 2px #3399ff;
+        background: #e58e26;
+        cursor: pointer;
     }
 
     .close:active {
@@ -277,7 +250,9 @@
                     {#if isFunction(state.closeButton)}
                         <svelte:component this={state.closeButton} onClose={close} />
                     {:else}
-                        <button on:click={close} class="close" style={cssCloseButton} />
+                        <button on:click={close} class="close" style={cssCloseButton}>
+                            <img src="images/close.svg" height="16" width="16"/>
+                        </button>
                     {/if}
                 {/if}
                 <div class="content" style={cssContent}>
