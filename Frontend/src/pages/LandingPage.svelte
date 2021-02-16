@@ -169,7 +169,7 @@ import SignupParticipantsComponent from "../layout/SignupParticipantsComponent.s
         text-align: center;
         font-size: 20px;
         font-family: 'Varta', sans-serif;
-        z-index: 0;
+        z-index: 1;
     }
     .accroche{
         font-size:26px;
