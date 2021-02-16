@@ -176,6 +176,7 @@
                                 src="images/close.svg"
                                 height="16"
                                 width="16"
+                                alt="close"
                             />
                         </button>
                     {/if}

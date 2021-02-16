@@ -4,6 +4,7 @@
     import SignupParticipants from "../layout/SignupParticipantsComponent.svelte";
     import SignupResearchers from "../layout/SignupResearchersComponent.svelte";
     import SignupParticipantsComponent from "../layout/SignupParticipantsComponent.svelte";
+    import ConnexionModal from "../layout/connexionModal.svelte";
 </script>
 
 <head>
@@ -15,58 +16,66 @@
 </head>
 
 <body>
-    <main />
-    <div class="split left" style="width:30%">
-        <div style="text-align: left">
-            <img id="logo" src="images/logo.png" alt="Logo" />
-        </div>
-        <div id="left-part">
-            <p class="accroche">
-                Participez à des expériences en <em>linguistique </em> et faites
-                avancer la <em>recherche</em>
-            </p>
-            <p>Vous avez déjà un compte ?</p>
-            <Modal>
-                <ConnexionComponent />
-            </Modal>
-            <p class="quote">
-                "LE meilleur (seul) site pour participer à des expériences en
-                linguistique !" Béatrice.
-            </p>
-        </div>
-    </div>
-
-    <div class="split right" style="width:70%">
-        <h2>
-            Rejoignez-nous <br />
-            <hr />
-             dès maintenant
-        </h2>
-        <div class="row">
-            <div class="column">
-                <ul class="no_bullet">
-                    <li class="creation"><h3>Créez vos expériences</h3></li>
-                    <li class="participants">
-                        <h3>Trouvez des participants</h3>
-                    </li>
-                    <li class="followup"><h3>Réalisez le suivi</h3></li>
-                </ul>
-                <Modal>
-                    <SignupResearchers />
-                </Modal>
+    <div class="container">
+        <div class="col-left" style="width:30%">
+            <div style="text-align: left">
+                <img id="logo" src="images/logo.png" alt="Logo" />
             </div>
-            <div class="column">
-                <div dir="rtl">
+            <div id="left-part">
+                <p class="accroche">
+                    Participez à des expériences en <em>linguistique </em> et
+                    faites avancer la <em>recherche</em>
+                </p>
+                <p>Vous avez déjà un compte ?</p>
+                <Modal class="test">
+                    <ConnexionComponent class="test" />
+                </Modal>
+                <p class="quote">
+                    "LE meilleur (seul) site pour participer à des expériences
+                    en linguistique !" Béatrice.
+                </p>
+            </div>
+        </div>
+        <div class="col-right" style="width:70%">
+            <h2>
+                Rejoignez-nous <br />
+                <hr />
+                dès maintenant
+            </h2>
+            <div class="row">
+                <div class="column">
                     <ul class="no_bullet">
-                        <li class="participation">
-                            <h3>Participez aux expériences</h3>
+                        <li class="creation">
+                            <h3>Créez vos expériences</h3>
                         </li>
-                        <li class="results"><h3>Accédez aux résultats</h3></li>
-                        <li class="reward"><h3>Soyez récompensés</h3></li>
+                        <li class="participants">
+                            <h3>Trouvez des participants</h3>
+                        </li>
+                        <li class="followup">
+                            <h3>Réalisez le suivi</h3>
+                        </li>
                     </ul>
                     <Modal>
-                        <SignupParticipants />
+                        <SignupResearchers />
                     </Modal>
+                </div>
+                <div class="column">
+                    <div>
+                        <ul class="no_bullet">
+                            <li class="participation">
+                                <h3>Participez aux expériences</h3>
+                            </li>
+                            <li class="results">
+                                <h3>Accédez aux résultats</h3>
+                            </li>
+                            <li class="reward">
+                                <h3>Soyez récompensés</h3>
+                            </li>
+                        </ul>
+                        <Modal class="test">
+                            <SignupParticipants />
+                        </Modal>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,6 +83,11 @@
 </body>
 
 <style>
+    .container {
+        z-index: 0;
+        clear: both;
+    }
+
     li.creation {
         background: url("../images/creation.png") no-repeat left top;
         background-size: 15%;
@@ -128,10 +142,13 @@
         padding: 0;
     }
 
-    .column {
-        float: left;
-        width: 50%;
-        margin-top: 10%;
+    h3 {
+        font-weight: 600;
+        color: #313131;
+    }
+
+    .row {
+        height: 68vh;
     }
 
     /* Clear floats after the columns */
@@ -141,10 +158,30 @@
         clear: both;
     }
 
-    /* body {
-        width : 100vw;
-        height:100vh;
-    } */
+    /* Control the left side */
+    .col-left {
+        float: left;
+        width: 30%;
+        text-align: center;
+        font-size: 20px;
+        font-family: "Varta", sans-serif;
+    }
+
+    /* Control the right side */
+    .col-right {
+        float: left;
+        right: 0;
+        width: 70%;
+        background-color: #f6b93b;
+        text-align: center;
+        font-family: "Varta", sans-serif;
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+        margin-top: 5%;
+    }
 
     p {
         text-align: "center";
@@ -161,30 +198,13 @@
     }
 
     .quote {
-        margin-top: 30%;
+        margin-top: 25%;
+        margin-left: 10%;
+        margin-right: 10%;
         font-size: 22px;
         font-family: "Nothing you could do";
     }
 
-    /* Split the screen in half */
-    .split {
-        height: 100vh;
-        position: fixed;
-        z-index: 0;
-        top: 0;
-        /* overflow-x: hidden; */
-        /* padding-top: 20px; */
-    }
-
-    /* Control the left side */
-    .left {
-        left: 0;
-        background-color: #ffffff;
-        text-align: center;
-        font-size: 20px;
-        font-family: "Varta", sans-serif;
-        z-index: 1;
-    }
     .accroche {
         font-size: 26px;
         margin-left: 10%;
@@ -201,14 +221,5 @@
     #logo {
         width: 28%;
         margin: left;
-    }
-
-    /* Control the right side */
-    .right {
-        right: 0;
-        background-color: #f6b93b;
-        text-align: center;
-        font-family: "Varta", sans-serif;
-        /* z-index: -1; */
     }
 </style>
