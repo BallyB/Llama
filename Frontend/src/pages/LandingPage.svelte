@@ -156,7 +156,7 @@ import SignupParticipantsComponent from "../layout/SignupParticipantsComponent.s
     .split {
         height: 100vh;
         position: fixed;
-        z-index: -1;
+        z-index: 0;
         top: 0;
         /* overflow-x: hidden; */
         /* padding-top: 20px; */
