@@ -196,8 +196,8 @@
         border: none;
         background-color: #F6B93B;
         box-shadow: 0px 10px 13px -7px #313131;
-        transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
-        background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        background : 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
         -webkit-appearance: none;
     }
 
@@ -210,8 +210,8 @@
         height: 25px;
         background: black;
         transform-origin: center;
-        transition: height 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
-        background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        transition: height 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        background : 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
 
     .close:hover {
