@@ -4,7 +4,6 @@
     import SignupParticipants from "../layout/SignupParticipantsComponent.svelte";
     import SignupResearchers from "../layout/SignupResearchersComponent.svelte";
     import SignupParticipantsComponent from "../layout/SignupParticipantsComponent.svelte";
-    import ConnexionModal from "../layout/connexionModal.svelte";
 </script>
 
 <head>
