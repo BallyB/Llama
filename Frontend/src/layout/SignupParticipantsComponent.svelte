@@ -1,7 +1,7 @@
 <script>
     import { getContext } from 'svelte';
 
-    import popup from './SignupParticipantsModal.svelte';
+    import popup from './SignupResearchersModal.svelte';
 
 
     const { open } = getContext('simple-modal');
@@ -18,7 +18,7 @@
 </script>
 
 <section>
-    <button on:click={showPopup}><b>Inscription participant</b></button>
+    <button class = "primary-button" on:click={showPopup}><b>Inscription participant</b></button>
     <br/>
 
 
@@ -40,7 +40,25 @@
         padding-top: 0.5em;
     }
 
-    button {
+    .primary-button {
+        font-weight: bolder;
+        background-color: black;
+        width: 115px;
+        height: 47px;
+        display: block;
+        margin: auto;
+        width: 193px;
+        height: 46px;
+        left: 394px;
+        top: 509px;
+        font-size: 14px;
+    }
+
+    .primary-button:hover {
+        background-color: #313131;
+    }
+
+    /* button {
         font-size: 14px;
         cursor: pointer;
         color:#FFFFFF;
@@ -57,11 +75,7 @@
 
     button:hover {
         background-color: #202020;
-    }
-
-    button:focus {
-        outline: 0;
-    }
+    } */
 
     #state {
         position: absolute;
@@ -70,7 +84,5 @@
         opacity: 0.33;
         font-size: 0.8em;
     }
-
-
 
 </style>

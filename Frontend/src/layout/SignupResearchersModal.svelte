@@ -87,7 +87,7 @@
         <br/>
         <!-- Penser à ajouter required pour lab -->
 
-        <label for="email" id="profEmail">Votre adresse email professionnelle nous permet de limiter l'accès aux chercheurs uniquement.</label>
+        <label for="email" id="profEmail">Votre adresse email professionnelle nous permet de limiter l'accès aux chercheurs.</label>
         <input required type = "email" name = "email" id = "email" placeholder = "Adresse email professionnelle valide" /> 
         <br/>
 
@@ -99,20 +99,53 @@
         <!-- Penser à ajouter si confirmation différent de mdp = FALSE -->
         <br/>
 
-        <p id="terms">En poursuivant je reconnais avoir pris connaissance des termes et conditions d'utilisation. <br/>
-        <a href="#">Comment sont utilisées mes données ?</a></p>
+        <input required type="checkbox" name = "accept" id="accept"> <label id = "terms" for = "accept"> En poursuivant je reconnais avoir pris connaissance des termes et conditions d'utilisation.</label>
+        <br/>
+        <a href="#">Comment sont utilisées mes données ?</a>
         <br/>
         <!-- <input type="submit" name="submit"  value="registration"  id="submit" disabled/> -->
         <!-- <Component on:click={() => validation()} type = "submit" name = "submit" id = "submit" /> -->
         <!-- disabled=true si mdp et confirmation différents, sinon disabled = false  -->
 
-        <input on:click={() => validation()} value="Inscription chercheur" type="submit" >
+        <input class="primary-button" on:click={() => validation()} value="Inscription chercheur" type="submit" >
 
         <br/>
     </form>
 
 <style>
-    input[type="submit"] {
+
+    form {
+       width: 400px;
+       margin: auto;
+   }
+
+    h1 {
+        font-size: 2rem;
+        text-align: left;
+        color: #F6B93B;
+        width: 400px;
+        margin: 0 auto 13px;
+    }
+
+    .primary-button {
+        font-weight: bolder;
+        background-color: black;
+        width: 115px;
+        height: 47px;
+        display: block;
+        margin: 1.25rem auto;
+        width: 193px;
+        height: 46px;
+        left: 394px;
+        top: 509px;
+        font-size: 14px;
+    }
+
+    .primary-button:hover {
+        background-color: #313131;
+    }
+
+    /* input[type="submit"] {
         font-size: 14px;
         cursor: pointer;
         color:#FFFFFF;
@@ -125,7 +158,7 @@
         left: 394px;
         top: 509px;
         transition: all 0.34s;
-    }
+    } */
 
     input[type="submit"]:hover {
         background-color: #202020;
@@ -136,12 +169,6 @@
     }
 
 
-    h1{
-        margin-top: 2em;
-        text-align : left;
-        color : #F6B93B;
-        font-size : 26px;
-    }
     #terms{
         font-size : 12px;
         color : #313131;
@@ -156,14 +183,21 @@
         font-weight: bold;
     }
     input[type=password],input[type=email],input[type=surname],input[type=firstname],select[id=dept],select[id=lab] {
-        width : 70%;
+        background-color: #eee;
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 6px;
+        padding: 12px 15px;
+        margin: 8px auto;
+        /* width : 70%;
         font-size : 14px;
         margin-bottom : 20px;
         padding : 12px 20px;
         background-color: #31313120;
         border : 0.3px solid #31313140;
         box-sizing : border-box;
-        border-radius : 6px;
+        border-radius : 6px; */
     }
     input:focus {
         outline: 0;
