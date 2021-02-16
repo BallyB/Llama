@@ -1,9 +1,9 @@
 <script>
-    import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-    import popup from './connexionModal.svelte';
+    import popup from "./connexionModal.svelte";
 
-    const { open } = getContext('simple-modal');
+    const { open } = getContext("simple-modal");
 
     let opening = false;
     let opened = false;
@@ -13,11 +13,12 @@
     const showPopup = () => {
         open(popup);
     };
-
 </script>
 
 <section>
-    <button type="submit" class="primary-button" on:click={showPopup}><b>Connexion !</b></button>
+    <button type="submit" class="primary-button" on:click={showPopup}
+        ><b>Connexion !</b></button
+    >
 
     <div>
         {#if opening}

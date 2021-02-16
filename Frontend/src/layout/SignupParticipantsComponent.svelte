@@ -1,7 +1,7 @@
 <script>
-    import { getContext } from 'svelte';
-    import popup from './SignupParticipantsModal.svelte';
-    const { open } = getContext('simple-modal');
+    import { getContext } from "svelte";
+    import popup from "./SignupParticipantsModal.svelte";
+    const { open } = getContext("simple-modal");
     let opening = false;
     let opened = false;
     let closing = false;
@@ -12,9 +12,10 @@
 </script>
 
 <section>
-    <button class="primary-button" on:click={showPopup}><b>Inscription participant</b></button>
-    <br/>
-
+    <button class="primary-button" on:click={showPopup}
+        ><b>Inscription participant</b></button
+    >
+    <br />
 
     <div id="state">
         {#if opening}
