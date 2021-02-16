@@ -171,6 +171,11 @@
         background: white;
     }
 
+    *::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+
     .content {
         position: relative;
         padding: 1rem;
