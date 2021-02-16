@@ -171,6 +171,11 @@
         background: white;
     }
 
+    *::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+
     .content {
         position: relative;
         padding: 1rem;
@@ -183,17 +188,16 @@
         box-sizing: border-box;
         position: absolute;
         z-index: 1000;
-        top: 1rem;
-        right: 1rem;
+        top: 4rem;
+        left: 39rem;
         margin: 0;
         padding: 0;
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
         border: 0;
-        color: black;
         border-radius: 1.5rem;
-        background: white;
-        box-shadow: 0 0 0 1px black;
+        background-color: #F6B93B;
+        box-shadow: 0px 10px 13px -7px #313131;
         transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
         background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
         -webkit-appearance: none;
@@ -205,9 +209,12 @@
         box-sizing: border-box;
         position: absolute;
         top: 50%;
+        left: 59rem;
+        margin-left: 7.5px;
+        /* top: 50%; */
         width: 1rem;
         height: 1px;
-        background: black;
+        background: white;
         transform-origin: center;
         transition: height 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
         background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -228,7 +235,9 @@
     }
 
     .close:hover {
-        background: black;
+        background: #e58e26;
+        box-shadow: 0px 10px 13px -7px #313131;
+        cursor: pointer;
     }
 
     .close:hover:before, .close:hover:after {

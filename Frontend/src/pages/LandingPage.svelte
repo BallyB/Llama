@@ -156,7 +156,7 @@ import SignupParticipantsComponent from "../layout/SignupParticipantsComponent.s
     .split {
         height: 100vh;
         position: fixed;
-        z-index: 1;
+        z-index: -1;
         top: 0;
         /* overflow-x: hidden; */
         /* padding-top: 20px; */
@@ -195,6 +195,6 @@ import SignupParticipantsComponent from "../layout/SignupParticipantsComponent.s
         background-color: #F6B93B;
         text-align: center;
         font-family: 'Varta', sans-serif;
-        z-index: 0;
+        /* z-index: -1; */
     }
 </style>
