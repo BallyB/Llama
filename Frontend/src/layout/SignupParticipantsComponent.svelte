@@ -12,7 +12,7 @@
 </script>
 
 <section>
-    <button on:click={showPopup}><b>Inscription participant</b></button>
+    <button class="primary-button" on:click={showPopup}><b>Inscription participant</b></button>
     <br/>
 
 
@@ -33,7 +33,24 @@
     section {
         padding-top: 0.5em;
     }
-    button {
+    .primary-button {
+        font-weight: bolder;
+        background-color: black;
+        width: 115px;
+        height: 47px;
+        display: block;
+        margin: auto;
+        width: 193px;
+        height: 46px;
+        left: 394px;
+        top: 509px;
+        font-size: 14px;
+    }
+
+    .primary-button:hover {
+        background-color: #313131;
+    }
+    /* button {
         font-size: 14px;
         cursor: pointer;
         color:#FFFFFF;
@@ -52,7 +69,7 @@
     }
     button:focus {
         outline: 0;
-    }
+    } */
     #state {
         position: absolute;
         top: 0;
