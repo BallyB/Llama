@@ -60,41 +60,41 @@ import SignupParticipantsComponent from "../layout/SignupParticipantsComponent.s
 
 <style>
     li.creation {
-        background: url('images/creation.png') no-repeat left top;
+        background: url('../images/creation.png') no-repeat left top;
         background-size: 15%;
         height: 85px;
         padding-top: 1px;
     }
 
     li.participants {
-        background: url('images/participants.png') no-repeat left top;
+        background: url('../images/participants.png') no-repeat left top;
         background-size: 15%;
         height: 85px;
         padding-top: 1px;
     }
 
     li.followup {
-        background: url('images/followup.png') no-repeat left top;
+        background: url('../images/followup.png') no-repeat left top;
         background-size: 15%;
         height: 85px;
         padding-top: 1px;
     }
     li.participation {
-        background: url('images/participation.png') no-repeat left top;
+        background: url('../images/participation.png') no-repeat left top;
         background-size: 15%;
         height: 85px;
         padding-top: 1px;
     }
 
     li.results {
-        background: url('images/results.png') no-repeat left top;
+        background: url('../images/results.png') no-repeat left top;
         background-size: 15%;
         height: 85px;
         padding-top: 1px;
     }
 
     li.reward {
-        background: url('images/reward.png') no-repeat left top;
+        background: url('../images/reward.png') no-repeat left top;
         background-size: 15%;
         height: 85px;
         padding-top: 1px;
