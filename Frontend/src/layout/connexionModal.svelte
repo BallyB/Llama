@@ -1,5 +1,8 @@
 <script>
     import { onMount } from 'svelte';
+    import auth from "../store/auth";
+    import {push} from 'svelte-spa-router'
+    import axios from 'axios';
 
     onMount(() => {
         const switchButton = document.querySelector('.switch-button');
@@ -29,7 +32,40 @@
             event.preventDefault();
             switchRight();
         }, false);
+
     });
+
+    //document.getElementById("signupForm").addEventListener("keydown", function(e) {
+      //  if (e.keyCode == 13) {
+        //    e.preventDefault();
+        //}
+    //});
+
+    let userType = "chercheur";
+    let email;
+    let password;
+
+    async function login(e) {
+        e.preventDefault();
+        console.log(email, password)
+
+        try {
+            const res = await axios.post(`http://localhost:3000/api/auth/signinParticipant`, {
+//            const res = await axios.post(`${process.env.API_URL}/api/auth/signinParticipant`, {
+                email,
+                password
+            });
+            console.log(res);
+            const { token, participantId } = res.data;
+
+            auth.setAuth({ userType, userId: participantId, token });
+            await push('/home');
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const setType = value => () => userType = value;
 </script>
 
 
@@ -38,15 +74,15 @@
     <h1>Connexion</h1>
 </div>
 
-<form>
+<form id='signupForm' on:submit={login}>
     <div class="switch-button">
         <span class="active"></span>
-        <button class="switch-button-case left active-case">Chercheur</button>
-        <button class="switch-button-case right">Participant</button>
+        <button class="switch-button-case left active-case" on:click={setType('chercheur')}>Chercheur</button>
+        <button class="switch-button-case right" on:click={setType('participant')}>Participant</button>
     </div>
 
-    <input type="email" placeholder="Adresse mail">
-    <input type="password" placeholder="Mot de passe">
+    <input type="email" name="email" bind:value={email} placeholder="Adresse mail">
+    <input type="password" name="password" bind:value={password} placeholder="Mot de passe">
     <a href="#"> Mot de passe oublié ? </a>
 
     <button type="submit" class="primary-button">Connexion</button>
