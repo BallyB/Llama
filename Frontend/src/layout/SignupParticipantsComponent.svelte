@@ -17,7 +17,7 @@
     >
     <br />
 
-    <div id="state">
+    <div id>
         {#if opening}
             <p>opening modal...</p>
         {:else if opened}

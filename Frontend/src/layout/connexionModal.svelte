@@ -41,6 +41,7 @@
             false
         );
     });
+
 </script>
 
 <body>
@@ -51,9 +52,7 @@
     <form>
         <div class="switch-button">
             <span class="active" />
-            <button class="switch-button-case left active-case"
-                >Chercheur</button
-            >
+            <button class="switch-button-case left active-case">Chercheur</button>
             <button class="switch-button-case right">Participant</button>
         </div>
 

@@ -8,14 +8,17 @@
 </div>
 
 <form>
-    <input type="text" placeholder="Prénom">
-    <input type="text" placeholder="Nom">
-    <label>
-        <input type="radio">
-        Homme
-        <input type="radio">
-        Femme
-    </label>
+    <input required type="text" placeholder="Prénom">
+    <input required type="text" placeholder="Nom">
+
+    <p class="sex">Êtes-vous</p>
+    <div>
+        <input required type = "radio" name = "sex" value = "male"> <label class = "sex" for = "male">Un homme</label>
+
+        <input required type = "radio" name = "sex" value = "female"><label class = "sex" for = "female">Une femme</label>
+
+        <input required type = "radio"  name = "sex" value = "other" ><label class = "sex" for = "other">Je ne souhaite pas l'indiquer</label>
+    </div>
 
 </form>
 
