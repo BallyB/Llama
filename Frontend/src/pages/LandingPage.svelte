@@ -1,9 +1,9 @@
 <script>
     import Modal from "../layout/Modal.svelte";
     import ConnexionComponent from "../layout/connexionComponent.svelte";
-    import SignupParticipants from "../layout/SignupParticipantsComponent.svelte";
+    import SignupParticipants from "../layout/SignupParticipantComponent.svelte";
     import SignupResearchers from "../layout/SignupResearchersComponent.svelte";
-    import SignupParticipantsComponent from "../layout/SignupParticipantsComponent.svelte";
+    import SignupParticipantsComponent from "../layout/SignupParticipantComponent.svelte";
 </script>
 
 <head>
