@@ -1,14 +1,14 @@
 <script>
     // v0.8.1
-    import * as svelte from 'svelte';
-    import { fade } from 'svelte/transition';
+    import * as svelte from "svelte";
+    import { fade } from "svelte/transition";
     import { createEventDispatcher } from "svelte";
 
     const dispatch = createEventDispatcher();
 
     const baseSetContext = svelte.setContext;
 
-    export let key = 'simple-modal';
+    export let key = "simple-modal";
     export let closeButton = true;
     export let closeOnEsc = true;
     export let closeOnOuterClick = true;
@@ -46,13 +46,16 @@
     let wrap;
     let modalWindow;
 
-    const camelCaseToDash = str => str
-        .replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
+    const camelCaseToDash = (str) =>
+        str.replace(/([a-zA-Z])(?=[A-Z])/g, "$1-").toLowerCase();
 
-    const toCssString = (props) => Object.keys(props)
-        .reduce((str, key) => `${str}; ${camelCaseToDash(key)}: ${props[key]}`, '');
+    const toCssString = (props) =>
+        Object.keys(props).reduce(
+            (str, key) => `${str}; ${camelCaseToDash(key)}: ${props[key]}`,
+            ""
+        );
 
-    const isFunction = f => !!(f && f.constructor && f.call && f.apply);
+    const isFunction = (f) => !!(f && f.constructor && f.call && f.apply);
 
     $: cssBg = toCssString(state.styleBg);
     $: cssWindowWrap = toCssString(state.styleWindowWrap);
@@ -68,30 +71,25 @@
     let onOpened = toVoid;
     let onClosed = toVoid;
 
-    const open = (
-        NewComponent,
-        newProps = {},
-        options = {},
-        callback = {}
-    ) => {
+    const open = (NewComponent, newProps = {}, options = {}, callback = {}) => {
         Component = NewComponent;
         props = newProps;
         state = { ...defaultState, ...options };
-        onOpen = (event) => {
+        (onOpen = (event) => {
             if (callback.onOpen) callback.onOpen(event);
-            dispatch('opening');
-        },
-            onClose = (event) => {
+            dispatch("opening");
+        }),
+            (onClose = (event) => {
                 if (callback.onClose) callback.onClose(event);
-                dispatch('closing');
-            },
-            onOpened = (event) => {
+                dispatch("closing");
+            }),
+            (onOpened = (event) => {
                 if (callback.onOpened) callback.onOpened(event);
-                dispatch('opened');
-            };
+                dispatch("opened");
+            });
         onClosed = (event) => {
             if (callback.onClosed) callback.onClosed(event);
-            dispatch('closed');
+            dispatch("closed");
         };
     };
 
@@ -103,15 +101,17 @@
     };
 
     const handleKeydown = (event) => {
-        if (state.closeOnEsc && Component && event.key === 'Escape') {
+        if (state.closeOnEsc && Component && event.key === "Escape") {
             event.preventDefault();
             close();
         }
 
-        if (Component && event.key === 'Tab') {
+        if (Component && event.key === "Tab") {
             // trap focus
-            const nodes = modalWindow.querySelectorAll('*');
-            const tabbable = Array.from(nodes).filter(node => node.tabIndex >= 0);
+            const nodes = modalWindow.querySelectorAll("*");
+            const tabbable = Array.from(nodes).filter(
+                (node) => node.tabIndex >= 0
+            );
 
             let index = tabbable.indexOf(document.activeElement);
             if (index === -1 && event.shiftKey) index = 0;
@@ -126,9 +126,8 @@
 
     const handleOuterClick = (event) => {
         if (
-            state.closeOnOuterClick && (
-                event.target === background || event.target === wrap
-            )
+            state.closeOnOuterClick &&
+            (event.target === background || event.target === wrap)
         ) {
             event.preventDefault();
             close();
@@ -137,6 +136,58 @@
 
     setContext(key, { open, close });
 </script>
+
+<svelte:window on:keydown={handleKeydown} />
+
+{#if Component}
+    <div
+        class="bg"
+        on:click={handleOuterClick}
+        bind:this={background}
+        transition:currentTransitionBg={state.transitionBgProps}
+        style={cssBg}
+    >
+        <div class="window-wrap" bind:this={wrap} style={cssWindowWrap}>
+            <div
+                class="window"
+                role="dialog"
+                aria-modal="true"
+                bind:this={modalWindow}
+                transition:currentTransitionWindow={state.transitionWindowProps}
+                on:introstart={onOpen}
+                on:outrostart={onClose}
+                on:introend={onOpened}
+                on:outroend={onClosed}
+                style={cssWindow}
+            >
+                {#if state.closeButton}
+                    {#if isFunction(state.closeButton)}
+                        <svelte:component
+                            this={state.closeButton}
+                            onClose={close}
+                        />
+                    {:else}
+                        <button
+                            on:click={close}
+                            class="close"
+                            style={cssCloseButton}
+                        >
+                            <img
+                                src="images/close.svg"
+                                height="16"
+                                width="16"
+                            />
+                        </button>
+                    {/if}
+                {/if}
+                <div class="content" style={cssContent}>
+                    <svelte:component this={Component} {...props} />
+                </div>
+            </div>
+        </div>
+    </div>
+{/if}
+<slot />
 
 <style>
     * {
@@ -171,6 +222,11 @@
         background: white;
     }
 
+    *::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+
     .content {
         position: relative;
         padding: 1rem;
@@ -185,18 +241,19 @@
         z-index: 1;
         top: 2.5rem;
         left: 38.5rem;
-        width: 3.0rem;
-        height: 3.0rem;
+        width: 3rem;
+        height: 3rem;
         border-radius: 1.5rem;
         border: none;
-        background-color: #F6B93B;
+        background-color: #f6b93b;
         box-shadow: 0px 10px 13px -7px #313131;
-        transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
-        background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        background: 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
         -webkit-appearance: none;
     }
 
-    .close:before, .close:after {
+    .close:before,
+    .close:after {
         display: block;
         box-sizing: border-box;
         position: absolute;
@@ -205,8 +262,8 @@
         height: 25px;
         background: black;
         transform-origin: center;
-        transition: height 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
-        background 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        transition: height 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        background: 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
 
     .close:hover {
@@ -218,48 +275,9 @@
         transform: scale(0.9);
     }
 
-    .close:hover, .close:focus, .close:active {
+    .close:hover,
+    .close:focus,
+    .close:active {
         outline: none;
     }
 </style>
-
-<svelte:window on:keydown={handleKeydown}/>
-
-{#if Component}
-    <div
-            class="bg"
-            on:click={handleOuterClick}
-            bind:this={background}
-            transition:currentTransitionBg={state.transitionBgProps}
-            style={cssBg}
-    >
-        <div class="window-wrap" bind:this={wrap} style={cssWindowWrap}>
-            <div
-                    class="window"
-                    role="dialog"
-                    aria-modal="true"
-                    bind:this={modalWindow}
-                    transition:currentTransitionWindow={state.transitionWindowProps}
-                    on:introstart={onOpen}
-                    on:outrostart={onClose}
-                    on:introend={onOpened}
-                    on:outroend={onClosed}
-                    style={cssWindow}
-            >
-                {#if state.closeButton}
-                    {#if isFunction(state.closeButton)}
-                        <svelte:component this={state.closeButton} onClose={close} />
-                    {:else}
-                        <button on:click={close} class="close" style={cssCloseButton}>
-                            <img src="images/close.svg" height="16" width="16"/>
-                        </button>
-                    {/if}
-                {/if}
-                <div class="content" style={cssContent}>
-                    <svelte:component this={Component} {...props} />
-                </div>
-            </div>
-        </div>
-    </div>
-{/if}
-<slot></slot>

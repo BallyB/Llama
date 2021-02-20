@@ -9,12 +9,9 @@ services:
     volumes: 
       - ./api:/usr/src/api
     working_dir: /usr/src/api
+#
+#bash -c 'npm i && npm start'
+
     command: >
-      bash -c "npm install --save express 
-      && npm install --save mongoose 
-      && npm install --save body-parser 
-      && npm install -g nodemon 
-      && npm install --save bcrypt
-      && npm install --save mongoose-unique-validator 
-      && npm install --save jsonwebtoken 
-      && nodemon server"
+      bash -c 'npm i && npm run dev'
+     
