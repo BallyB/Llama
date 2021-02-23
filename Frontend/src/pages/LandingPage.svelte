@@ -1,9 +1,7 @@
 <script>
     import Modal from "../layout/Modal.svelte";
     import ConnexionComponent from "../layout/connexionComponent.svelte";
-    import SignupParticipants from "../layout/SignupParticipantComponent.svelte";
     import SignupResearchers from "../layout/SignupResearchersComponent.svelte";
-    import SignupParticipantsComponent from "../layout/SignupParticipantComponent.svelte";
 </script>
 
 <head>
@@ -71,9 +69,9 @@
                                 <h3>Soyez récompensés</h3>
                             </li>
                         </ul>
-                        <Modal>
+                        <!-- <Modal>
                             <SignupParticipants />
-                        </Modal>
+                        </Modal> -->
                     </div>
                 </div>
             </div>
