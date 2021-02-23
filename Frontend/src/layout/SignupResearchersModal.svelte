@@ -1,5 +1,5 @@
 <script>
-    import Component from './SignupResearchersComponent.svelte';
+
     // import Select from './svelte-select';
     let error_boolean = false;
     const items = ['Ain', 'Aisne', 'Alpes'];
