@@ -45,25 +45,28 @@
     let email;
     let password;
 
+    async function request(route, targetRoute, property) {
+        const res = await axios.post(`http://localhost:3000/api/auth/${route}`, {
+            email,
+            password
+        });
+
+        const { token } = res.data;
+
+        auth.setAuth({ userType, userId: res.data[property], token});
+
+        await push(targetRoute);
+    }
+
     async function login(e) {
         e.preventDefault();
-        console.log(email, password)
 
-        try {
-            const res = await axios.post(`http://localhost:3000/api/auth/signinParticipant`, {
-//            const res = await axios.post(`${process.env.API_URL}/api/auth/signinParticipant`, {
-                email,
-                password
-            });
-            console.log(res);
-            const { token, participantId } = res.data;
-
-            auth.setAuth({ userType, userId: participantId, token });
-            await push('/home');
-        } catch (error) {
-            console.log(error);
+        if (userType === 'chercheur') {
+            await request('signinChercheur', '/home', 'chercheurId');
+        } else {
+            await request('signinParticipant', '/home', 'participantId');
         }
-    }
+    };
 
     const setType = value => () => userType = value;
 </script>

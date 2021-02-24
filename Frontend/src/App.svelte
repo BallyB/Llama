@@ -1,10 +1,7 @@
 <script>
-    import routes from './routes';
-	import Router from 'svelte-spa-router';
-
-
+	import Router from './layout/Router.svelte';
 </script>
 
 <main>
-    <Router {routes} />
+    <Router />
 </main>
