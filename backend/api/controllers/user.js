@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const Participant = require('../models/participant');
-const Chercheur = require('../models/chercheur');
+const Researcher = require('../models/researcher');
 const jwt = require('jsonwebtoken');
 
 
@@ -8,16 +8,16 @@ exports.signupParticipant = (req, res, next) => {
   bcrypt.hash(req.body.password, 10).then(
       (hash) => {
           const participant = new Participant({
-            pseudo: req.body.pseudo,
+            nickname: req.body.nickname,
             email: req.body.email,
             password: hash, //Faire vérification MDP
-            dateNaissance: req.body.dateNaissance,
-            sexe: req.body.sexe,
-            trouble: req.body.trouble,
-            niveauScolaireID: req.body.niveauScolaireID,
-            langueMatID: req.body.langueMatID, //Liste d'id?
-            langueParleID: req.body.langueParleID,
-            villeID: req.body.villeID
+            birthDate: req.body.birthDate,
+            sex: req.body.sex,
+            disorder: req.body.disorder,
+            schoolDegreeID: req.body.schoolDegreeID,
+            maternalLanguageID: req.body.maternalLanguageID, //Liste d'id?
+            spokenLanguageID: req.body.spokenLanguageID,
+            cityID: req.body.cityID
           });
           participant.save().then(
               () => {
@@ -82,19 +82,19 @@ exports.loginParticipant = (req, res, next) => {
 //POUR CHERCHEUR
 
 
-exports.signupChercheur = (req, res, next) => {
+exports.signupResearcher = (req, res, next) => {
     bcrypt.hash(req.body.password, 10).then(
         (hash) => {
-            const chercheur = new Chercheur({
-              prenom: req.body.prenom,
-              nom: req.body.nom,
+            const researcher = new Researcher({
+              firstname: req.body.firstname,
+              name: req.body.name,
               email: req.body.email,
               password: hash, //Faire vérification MDP
-              sexe: req.body.sexe,
-              laboratoire: req.body.laboratoire,
-              villeID: req.body.villeID
+              sex: req.body.sex,
+              laboratory: req.body.laboratory,
+              cityID: req.body.cityID
             });
-            chercheur.save().then(
+            researcher.save().then(
                 () => {
                     res.status(201).json({
                         message: 'Chercheur added successfully!'
@@ -112,26 +112,26 @@ exports.signupChercheur = (req, res, next) => {
   };
   
   
-  exports.loginChercheur = (req, res, next) => {
-    Chercheur.findOne({ email: req.body.email }).then(
-        (chercheur) => {
-            if (!chercheur) {
+  exports.loginResearcher = (req, res, next) => {
+    Researcher.findOne({ email: req.body.email }).then(
+        (researcher) => {
+            if (!researcher) {
                 return res.status(401).json({
                     error: new Error('Chercheur not found!')
                 });
             }
-            bcrypt.compare(req.body.password, chercheur.password).then(
+            bcrypt.compare(req.body.password, researcher.password).then(
                 (valid) => {
                     if (!valid) {
                         return res.status(401).json({
                             error: new Error('Incorrect password!')
                         });
                     }
-                    const token = jwt.sign({ chercheurId: chercheur._id },
+                    const token = jwt.sign({ researcherId: researcher._id },
                         'FannyMarineFlorenceLisaEstefaniaMarusyaRebeccaAliceMarieHélèneJulietteMBSolangeBérengèreElsa',
                         { expiresIn: '24h' });
                     res.status(200).json({
-                        chercheurId: chercheur._id,
+                        researcherId: researcher._id,
                         token: token
                     });
                 }

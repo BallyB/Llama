@@ -13,8 +13,8 @@ router.post('/signupParticipant', userCtrl.signupParticipant);
 router.post('/signinParticipant', userCtrl.loginParticipant);
 
 //Route chercheurs
-router.post('/signupChercheur', userCtrl.signupChercheur);
-router.post('/signinChercheur', userCtrl.loginChercheur);
+router.post('/signupResearcher', userCtrl.signupResearcher);
+router.post('/signinResearcher', userCtrl.loginResearcher);
 
 
 module.exports = router;
