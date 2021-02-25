@@ -69,12 +69,22 @@
         <option value = "français">Français</option>
     </select>
 
-    <select required id = "langue" name = "langue" multiple>
+    <select id = "langue" name = "langue" multiple>
         <option value = "" disabled selected>Sélectionnez la ou les autre(s) langue(s) que vous parlez</option>
         <option value = "allemand">Allemand</option>
         <option value = "anglais">Anglais</option>
         <option value = "espagnol">Espagnol</option>
         <option value = "français">Français</option>
+    </select>
+
+    <select required id = "scho" name = "scho" >
+        <option value = "" disabled selected>Sélectionnez votre niveau scolaire</option>
+        <option value = "BAC">BAC</option>
+        <option value = "BAC +1">BAC+1</option>
+        <option value = "BAC +2">BAC+2</option>
+        <option value = "BAC +3">BAC+3</option>
+        <option value = "BAC +4">BAC+4</option>
+        <option value = "BAC +5">BAC+5</option>
     </select>
 
     <input id = "email"  type = "email" name = "email" placeholder = "Adresse mail">
