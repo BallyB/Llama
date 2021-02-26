@@ -53,7 +53,7 @@ exports.loginParticipant = (req, res, next) => {
                       });
                   }
                   const token = jwt.sign({ participantId: participant._id },
-                      'FannyMarineFlorenceLisaEstefaniaMarusyaRebeccaAliceMarieHélèneJulietteSolangeBérengèreElsa',
+                      'FannyMarineFlorenceLisaEstefaniaMarusyaRebeccaAliceMarieHélèneJulietteMBSolangeBérengèreElsa',
                       { expiresIn: '24h' });
                   res.status(200).json({
                       participantId: participant._id,
@@ -128,7 +128,7 @@ exports.signupChercheur = (req, res, next) => {
                         });
                     }
                     const token = jwt.sign({ chercheurId: chercheur._id },
-                        'FannyMarineFlorenceLisaEstefaniaMarusyaRebeccaAliceMarieHélèneJulietteSolangeBérengèreElsa',
+                        'FannyMarineFlorenceLisaEstefaniaMarusyaRebeccaAliceMarieHélèneJulietteMBSolangeBérengèreElsa',
                         { expiresIn: '24h' });
                     res.status(200).json({
                         chercheurId: chercheur._id,
