@@ -56,7 +56,6 @@
                 </Modal>
             </div>
             <div class="column">
-                <div dir="rtl">
                     <ul class="no_bullet">
                         <li class="participation">
                             <h3>Participez aux expériences</h3>
@@ -67,7 +66,6 @@
                     <Modal>
                         <SignupParticipants />
                     </Modal>
-                </div>
             </div>
         </div>
     </div>
