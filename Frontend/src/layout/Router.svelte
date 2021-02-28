@@ -3,11 +3,15 @@
     import wrap from "svelte-spa-router/wrap";
 
     import LandingPage from '../pages/LandingPage.svelte';
-    import Profil from '../pages/Profil.svelte';
+    import ProfilR from '../pages/ProfilResearcher.svelte';
+    import ProfilP from '../pages/ProfilParticipant.svelte';
     import Creation from '../pages/Creation.svelte';
-    import Home from '../pages/Home.svelte';
-    import Messagerie from '../pages/Messagerie.svelte';
-    import Resultats from '../pages/Resultats.svelte';
+    import HomeResearcher from '../pages/HomeResearcher.svelte';
+    import HomeParticipant from '../pages/HomeParticipant.svelte';
+    import ChatR from '../pages/ChatResearcher.svelte';
+    import ChatP from '../pages/ChatParticipant.svelte';
+    import ResultsR from '../pages/ResultsResearcher.svelte';
+    import ResultsP from '../pages/ResultsParticipant.svelte';
     import auth from "../store/auth.js";
 
     function isAuthenticated() {
@@ -24,37 +28,69 @@
 
     export const routes = {
         '/': LandingPage,
-        '/home': wrap({
-            component: Home,
+        '/home-r': wrap({
+            component: HomeResearcher,
             conditions: [
                 isAuthenticated,
+                isResearcher,
+            ]
+        }),
+        '/home-p': wrap({
+            component: HomeParticipant,
+            conditions: [
+                isAuthenticated,
+                isParticipant,
             ]
         }),
         '/creation': wrap({
             component: Creation,
             conditions: [
                 isAuthenticated,
-                isResearcher
+                isResearcher,
             ]
         }),
-        '/messagerie': wrap({
-            component: Messagerie,
+        '/messagerie-p': wrap({
+            component: ChatP,
             conditions: [
                 isAuthenticated,
+                isParticipant,
             ]
         }),
-        '/resultats': wrap({
-            component: Resultats,
+        '/messagerie-r': wrap({
+            component: ChatR,
             conditions: [
                 isAuthenticated,
+                isResearcher,
             ]
         }),
-        '/profil': wrap({
-            component: Profil,
+        '/resultats-p': wrap({
+            component: ResultsP,
             conditions: [
                 isAuthenticated,
+                isParticipant,
             ]
-        })
+        }),
+        '/resultats-r': wrap({
+            component: ResultsR,
+            conditions: [
+                isAuthenticated,
+                isResearcher,
+            ]
+        }),
+        '/profil-p': wrap({
+            component: ProfilP,
+            conditions: [
+                isAuthenticated,
+                isParticipant,
+            ]
+        }),
+        '/profil-r': wrap({
+            component: ProfilR,
+            conditions: [
+                isAuthenticated,
+                isResearcher,
+            ]
+        }),
     };
 
     function onConditionsFailed() {
