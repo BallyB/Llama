@@ -62,9 +62,9 @@
         e.preventDefault();
 
         if (userType === 'chercheur') {
-            await request('signinChercheur', '/home', 'chercheurId');
+            await request('signinChercheur', '/home-r', 'chercheurId');
         } else {
-            await request('signinParticipant', '/home', 'participantId');
+            await request('signinParticipant', '/home-p', 'participantId');
         }
     };
 
