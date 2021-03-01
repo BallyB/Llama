@@ -6,9 +6,9 @@
 
     <div class="input-container">
         <input type="text" name="title" bind:value={$context.formData.presentation.title} placeholder="Titre de l'expérience">
-        <input type="text" name="description" bind:value={$context.formData.presentation.description} placeholder="Description de l'expérience">
-        <input type="text" name="instruction" bind:value={$context.formData.presentation.instruction} placeholder="Consigne de l'expérience">
-        <input type="text" name="consent" bind:value={$context.formData.presentation.consent} placeholder="Formulaire de consentement">
+        <textarea type="text" id="description" name="description" bind:value={$context.formData.presentation.description} placeholder="Description de l'expérience"/>
+        <textarea type="text" id="instruction" name="instruction" bind:value={$context.formData.presentation.instruction} placeholder="Consigne de l'expérience"/>
+        <textarea type="text" id="consent" name="consent" bind:value={$context.formData.presentation.consent} placeholder="Formulaire de consentement"/>
 
         <select  name="expType" bind:value={$context.formData.presentation.expTyp}>
             <option value="" disabled selected>Sélectionnez un type d'expérience</option>
@@ -28,13 +28,15 @@
     input:focus {
         outline: 0;
     }
+
     select:focus {
         outline: 0;
     }
     select:invalid {
         color: gray;
     }
-    input, select {
+
+    input, select, textarea {
         background-color: #eee;
         width: 100%;
         box-sizing: border-box;
@@ -44,21 +46,12 @@
         margin: 8px auto;
     }
 
-    #save {
-        background-color: black;
-
+    #description, #instruction  {
+        height: 140px ;
     }
 
-    #save:hover {
-        background-color: #313131;
+    #consent {
+        height: 180px;
     }
 
-
-    .flex-container {
-        display: flex;
-        flex-wrap: nowrap;
-        align-content: center;
-        margin: 10px auto;
-        justify-content: space-around;
-    }
 </style>

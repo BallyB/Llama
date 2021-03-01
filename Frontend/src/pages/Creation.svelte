@@ -42,7 +42,15 @@
               consent: '',
               expTyp: '',
           },
-          //...
+          filter: {
+              age: '',
+              spokenLanguage: '',
+              motherTongue: '',
+              department: '',
+              schoolLevel: '',
+              trouble: '',
+          }
+            //...
         },
     });
 
@@ -58,10 +66,13 @@
     <form>
         <Tabs />
         {JSON.stringify($state)}
-        <button on:click={e => {
+        <div class="flex-container">
+            <button id="save" class="primary-button">Enregistrer brouillon</button>
+            <button on:click={e => {
             e.preventDefault();
             $state.activeItem += 1;
-        }} class="primary-button">Next</button>
+        }} class="primary-button">Suivant</button>
+        </div>
     </form>
 
 </body>
@@ -70,6 +81,25 @@
     h1 {
         text-align: center;
         font-family: "Varta", sans-serif;
+    }
+
+    #save {
+        background-color: black;
+        color: #f4f4f4;
+
+    }
+
+    #save:hover {
+        background-color: #313131;
+    }
+
+
+    .flex-container {
+        display: flex;
+        flex-wrap: nowrap;
+        align-content: center;
+        margin: 10px auto;
+        justify-content: space-around;
     }
 
 </style>
