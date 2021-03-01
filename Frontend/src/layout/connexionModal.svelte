@@ -54,7 +54,8 @@
         const { token } = res.data;
 
         auth.setAuth({ userType, userId: res.data[property], token});
-
+        console.log(localStorage);
+        localStorage.setItem("jwt", token);
         await push(targetRoute);
     }
 

@@ -1,18 +1,35 @@
-<!-- <script>
-    import { Link } from 'svelte-routing';
+<script>
 </script>
 
 <nav>
     <div class="nav-wrapper">
       <div class="container">
-        <Link to='/'><span class="brand-logo">Logo</span></Link>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/Creation'>Creation</Link></li>
-          <li><Link to='/Resultats'>Resultats</Link></li>
-          <li><Link to='/Profil'>Profil</Link></li>
-          <li><Link to='/Messagerie'>Messagerie</Link></li>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/Creation'>Creation</a></li>
+          <li><a href='/Resultats'>Resultats</a></li>
+          <li><a href='/Profil'>Profil</a></li>
+          <li><a href='/Messagerie'>Messagerie</a></li>
         </ul>
       </div>
     </div>
-  </nav> -->
+  </nav>
+
+<style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #dddddd;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    padding: 8px;
+  }
+</style>
