@@ -52,9 +52,11 @@ exports.loginParticipant = (req, res, next) => {
                           error: new Error('Incorrect password!')
                       });
                   }
+                  payload = { user_id: participant._id, kind: 'participant' }
                   const token = jwt.sign({ participantId: participant._id },
                       'FannyMarineFlorenceLisaEstefaniaMarusyaRebeccaAliceMarieHélèneJulietteMBSolangeBérengèreElsa',
-                      { expiresIn: '24h' });
+                      { expiresIn: '24h'},
+                      { data: payload});
                   res.status(200).json({
                       participantId: participant._id,
                       token: token
@@ -127,9 +129,11 @@ exports.signupResearcher = (req, res, next) => {
                             error: new Error('Incorrect password!')
                         });
                     }
+                    payload = { user_id: researcher._id, kind: 'researcher' }
                     const token = jwt.sign({ researcherId: researcher._id },
                         'FannyMarineFlorenceLisaEstefaniaMarusyaRebeccaAliceMarieHélèneJulietteMBSolangeBérengèreElsa',
-                        { expiresIn: '24h' });
+                        { expiresIn: '24h'},
+                        { data: payload});
                     res.status(200).json({
                         researcherId: researcher._id,
                         token: token
@@ -151,3 +155,50 @@ exports.signupResearcher = (req, res, next) => {
         }
     );
   };
+
+
+exports.check_if_participant = (req, res, next) => {
+    if (token) {
+        if (token.payload) {
+            if (token.payload.user_id && token.payload.kind == "participant") {
+                result = Researcher.findOne({ _id: token.payload.user_id })
+                if (result)
+                    next();
+                else
+                    return res.status(401).json({ message: 'not authorized' });
+            }
+        }
+    }
+}
+  
+exports.check_if_researcher = (req, res, next) => {
+    if (token) {
+        if (token.payload) {
+            if (token.payload.user_id && token.payload.kind == "researcher") {
+                result = Researcher.findOne({ _id: token.payload.user_id })
+                if (result)
+                    next();
+                else
+                    return res.status(401).json({ message: 'not authorized' });
+            }
+        } 
+    }
+}
+  
+exports.check_if_researcher_or_participant = (req, res, next) => {
+    if (token) {
+        if (token.payload) {
+            if (token.payload.user_id && (token.payload.kind == "participant" || token.payload.kind == "researcher")) {
+                if (token.payload.kind == "participant")
+                    result = Researcher.findOne({ _id: token.payload.user_id })
+                else
+                    result = Researcher.findOne({ _id: token.payload.user_id })
+                if (result)
+                    next();
+                else
+                    return res.status(401).json({ message: 'not authorized' });
+            }
+        }
+    }
+}
+  

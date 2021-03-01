@@ -5,9 +5,6 @@ const userCtrl = require('../controllers/user');
 
 
 
-
-
-
 //Route participants
 router.post('/signupParticipant', userCtrl.signupParticipant);
 router.post('/signinParticipant', userCtrl.loginParticipant);
