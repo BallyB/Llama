@@ -49,6 +49,10 @@
               department: '',
               schoolLevel: '',
               trouble: '',
+          },
+          experience: {
+              question: '',
+              slider: '',
           }
             //...
         },
