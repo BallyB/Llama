@@ -1,7 +1,6 @@
 <script>
     import Sentence from './CreationSentences.svelte'
     import { getContext } from 'svelte';
-import { empty } from 'svelte/internal';
     const context = getContext('creation-form');
     
     let sentences = [];
