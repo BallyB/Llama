@@ -21,9 +21,11 @@
     "dotenv": "^8.2.0",
     "materialize-css": "^1.0.0-rc.2",
     "sirv-cli": "^1.0.0",
+    "svelte-forms-lib": "^1.9.0",
     "svelte-router-spa": "^5.8.4",
     "svelte-routing": "^1.5.0",
     "svelte-spa-router": "^3.1.0",
-    "yarn": "^1.22.10"
+    "yarn": "^1.22.10",
+    "yup": "^0.32.9"
   }
 }

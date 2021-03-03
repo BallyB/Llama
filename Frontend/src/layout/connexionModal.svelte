@@ -3,68 +3,57 @@
     import auth from "../store/auth";
     import {push} from 'svelte-spa-router'
     import axios from 'axios';
-
     onMount(() => {
         const switchButton = document.querySelector('.switch-button');
         const switchBtnRight = document.querySelector('.switch-button-case.right');
         const switchBtnLeft = document.querySelector('.switch-button-case.left');
         const activeSwitch = document.querySelector('.active');
-
-
         function switchLeft() {
             switchBtnRight.classList.remove('active-case');
             switchBtnLeft.classList.add('active-case');
             activeSwitch.style.left = '0%';
         }
-
         function switchRight() {
             switchBtnRight.classList.add('active-case');
             switchBtnLeft.classList.remove('active-case');
             activeSwitch.style.left = '50%';
         }
-
         switchBtnLeft.addEventListener('click', event => {
             event.preventDefault();
             switchLeft();
         }, false);
-
         switchBtnRight.addEventListener('click', event => {
             event.preventDefault();
             switchRight();
         }, false);
-
     });
-
     //document.getElementById("signupForm").addEventListener("keydown", function(e) {
       //  if (e.keyCode == 13) {
         //    e.preventDefault();
         //}
     //});
-
     let userType = "chercheur";
     let email;
     let password;
-
+    async function request(route, targetRoute, property) {
+        const res = await axios.post(`http://localhost:3000/api/auth/${route}`, {
+            email,
+            password
+        });
+        const { token } = res.data;
+        auth.setAuth({ userType, userId: res.data[property], token});
+        console.log(localStorage);
+        localStorage.setItem("jwt", token);
+        await push(targetRoute);
+    }
     async function login(e) {
         e.preventDefault();
-        console.log(email, password)
-
-        try {
-            const res = await axios.post(`http://localhost:3000/api/auth/signinParticipant`, {
-//            const res = await axios.post(`${process.env.API_URL}/api/auth/signinParticipant`, {
-                email,
-                password
-            });
-            console.log(res);
-            const { token, participantId } = res.data;
-
-            auth.setAuth({ userType, userId: participantId, token });
-            await push('/home');
-        } catch (error) {
-            console.log(error);
+        if (userType === 'chercheur') {
+            await request('signinChercheur', '/home-r', 'chercheurId');
+        } else {
+            await request('signinParticipant', '/home-p', 'participantId');
         }
-    }
-
+    };
     const setType = value => () => userType = value;
 </script>
 
@@ -91,12 +80,10 @@
 
 
 <style>
-
    form {
        width: 400px;
        margin: auto;
    }
-
     h1 {
         font-size: 2rem;
         text-align: left;
@@ -104,7 +91,6 @@
         width: 400px;
         margin: 0 auto 13px;
     }
-
     .primary-button {
         font-weight: bolder;
         background-color: black;
@@ -113,11 +99,9 @@
         display: block;
         margin: 1.25rem auto;
     }
-
     .primary-button:hover {
         background-color: #313131;
     }
-
     a {
         color: red;
         font-size: 14px;
@@ -125,7 +109,6 @@
         display: block;
         margin: 0.5rem auto;
     }
-
     input {
         background-color: #eee;
         width: 100%;
@@ -135,7 +118,6 @@
         padding: 12px 15px;
         margin: 8px auto;
     }
-
     .switch-button {
         text-align: center;
         height: 37px;
@@ -146,7 +128,6 @@
         margin: 0 auto 8px auto;
         cursor: pointer;
     }
-
     .switch-button-case {
         font-family: "Varta", sans-serif;
         font-weight: bolder;
@@ -161,16 +142,13 @@
         transition: .3s ease all;
         cursor: pointer;
     }
-
     .switch-button:hover {
         color: grey;
         cursor: pointer;
     }
-
     .switch-button-case:focus{
         outline: none;
     }
-
     .active {
         color: #151515;
         background-color: #F6B93B;
@@ -183,14 +161,7 @@
         transition: .3s ease-out all;
         border-radius: 30px;
     }
-
     .active-case {
         color: white;
     }
-
 </style>
-
-
-
-
-
