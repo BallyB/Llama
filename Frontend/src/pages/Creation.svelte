@@ -73,10 +73,14 @@
         {JSON.stringify($state)}
         <div class="flex-container">
             <button id="save" class="primary-button">Enregistrer brouillon</button>
-            <button on:click={e => {
+            {#if $state.activeItem < 4 }
+                <button on:click={e => {
             e.preventDefault();
             $state.activeItem += 1;
         }} class="primary-button">Suivant</button>
+            {:else }
+            <button class="primary-button" type="submit">Valider l'expérience</button>
+            {/if}
         </div>
     </form>
 

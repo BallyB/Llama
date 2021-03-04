@@ -1,28 +1,31 @@
 <script>
-    export let step;
-    export let stepNb;
+    export let value;
+    export let total;
+    export let showBullets = true;
 
-    const stepsId = Array.from({ length: stepNb }).map((_, i) => i);
+    const stepsId = Array.from({ length: total }).map((_, i) => i);
 </script>
 
 
 
 <div class="progress-bar">
     <div class="progression-container">
-        <div class="progression-line" style={`width: ${step / (stepNb - 1) * 100}%`}/>
+        <div class="progression-line" style={`width: ${value / (total - 1) * 100}%`}/>
     </div>
 
+    {#if showBullets}
     <ul class="bullet-list">
         {#each stepsId as stepId}
             <li
                     class="bullet"
-                    class:bullet-active={step === stepId}
-                    style={`left: calc(${stepId / (stepNb - 1) * 100}% - 20px)`}
+                    class:bullet-active={value === stepId}
+                    style={`left: calc(${stepId / (total - 1) * 100}% - 20px)`}
             >
                 {stepId + 1}
             </li>
         {/each}
     </ul>
+    {/if}
 </div>
 
 
@@ -40,6 +43,8 @@
         right: 0;
         height: 14px;
         top: calc(50% - 7px);
+        border: 1px solid #f6b93b;
+        border-radius: 0 7px 7px 0;
     }
 
     .progression-line {
@@ -60,15 +65,16 @@
         width: 40px;
         height: 40px;
         top: calc(50% - 20px);
-        background-color: #e58e26;
+        background-color: #f6b93b;
         font-size: 15px;
         font-weight: 700;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 10px 13px -7px #313131
     }
 
     .bullet-active {
-        background-color: #b71540;
+        background-color: #e58e26;
     }
 </style>

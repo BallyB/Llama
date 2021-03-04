@@ -38,12 +38,17 @@
 
 <div class="exp-container">
     <h1 class="exp-title">{experience.presentation.title}</h1>
-    <ProgressBar step={$state.currentStep} stepNb={$state.steps.length}/>
+    <ProgressBar value={$state.currentStep} total={$state.steps.length}/>
 
     <svelte:component this={$state.steps[$state.currentStep]} />
-
-    <button class="primary-button" on:click={onBackClick}>back</button>
-    <button class="primary-button" on:click={onNextClick}>next</button>
+    <div class="flex-container">
+        {#if $state.currentStep > 0 }
+            <button class="primary-button" on:click={onBackClick}>Retour</button>
+        {/if}
+        {#if $state.currentStep < $state.steps.length - 1}
+            <button class="primary-button" on:click={onNextClick}>Suivant</button>
+        {/if}
+    </div>
 
 </div>
 
@@ -57,6 +62,27 @@
     .exp-title {
         font-family: "Varta", sans-serif;
         text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: nowrap;
+        align-content: center;
+        margin: 10px auto;
+        justify-content: space-around;
+    }
+
+    .primary-button {
+        background-color: #151515;
+        height: 50px;
+        width: 80px;
+    }
+
+    .primary-button:hover {
+        background-color: #313131;
     }
 
 </style>

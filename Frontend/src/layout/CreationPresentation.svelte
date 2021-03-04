@@ -44,6 +44,7 @@
         border-radius: 6px;
         padding: 12px 15px;
         margin: 8px auto;
+        resize: none;
     }
 
     #description, #instruction  {

@@ -5,7 +5,6 @@
 </script>
 
 <div class="presentation-container">
-    <p>Presentation</p>
 
     <p>{$state.experience.presentation.description}</p>
     <p>{$state.experience.presentation.instruction}</p>
