@@ -27,7 +27,7 @@
     }
 
     export const routes = {
-        '/': LandingPage,
+        '/': Creation,
         '/home-r': wrap({
             component: HomeResearcher,
             conditions: [

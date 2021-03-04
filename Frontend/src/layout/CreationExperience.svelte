@@ -2,20 +2,18 @@
     import Sentence from './CreationSentences.svelte'
     import { getContext } from 'svelte';
     const context = getContext('creation-form');
-    
-    let sentences = [];
 
     let newSentence = ''
 
     function addSentence () {
-        sentences = [...sentences, {
+        $context.formData.experience.sentences = [...$context.formData.experience.sentences,{
             name: newSentence,
             id: Date.now()
         }]
         newSentence = ''
     }    
     function deleteSentence (sentence) {
-        sentences = sentences.filter(s => s !== sentence)
+        $context.formData.experience.sentences = $context.formData.experience.sentences.filter(s => s !== sentence)
     }
     
 </script>
@@ -23,7 +21,7 @@
 <div class="input-container">
     <input type="text" name="question" bind:value={$context.formData.experience.question} placeholder="Question / énoncé">
 
-    <select  name="slider" bind:value={$context.formData.presentation.slider}>
+    <select  name="slider" bind:value={$context.formData.experience.slider}>
         <option value="" disabled selected>Sélectionnez un type de curseur</option>
         <option value="discrete">Discret (e.g.)</option>
         <option value="continuous">Continu (e.g.)</option>
@@ -31,9 +29,9 @@
 
     <p> Ajouter une phrase </p>
     <ul>
-        {#each sentences as sentence (sentence.id)}
+        {#each $context.formData.experience.sentences as sentence (sentence.id)}
             <!-- name="sentenceID" bind:value={$context.formData.experience.sentenceID} -->
-            <Sentence 
+            <Sentence
                 sentence={sentence}
                 on:delete={() => deleteSentence(sentence)}
             />
@@ -43,7 +41,7 @@
     <button on:click|preventDefault={addSentence}>Ajouter</button>
 </div>
 
-{JSON.stringify(sentences)}
+
 
 <style>
     .input-container {

@@ -27,7 +27,7 @@
     .delete{
             cursor: pointer;
             color: grey;
-            font-size: 2 px;
+            font-size: 15px;
     }
     .sentence:focus {
             outline: 0;

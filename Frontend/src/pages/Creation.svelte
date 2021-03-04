@@ -36,11 +36,11 @@
         activeItem: items[0].value,
         formData: {
           presentation: {
-              title: '',
-              description: '',
-              instruction: '',
-              consent: '',
-              expTyp: '',
+              title: 'lorem',
+              description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque posuere metus in nisl malesuada vestibulum. Sed dignissim enim vitae neque laoreet suscipit eget non ligula. In at placerat mauris. Phasellus erat ipsum, gravida a efficitur id, rhoncus at dolor.',
+              instruction: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque posuere metus in nisl malesuada vestibulum. Sed dignissim enim vitae neque laoreet suscipit eget non ligula. In at placerat mauris. Phasellus erat ipsum, gravida a efficitur id, rhoncus at dolor. Nunc in pharetra lectus, at interdum lectus. Vestibulum at facilisis elit, eu malesuada velit. Nulla velit felis, tincidunt eget mauris non, ullamcorper imperdiet risus. Sed hendrerit, metus eget viverra facilisis, neque eros pretium urna, non faucibus urna risus vitae erat. Cras imperdiet suscipit ipsum et eleifend. Cras sit amet enim orci. Nullam hendrerit a ex quis semper. Morbi sagittis mattis blandit. Nullam augue ante, hendrerit vel iaculis ut, aliquam eu metus. Duis id quam a neque facilisis consequat. Proin lorem magna, facilisis sit amet magna ut, blandit aliquam tortor. Quisque scelerisque dignissim maximus.',
+              consent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque posuere metus in nisl malesuada vestibulum. Sed dignissim enim vitae neque laoreet suscipit eget non ligula. In at placerat mauris. Phasellus erat ipsum, gravida a efficitur id, rhoncus at dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque posuere metus in nisl malesuada vestibulum. Sed dignissim enim vitae neque laoreet suscipit eget non ligula. In at placerat mauris. Phasellus erat ipsum, gravida a efficitur id, rhoncus at dolor.',
+              expType: '',
           },
           filter: {
               age: '',
@@ -53,6 +53,7 @@
           experience: {
               question: '',
               slider: '',
+              sentences: [],
           }
             //...
         },
