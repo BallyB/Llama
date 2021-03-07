@@ -15,7 +15,11 @@
         isPreview,
         results: {},
         steps: [PresentationStep, MainStep, ThanksStep],
-        currentStep: 0
+        currentStep: 0,
+        thanks: {
+            toContact: undefined,
+            toInform: undefined
+        }
     });
 
     setContext('experience', state);

@@ -3,43 +3,10 @@
     import auth from "../store/auth";
     import {push} from 'svelte-spa-router'
     import axios from 'axios';
+    import Toggle from './Toggle.svelte'
 
-    onMount(() => {
-        const switchButton = document.querySelector('.switch-button');
-        const switchBtnRight = document.querySelector('.switch-button-case.right');
-        const switchBtnLeft = document.querySelector('.switch-button-case.left');
-        const activeSwitch = document.querySelector('.active');
+    onMount(() => { Toggle });
 
-
-        function switchLeft() {
-            switchBtnRight.classList.remove('active-case');
-            switchBtnLeft.classList.add('active-case');
-            activeSwitch.style.left = '0%';
-        }
-
-        function switchRight() {
-            switchBtnRight.classList.add('active-case');
-            switchBtnLeft.classList.remove('active-case');
-            activeSwitch.style.left = '50%';
-        }
-
-        switchBtnLeft.addEventListener('click', event => {
-            event.preventDefault();
-            switchLeft();
-        }, false);
-
-        switchBtnRight.addEventListener('click', event => {
-            event.preventDefault();
-            switchRight();
-        }, false);
-
-    });
-
-    //document.getElementById("signupForm").addEventListener("keydown", function(e) {
-      //  if (e.keyCode == 13) {
-        //    e.preventDefault();
-        //}
-    //});
 
     let userType = "chercheur";
     let email;
