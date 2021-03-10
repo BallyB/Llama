@@ -12,11 +12,10 @@
 </script>
 
 <li transition:fade>
-    <input type="text" value={sentence.name} on:input={onInput} class="sentence">
+    <input type="text" value={sentence.name} on:input={onInput} class="sentence"/>
     <!-- {sentence.name} -->
     <span class="delete" on:click|preventDefault={onDelete}> Supprimer </span>
     <!-- <span class="delete" on:click|preventDefault={onDelete}> <img src="images/trash.png" alt="Supprimer"/> Supprimer </span> -->
-
 </li>
 
 
@@ -24,6 +23,9 @@
     /* img{
             width: 20px;
     } */
+    span{
+        font-family: "Varta", sans-serif;
+    }
     .delete{
             cursor: pointer;
             color: grey;

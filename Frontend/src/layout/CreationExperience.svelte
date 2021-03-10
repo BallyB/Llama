@@ -27,7 +27,7 @@
         <option value="continuous">Continu (e.g.)</option>
     </select>
 
-    <p> Ajouter une phrase </p>
+    <p> Phrases pour jugement d'acceptabilité </p>
     <ul>
         {#each $context.formData.experience.sentences as sentence (sentence.id)}
             <!-- name="sentenceID" bind:value={$context.formData.experience.sentenceID} -->
@@ -37,16 +37,34 @@
             />
         {/each}
     </ul>
-    <input type="text" bind:value={newSentence}>
-    <button on:click|preventDefault={addSentence}>Ajouter</button>
+    <input type="text" bind:value={newSentence} placeholder="Ajouter une phrase">
+    <button class="addSentence" on:click|preventDefault={addSentence}>+</button>
 </div>
 
 
 
-<style>
+
+
+<style>				
+    ul{list-style-type:none;}
+
+    p{
+        font-family: "Varta", sans-serif;
+    }
+
     .input-container {
         margin: auto;
         width: 50%;
+    }
+
+    input, select {
+        background-color: #eee;
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 6px;
+        padding: 12px 15px;
+        margin: 8px auto;
     }
     input:focus {
         outline: 0;
@@ -57,15 +75,30 @@
     select:invalid {
         color: gray;
     }
-    input, select {
-        background-color: #eee;
-        width: 100%;
-        box-sizing: border-box;
-        border: none;
-        border-radius: 6px;
-        padding: 12px 15px;
-        margin: 8px auto;
+    
+    .addSentence{
+        border-radius: 30px ;
+        height: 35px ;
+        width: 35px ;
+        font-size: 1.5em ;
+        transition: .3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .5);
+        border:none;
+        background-color: #F6B93B;
     }
+    .addSentence:focus {
+            outline: 0;
+            transition: .3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .5);
+            border:none;
+    }
+    .addSentence:hover{
+        transform: rotate(90deg) scale(1.2);
+        outline: none;
+        border:none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .5);
+    }
+
     select{
         cursor: pointer;
     }
