@@ -40,6 +40,7 @@
     }
     li {
         margin-bottom: -1px;
+        font-family: "Varta", sans-serif;
     }
 
     span {
