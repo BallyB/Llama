@@ -43,12 +43,12 @@
               expType: '',
           },
           filter: {
-              age: '',
-              spokenLanguage: '',
-              motherTongue: '',
-              department: '',
-              schoolLevel: '',
-              trouble: '',
+              age: 'tout' ,
+              spokenLanguage: 'tout',
+              motherTongue: 'tout',
+              department: 'tout',
+              schoolLevel: 'tout',
+              trouble: 'avec et sans trouble du langage',
           },
           experience: {
               question: '',

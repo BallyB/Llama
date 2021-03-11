@@ -21,8 +21,8 @@
 
 <nav class="shadow">
   <div>
-    <a class="links" href="/">LOGO</a>
-    <!-- <a class="logo" href="/"><img class="logo" src="images/llama.png" alt="logo" /></a> -->
+    <!-- <a class="links" href="/">LOGO</a> -->
+    <a class="logo" href="/"><img class="logo" src="images/llama.png" alt="logo" /></a>
   </div>
   <div class="left-links">
     <a class="links selected" href="/">Home</a>
@@ -30,10 +30,10 @@
     <a class="links" href="/"> Résultats</a>
   </div>
   <div class="right-links">
-    <!-- <a class="profile" href="/"><img class="profile" src="images/user.png" alt="profile" /></a>
-    <a class="chat" href="/"><img class="chat" src="images/email.png" alt="chat" /></a> -->
-    <a class="links" href="/"> Profil </a>
-    <a class="links" href="/">Messagerie</a>
+    <a class="profile" href="/"><img class="profile" src="images/user.png" alt="profile" /></a>
+    <a class="chat" href="/"><img class="chat" src="images/email.png" alt="chat" /></a>
+    <!-- <a class="links" href="/"> Profil </a> -->
+    <!-- <a class="links" href="/">Messagerie</a> -->
   </div>
 </nav>
 
