@@ -14,17 +14,11 @@
 </nav> -->
 
 
-
-
-
-
-
 <nav class="shadow">
-  <div>
-    <!-- <a class="links" href="/">LOGO</a> -->
+  <div class="left-links">
     <a class="logo" href="/"><img class="logo" src="images/llama.png" alt="logo" /></a>
   </div>
-  <div class="left-links">
+  <div class="centered-links">
     <a class="links selected" href="/">Home</a>
     <a class="links" href="/"> Création</a>
     <a class="links" href="/"> Résultats</a>
@@ -32,8 +26,6 @@
   <div class="right-links">
     <a class="profile" href="/"><img class="profile" src="images/user.png" alt="profile" /></a>
     <a class="chat" href="/"><img class="chat" src="images/email.png" alt="chat" /></a>
-    <!-- <a class="links" href="/"> Profil </a> -->
-    <!-- <a class="links" href="/">Messagerie</a> -->
   </div>
 </nav>
 
@@ -42,33 +34,47 @@
     display: flex;
     position: fixed;
     top: 0;
-    width: 95%;
+    width: 95vw;
     overflow: auto;
     height: auto;
     justify-content: space-between;
   }
   .logo {
-    height: 8vh;
+    height: 50px;
+    display: inline-block;
   }
   .chat,.profile {
-    padding-top: 25%;
-    height: 3vh;
-    padding-right: 0.5vw;
+    height: 20px;
+    display: inline-block;
+  }
+  .profile{
+    padding-right: 14px;
+  }
+  .left-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .centered-links {
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-around;
   }
   .right-links {
-    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
   }
   .links {
     display: inline-block;
     text-align: center;
-    padding: 12px;
+    padding: 12px 14px;
     color: #313131;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 18px;
     font-family: "Varta", sans-serif;
   }
   .links:hover {
-    /* color:#f6b93b; */
     border-bottom: 3px solid #f6b93b;
   }
   .selected {
@@ -78,20 +84,12 @@
 
   .shadow {
     background-color: #fff;
-    padding: 14px;
+    padding: 10px;
     box-shadow: 0px 15px 10px -15px #313131;
     z-index: 1000;
   }
 
-  /* .shadow {
-    margin: 0;
-    background-color: #FFF;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 15px 10px -15px #313131;
-  }
-
-  .nav {
+  /* .nav {
     overflow: hidden;
     list-style: none;
     margin: 0;
