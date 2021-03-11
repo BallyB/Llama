@@ -1,61 +1,82 @@
 <script>
     import { getContext } from 'svelte';
+    import Select from "svelte-select";
 
     const context = getContext('creation-form');
+
+    const age =[
+        {value: '18-25 ans', label: '18-25 ans'},
+        {value: '25-35 ans', label: '25-35 ans'}
+    ];
+
+    const spokenLanguage = [
+        {value: 'allemand', label:'Allemand'},
+        {value: 'anglais', label: 'Anglais'},
+        {value: 'chinois', label:'Chinois'},
+        {value: 'espagnol', label:'Espagnol'},
+        {value: 'français', label: 'Français'}
+    ];
+
+    const motherTongue = [
+        {value: 'allemand', label:'Allemand'},
+        {value: 'anglais', label: 'Anglais'},
+        {value: 'chinois', label:'Chinois'},
+        {value: 'espagnol', label:'Espagnol'},
+        {value: 'français', label: 'Français'}
+    ];
+
+    const department= [
+        {value: 'ain', label: 'Ain'},
+        {value: 'aine', label: 'Aine'},
+        {value: 'allier', label: 'Allier'},
+        {value: 'ardèche', label: 'Ardèche'}
+    ];
+
+    const schoolLevel = [
+        {value: 'BAC', label: 'BAC'},
+        {value: 'BAC +1', label: 'BAC +1'},
+        {value: 'BAC +2', label: 'BAC +2'},
+        {value: 'BAC +3', label: 'BAC +3'}
+    ];
+
+    const trouble = [
+        {value: 'oui', label: 'Oui'},
+        {value: 'non', label: 'Non'}
+    ]
 </script>
 
-    <div>
+<div class="container">
+    <div class='multiSelectItem'>
 
-        <select name="age" multiple bind:value={$context.formData.filter.age}>
-            <option value="" disabled selected>Sélectionnez une ou plusieurs tranche(s) d'âge</option>
-            <option value="type0">Tout</option>
-            <option value="type1">18-25 ans</option>
-            <option value="type2">25-35 ans</option>
-        </select>
+        <Select items={age} isMulti={true} name="age" bind:value={$context.formData.filter.age} placeholder="Âge"/>
 
-        <select name="spokenLanguage" multiple bind:value={$context.formData.filter.spokenLanguage}>
-            <option value="" disabled selected>Sélectionnez une ou plusieurs langue(s)</option>
-            <option value="all">Tout</option>
-            <option value="allemand">Allemand</option>
-            <option value="anglais">Anglais</option>
-            <option value="chinois">Chinois</option>
-            <option value="espagnol">Espagnol</option>
-            <option value="français">Français</option>
-        </select>
+        <Select items={spokenLanguage} isMulti={true} name="spokenLanguage" bind:value={$context.formData.filter.spokenLanguage} placeholder="Langue"/>
 
-        <select name="motherTongue" multiple bind:value={$context.formData.filter.motherTongue}>
-            <option value="" disabled selected>Sélectionner une ou plusieurs langue(s)</option>
-            <option value="all">Tout</option>
-            <option value="allemand">Allemand</option>
-            <option value="anglais">Anglais</option>
-            <option value="chinois">Chinois</option>
-            <option value="espagnol">Espagnol</option>
-            <option value="français">Français</option>
-        </select>
+        <Select items={motherTongue} isMulti={true} name="motherTongue" bind:value={$context.formData.filter.motherTongue} placeholder="Langue maternelle"/>
 
-        <select name="department" multiple bind:value={$context.formData.filter.department}>
-            <option value="" disabled selected>Sélectionner un ou plusieurs département(s)</option>
-            <option value="all">Tout</option>
-            <option value="1">Ain</option>
-            <option value="2">Aine</option>
-            <option value="3">Allier</option>
-            <option value="4">Ardèche</option>
-        </select>
+        <Select items={department} isMulti={true} name="department" bind:value={$context.formData.filter.department} placeholder="Département"/>
 
-        <select name="schoolLevel" multiple bind:value={$context.formData.filter.schoolLevel}>
-            <option value="" disabled selected>Sélectionner un ou plusieurs niveau(x) scolaire(s)</option>
-            <option value="all">Tout</option>
-            <option value="1">BAC</option>
-            <option value="2">BAC +1</option>
-            <option value="3">BAC +2</option>
-            <option value="4">BAC +3</option>
-        </select>
+        <Select items={schoolLevel} isMulti={true} name="schoolLevel" bind:value={$context.formData.filter.schoolLevel} placeholder="Niveau scolaire"/>
 
-        <select name="trouble" multiple bind:value={$context.formData.filter.trouble}>
-            <option value=""disabled selected>Sélectionner un trouble du language</option>
-            <option value="all">Avec et sans trouble du language</option>
-            <option value="true">Sans trouble du language</option>
-            <option value="false">Avec trouble du language</option>
-        </select>
+        <Select items={trouble} isMulti={true} name="trouble" bind:value={$context.formData.filter.trouble} placeholder="Trouble du langage"/>
+
     </div>
+</div>
+
+<style>
+    .container {
+        margin: auto;
+        width: 50%;
+    }
+
+    .multiSelectItem {
+        --borderColor: #313131;
+        --background: #eee;
+        --itemColor: #313131;
+        --multiItemBG: #f6b93b;
+        --multiItemActiveBG: #e58e26 ;
+    }
+
+
+</style>
 
