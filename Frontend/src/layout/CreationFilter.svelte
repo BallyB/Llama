@@ -1,14 +1,12 @@
 <script>
     import { getContext } from 'svelte';
     import Select from "svelte-select";
-
     const context = getContext('creation-form');
 
     const age =[
         {value: '18-25 ans', label: '18-25 ans'},
         {value: '25-35 ans', label: '25-35 ans'}
     ];
-
     const spokenLanguage = [
         {value: 'allemand', label:'Allemand'},
         {value: 'anglais', label: 'Anglais'},
@@ -16,7 +14,6 @@
         {value: 'espagnol', label:'Espagnol'},
         {value: 'français', label: 'Français'}
     ];
-
     const motherTongue = [
         {value: 'allemand', label:'Allemand'},
         {value: 'anglais', label: 'Anglais'},
@@ -24,21 +21,18 @@
         {value: 'espagnol', label:'Espagnol'},
         {value: 'français', label: 'Français'}
     ];
-
     const department= [
         {value: 'ain', label: 'Ain'},
         {value: 'aine', label: 'Aine'},
         {value: 'allier', label: 'Allier'},
         {value: 'ardèche', label: 'Ardèche'}
     ];
-
     const schoolLevel = [
         {value: 'BAC', label: 'BAC'},
         {value: 'BAC +1', label: 'BAC +1'},
         {value: 'BAC +2', label: 'BAC +2'},
         {value: 'BAC +3', label: 'BAC +3'}
     ];
-
     const trouble = [
         {value: 'oui', label: 'Oui'},
         {value: 'non', label: 'Non'}
@@ -46,37 +40,47 @@
 </script>
 
 <div class="container">
-    <div class='multiSelectItem'>
+    <!-- <div class='multiSelectItem'> -->
 
-        <Select items={age} isMulti={true} name="age" bind:value={$context.formData.filter.age} placeholder="Âge"/>
+        <div class='multiSelectItem'><Select items={age} isMulti={true} name="age" bind:value={$context.formData.filter.age} placeholder="Âge"/></div>
 
-        <Select items={spokenLanguage} isMulti={true} name="spokenLanguage" bind:value={$context.formData.filter.spokenLanguage} placeholder="Langue"/>
+        <div class='multiSelectItem'><Select items={spokenLanguage} isMulti={true} name="spokenLanguage" bind:value={$context.formData.filter.spokenLanguage} placeholder="Langue"/></div>
 
-        <Select items={motherTongue} isMulti={true} name="motherTongue" bind:value={$context.formData.filter.motherTongue} placeholder="Langue maternelle"/>
+        <div class='multiSelectItem'><Select items={motherTongue} isMulti={true} name="motherTongue" bind:value={$context.formData.filter.motherTongue} placeholder="Langue maternelle"/></div>
 
-        <Select items={department} isMulti={true} name="department" bind:value={$context.formData.filter.department} placeholder="Département"/>
+        <div class='multiSelectItem'><Select items={department} isMulti={true} name="department" bind:value={$context.formData.filter.department} placeholder="Département"/></div>
 
-        <Select items={schoolLevel} isMulti={true} name="schoolLevel" bind:value={$context.formData.filter.schoolLevel} placeholder="Niveau scolaire"/>
+        <div class='multiSelectItem'><Select items={schoolLevel} isMulti={true} name="schoolLevel" bind:value={$context.formData.filter.schoolLevel} placeholder="Niveau scolaire"/></div>
 
-        <Select items={trouble} isMulti={true} name="trouble" bind:value={$context.formData.filter.trouble} placeholder="Trouble du langage"/>
+        <div class='multiSelectItem'><Select items={trouble} isMulti={true} name="trouble" bind:value={$context.formData.filter.trouble} placeholder="Trouble du langage"/></div>
 
-    </div>
+    <!-- </div> -->
 </div>
 
 <style>
     .container {
         margin: auto;
-        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 400px;
+        width:600px;
     }
-
-    .multiSelectItem {
+    .multiSelectItem {  
+        font-family: "Varta", sans-serif;
+        color:#313131;
+        /* --multiClearTop: 8px;
+        --multiItemHeight:35px; */
+        --multiLabelMargin:4px;
         --borderColor: #313131;
+        --borderFocusColor: #313131;
         --background: #eee;
         --itemColor: #313131;
         --multiItemBG: #f6b93b;
         --multiItemActiveBG: #e58e26 ;
+        --multiClearHoverFill: #313131;
+        --multiClearBG: #313131;
     }
 
 
 </style>
-
