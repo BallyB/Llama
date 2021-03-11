@@ -49,7 +49,7 @@
         display: flex;
         flex-flow: row wrap;
         align-content: space-between;
-        justify-content: space-between;
+        justify-content: center;
     }
     .filter-item {
         display: contents;
@@ -59,6 +59,7 @@
         border: 2px solid #f6b93b;
         padding: 4px;
         text-align: center;
+        justify-content: center;
         justify-content: space-around;
         font-family: "Varta", sans-serif;
         margin: 10px;
