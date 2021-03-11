@@ -80,6 +80,7 @@
     background-color: #fff;
     padding: 14px;
     box-shadow: 0px 15px 10px -15px #313131;
+    z-index: 1000;
   }
 
   /* .shadow {
