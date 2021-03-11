@@ -80,11 +80,13 @@
         border-radius: 30px ;
         height: 35px ;
         width: 35px ;
-        font-size: 1.5em ;
+        font-size: 1.8em ;
         transition: .3s ease;
         box-shadow: 0 2px 8px rgba(0, 0, 0, .5);
         border:none;
         background-color: #F6B93B;
+        /* color:#FFF; */
+        font-family: 'Varela Round', sans-serif;
     }
     .addSentence:focus {
             outline: 0;
@@ -93,7 +95,7 @@
             border:none;
     }
     .addSentence:hover{
-        transform: rotate(90deg) scale(1.2);
+        transform: rotate(90deg) scale(1.1);
         outline: none;
         border:none;
         box-shadow: 0 2px 8px rgba(0, 0, 0, .5);
