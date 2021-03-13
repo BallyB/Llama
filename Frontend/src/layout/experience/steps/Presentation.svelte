@@ -8,6 +8,7 @@
     <p>{$state.experience.presentation.description}</p>
     <p>{$state.experience.presentation.instruction}</p>
     <p>{$state.experience.presentation.consent}</p>
+    
     <p>Cette expérience est destinée à :</p>
     <div class="filter-container">
         <div class="filter-item">
@@ -32,6 +33,7 @@
         </div>
     </div>
 </div>
+
 
 <style>
     /* .filter-container{

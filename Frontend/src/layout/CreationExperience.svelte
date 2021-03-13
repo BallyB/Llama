@@ -6,11 +6,13 @@
     let newSentence = ''
 
     function addSentence () {
-        $context.formData.experience.sentences = [...$context.formData.experience.sentences,{
+        if (newSentence.length > 0){
+            $context.formData.experience.sentences = [...$context.formData.experience.sentences,{
             name: newSentence,
             id: Date.now()
         }]
-        newSentence = ''
+        newSentence = ''}
+        
     }    
     function deleteSentence (sentence) {
         $context.formData.experience.sentences = $context.formData.experience.sentences.filter(s => s !== sentence)

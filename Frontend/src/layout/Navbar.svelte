@@ -19,7 +19,7 @@
     <a class="logo" href="/"><img class="logo" src="images/llama.png" alt="logo" /></a>
   </div>
   <div class="centered-links">
-    <a class="links selected" href="/">Home</a>
+    <a class="links selected" href="/">Accueil</a>
     <a class="links" href="/"> Création</a>
     <a class="links" href="/"> Résultats</a>
   </div>
@@ -68,7 +68,7 @@
   .links {
     display: inline-block;
     text-align: center;
-    padding: 12px 14px;
+    padding: 12px 24px;
     color: #313131;
     text-decoration: none;
     font-size: 18px;
