@@ -1,6 +1,6 @@
 <script>
     import {setContext} from "svelte";
-    import Navbar from '../layout/Navbar.svelte';
+    import Navbar from '../layout/NavbarResearcher.svelte';
     import Presentation from '../layout/CreationPresentation.svelte';
     import Filter from '../layout/CreationFilter.svelte';
     import Experience from '../layout/CreationExperience.svelte';
