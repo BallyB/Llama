@@ -39,8 +39,11 @@
     ]
 </script>
 
+
+
 <div class="container">
     <!-- <div class='multiSelectItem'> -->
+        <p> Indiquez les critères d'inclusion des participants (si besoin) :</p>
 
         <div class='multiSelectItem'><Select items={age} isMulti={true} name="age" bind:value={$context.formData.filter.age} placeholder="Âge"/></div>
 
@@ -58,6 +61,11 @@
 </div>
 
 <style>
+    p{
+        font-family: "Varta", sans-serif;
+        color:#313131;
+        font-size: 17px;
+    }
     .container {
         margin: auto;
         display: flex;
