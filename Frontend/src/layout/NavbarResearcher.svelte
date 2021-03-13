@@ -1,4 +1,7 @@
 <script>
+  export let selectedHome;
+  export let selectedCreation;
+  export let selectedResults;
 </script>
 
 <!-- <nav>
@@ -19,9 +22,9 @@
     <a class="logo" href="/"><img class="logo" src="images/llama.png" alt="logo" /></a>
   </div>
   <div class="centered-links">
-    <a class="links selected" href="/">Accueil</a>
-    <a class="links" href="/"> Création</a>
-    <a class="links" href="/"> Résultats</a>
+    <a class="links {selectedHome}" href="/">Accueil</a>
+    <a class="links {selectedCreation}" href="/"> Création</a>
+    <a class="links {selectedResults}" href="/"> Résultats</a>
   </div>
   <div class="right-links">
     <a class="profile" href="/"><img class="profile" src="images/user.png" alt="profile" /></a>
@@ -75,11 +78,11 @@
     font-family: "Varta", sans-serif;
   }
   .links:hover {
-    border-bottom: 3px solid #f6b93b;
+    border-bottom: 4px solid #f6b93b;
   }
   .selected {
-    border-bottom: 3px solid #f6b93b;
-    font-weight: bold;
+    border-bottom: 4px solid #f6b93b;
+    font-weight: bolder;
   }
 
   .shadow {

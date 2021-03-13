@@ -64,7 +64,7 @@
 </script>
 
 <body>
-    <Navbar/>
+    <Navbar selectedCreation={"selected"}/>
 
     <h1>Créer une expérience</h1>
 
