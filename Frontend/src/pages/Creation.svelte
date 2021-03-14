@@ -72,12 +72,17 @@
         <Tabs />
         {JSON.stringify($state)}
         <div class="flex-container">
-            <button id="save" class="primary-button">Enregistrer brouillon</button>
+            {#if $state.activeItem > 1 }
+                <button on:click={e => {
+                    e.preventDefault();
+                    $state.activeItem -= 1;
+                }} class="primary-button color">Retour</button>
+            {/if}
             {#if $state.activeItem < 4 }
                 <button on:click={e => {
             e.preventDefault();
             $state.activeItem += 1;
-        }} class="primary-button">Suivant</button>
+        }} class="primary-button color">Suivant</button>
             {:else }
             <button class="primary-button" type="submit">Valider l'expérience</button>
             {/if}
@@ -93,23 +98,20 @@
         font-family: "Varta", sans-serif;
     }
 
-    #save {
-        background-color: black;
-        color: #f4f4f4;
-
-    }
-
-    #save:hover {
-        background-color: #313131;
-    }
-
-
     .flex-container {
         display: flex;
         flex-wrap: nowrap;
         align-content: center;
         margin: 10px auto;
         justify-content: space-around;
+    }
+
+    .color {
+        background: black;
+    }
+
+    .color:hover {
+        background: #313131;
     }
 
 </style>
