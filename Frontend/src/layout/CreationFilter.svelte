@@ -1,6 +1,7 @@
 <script>
     import { getContext } from 'svelte';
     import Select from "svelte-select";
+
     const context = getContext('creation-form');
 
     const age =[
@@ -36,26 +37,32 @@
     const trouble = [
         {value: 'oui', label: 'Oui'},
         {value: 'non', label: 'Non'}
-    ]
-</script>
+    ];
 
+    function handleSelectForFilter(filterName) {
+        return event => {
+            $context.formData.filter[filterName] = event.detail.map(item => item.value);
+        }
+    }
+
+</script>
 
 
 <div class="container">
     <!-- <div class='multiSelectItem'> -->
         <p> Indiquez les critères d'inclusion des participants (si besoin) :</p>
 
-        <div class='multiSelectItem'><Select items={age} isMulti={true} name="age" bind:value={$context.formData.filter.age} placeholder="Âge"/></div>
+        <div class='multiSelectItem'><Select items={age} isMulti={true} on:select={handleSelectForFilter("age")} placeholder="Âge"/></div>
 
-        <div class='multiSelectItem'><Select items={spokenLanguage} isMulti={true} name="spokenLanguage" bind:value={$context.formData.filter.spokenLanguage} placeholder="Langue"/></div>
+        <div class='multiSelectItem'><Select items={spokenLanguage} isMulti={true} on:select={handleSelectForFilter("spokenLanguage")} placeholder="Langue"/></div>
 
-        <div class='multiSelectItem'><Select items={motherTongue} isMulti={true} name="motherTongue" bind:value={$context.formData.filter.motherTongue} placeholder="Langue maternelle"/></div>
+        <div class='multiSelectItem'><Select items={motherTongue} isMulti={true} on:select={handleSelectForFilter("motherTongue")} placeholder="Langue maternelle"/></div>
 
-        <div class='multiSelectItem'><Select items={department} isMulti={true} name="department" bind:value={$context.formData.filter.department} placeholder="Département"/></div>
+        <div class='multiSelectItem'><Select items={department} isMulti={true} on:select={handleSelectForFilter("department")} placeholder="Département"/></div>
 
-        <div class='multiSelectItem'><Select items={schoolLevel} isMulti={true} name="schoolLevel" bind:value={$context.formData.filter.schoolLevel} placeholder="Niveau scolaire"/></div>
+        <div class='multiSelectItem'><Select items={schoolLevel} isMulti={true} on:select={handleSelectForFilter("schoolLevel")} placeholder="Niveau scolaire"/></div>
 
-        <div class='multiSelectItem'><Select items={trouble} isMulti={true} name="trouble" bind:value={$context.formData.filter.trouble} placeholder="Trouble du langage"/></div>
+        <div class='multiSelectItem'><Select items={trouble} isMulti={true} on:select={handleSelectForFilter("trouble")} placeholder="Trouble du langage"/></div>
 
     <!-- </div> -->
 </div>
