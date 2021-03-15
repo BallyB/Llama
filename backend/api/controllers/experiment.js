@@ -8,7 +8,14 @@ exports.saveExperiment = (req, res, next) => {
         guideline: req.body.guideline,
         consentForm: req.body.consentForm,
         content: req.body.content,
-        experimentType: req.body.experimentType
+        experimentType: req.body.experimentType,
+        ageFilter: req.body.ageFilter,
+        spokenLanguage: req.body.spokenLanguage,
+        nativeLanguage: req.body.nativeLanguage,
+        departement: req.body.departement,
+        schoolLevel: req.body.schoolLevel,
+        trouble: req.body.trouble
+        //Ajouter researcherID
       });
       experiment.save().then(
           () => {
@@ -73,3 +80,25 @@ exports.getExperiment = (req, res, next) => {
         }
     );
 }
+
+
+exports.saveExperimentAnswer = (req, res, next) => {
+    const experimentAnswer = new ExperimentAnswer({
+        participantID: req.body.participantID,
+        experimentID: req.body.experimentID,
+        content: req.body.content
+      });
+      experimentAnswer.save().then(
+          () => {
+              res.status(201).json({
+                  message: 'Answer successfully created!'
+              });
+          }
+      ).catch(
+          (error) => {
+              res.status(500).json({
+                  error: error
+              });
+          }
+      );
+};

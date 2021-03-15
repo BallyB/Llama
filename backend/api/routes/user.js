@@ -3,8 +3,10 @@ const router = express.Router();
 
 const userCtrl = require('../controllers/user');
 const experimentCtrl = require('../controllers/experiment');
+const indexCtrl = require('../controllers/index');
 
 
+router.get('/', indexCtrl.getAllLanguages);
 
 //Route participants
 router.post('/signupParticipant', userCtrl.signupParticipant);
