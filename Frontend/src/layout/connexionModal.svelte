@@ -51,7 +51,7 @@
         <button class="switch-button-case left active-case" on:click={setType('chercheur')}>Chercheur</button>
         <button class="switch-button-case right" on:click={setType('participant')}>Participant</button>
     </div>
-
+    <!-- <Toggle/> -->
     <input type="email" name="email" bind:value={email} placeholder="Adresse mail">
     <input type="password" name="password" bind:value={password} placeholder="Mot de passe">
     <a href="#"> Mot de passe oublié ? </a>
