@@ -13,6 +13,7 @@
     import ResultsR from '../pages/ResultsResearcher.svelte';
     import ResultsP from '../pages/ResultsParticipant.svelte';
     import auth from "../store/auth.js";
+import ResultsResearcher from '../pages/ResultsResearcher.svelte';
 
     function isAuthenticated() {
         return !!$auth.token
@@ -27,7 +28,7 @@
     }
 
     export const routes = {
-        '/': LandingPage,
+        '/': ResultsResearcher,
         '/home-r': wrap({
             component: HomeResearcher,
             conditions: [
