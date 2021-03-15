@@ -1,8 +1,10 @@
 <script>
-    // import Select from './svelte-select';
+    import Select from "svelte-select";
     let error_boolean = false;
-    const items = ['Ain', 'Aisne', 'Alpes'];
-
+    const lab =[
+        {value: 'labo1', label: 'Laboratoire 1'},
+        {value: 'labo2', label: 'Laboratoire 2'}
+    ];
 
     function validateMessageEmail(event) {
         let textbox = event.target;
@@ -65,26 +67,17 @@
                 <input required type = "radio" id = "choice3" name = "sex" value = "other" ><label class = "sex" for = "other">Je ne souhaite pas l'indiquer</label>
             </div>
         <br/>
-     
-        <!-- <Select {items}></Select> -->
-        <select required id="dept" name="dept">
-            <option value="" disabled selected>Sélectionnez votre département professionnel</option>
-            <option value="ain">Ain</option>
-            <option value="aisne">Aisne</option>
-            <option value="allier">Allier</option>
-            <option value="hautesalpes">Hautes-Alpes</option>
-            <option value="bassesalpes">Basses-Alpes</option>
-            <option value="ardeche">Ardèche</option>
-        </select>        
-        <!-- <SelectBoxDept/> -->
-        <br/>
 
-        <select required id="lab" name="lab">
+        <div class="container">
+                <div class='select-item'><Select items={lab} isMulti={false} placeholder="Sélectionnez votre laboratoire de rattachement"/></div>
+        </div>
+        
+
+        <!-- <select required id="lab" name="lab">
             <option value="" disabled selected>Sélectionnez votre laboratoire de rattachement</option>
             <option value="Labo1">Laboratoire 1</option>
-        </select>  
+        </select>   -->
         <br/>
-        <!-- Penser à ajouter required pour lab -->
 
         <label for="email" id="profEmail">Votre adresse email professionnelle nous permet de limiter l'accès aux chercheurs.</label>
         <input required type = "email" name = "email" id = "email" placeholder = "Adresse email professionnelle valide" /> 
@@ -93,9 +86,6 @@
         <input required type = "password" id = "password" placeholder = "Mot de passe (entre 8 et 50 caractères)" />
         <br/>
         <input required type = "password" id = "confirmPassword" placeholder = "Confirmation du mot de passe" />
-
-        <!-- <span id = "message"> </span> -->
-        <!-- Penser à ajouter si confirmation différent de mdp = FALSE -->
         <br/>
 
         <input required type="checkbox" name = "accept" id="accept"> <label id = "terms" for = "accept"> En poursuivant je reconnais avoir pris connaissance des termes et conditions d'utilisation.</label>
@@ -112,12 +102,10 @@
     </form>
 
 <style>
-
     form {
        width: 400px;
        margin: auto;
    }
-
     h1 {
         font-size: 2rem;
         text-align: left;
@@ -125,7 +113,6 @@
         width: 400px;
         margin: 0 auto 13px;
     }
-
     .primary-button {
         font-weight: bolder;
         background-color: black;
@@ -139,25 +126,9 @@
         top: 509px;
         font-size: 14px;
     }
-
     .primary-button:hover {
         background-color: #313131;
     }
-
-    /* input[type="submit"] {
-        font-size: 14px;
-        sliders: pointer;
-        color:#FFFFFF;
-        background: #313131;
-        border: none;
-        border-radius: 26px;
-        box-shadow: 0px 10px 13px -7px #313131;
-        width: 193px;
-        height: 46px;
-        left: 394px;
-        top: 509px;
-        transition: all 0.34s;
-    } */
 
     input[type="submit"]:hover {
         background-color: #202020;
@@ -166,7 +137,6 @@
     input[type="submit"]:focus {
         outline: 0;
     }
-
 
     #terms{
         font-size : 12px;
@@ -181,7 +151,7 @@
         color : #b71540;
         font-weight: bold;
     }
-    input[type=password],input[type=email],input[type=surname],input[type=firstname],select[id=dept],select[id=lab] {
+    input[type=password],input[type=email],input[type=surname],input[type=firstname] {
         background-color: #eee;
         width: 100%;
         box-sizing: border-box;
@@ -189,23 +159,9 @@
         border-radius: 6px;
         padding: 12px 15px;
         margin: 8px auto;
-        /* width : 70%;
-        font-size : 14px;
-        margin-bottom : 20px;
-        padding : 12px 20px;
-        background-color: #31313120;
-        border : 0.3px solid #31313140;
-        box-sizing : border-box;
-        border-radius : 6px; */
     }
     input:focus {
         outline: 0;
-    }
-    select:focus {
-        outline: 0;
-    }
-    select:invalid { 
-        color: gray; 
     }
     .sex{
         font-size : 14px;

@@ -26,3 +26,14 @@
 .primary-button:focus {
     outline: 0;
 }
+
+.select-item {  
+    font-family: "Varta", sans-serif;
+    color:#313131;
+    --border:none;
+    --borderRadius: 6px;
+    --borderFocusColor: #313131;
+    --borderHoverColor: #313131;
+    --background: #eee;
+    --itemColor: #313131;
+}
