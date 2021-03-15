@@ -28,7 +28,7 @@ import ResultsResearcher from '../pages/ResultsResearcher.svelte';
     }
 
     export const routes = {
-        '/': ResultsResearcher,
+        '/': LandingPage,
         '/home-r': wrap({
             component: HomeResearcher,
             conditions: [
