@@ -152,6 +152,7 @@
         text-align: center;
         font-size: 20px;
         font-family: "Varta", sans-serif;
+
     }
     /* Control the right side */
     .col-right {
