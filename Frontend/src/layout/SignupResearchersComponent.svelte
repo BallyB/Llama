@@ -60,7 +60,7 @@
 
     /* button {
         font-size: 14px;
-        cursor: pointer;
+        sliders: pointer;
         color:#FFFFFF;
         background: #313131;
         border: none;

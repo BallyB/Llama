@@ -46,7 +46,6 @@
             component: Creation,
             conditions: [
                 isAuthenticated,
-                isResearcher,
             ]
         }),
         '/messagerie-p': wrap({

@@ -1,5 +1,4 @@
 <script>
-    import Component from './SignupResearchersComponent.svelte';
     // import Select from './svelte-select';
     let error_boolean = false;
     const items = ['Ain', 'Aisne', 'Alpes'];
@@ -147,7 +146,7 @@
 
     /* input[type="submit"] {
         font-size: 14px;
-        cursor: pointer;
+        sliders: pointer;
         color:#FFFFFF;
         background: #313131;
         border: none;

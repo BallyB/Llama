@@ -1,0 +1,92 @@
+<script>
+    import ProgressBar from "./ProgressBar.svelte";
+    import PresentationStep from "./steps/Presentation.svelte";
+    import MainStep from "./steps/Main.svelte";
+    import ThanksStep from "./steps/Thanks.svelte";
+    import {writable} from "svelte/store";
+    import {setContext} from "svelte";
+
+
+    export let experience;
+    export let isPreview = false;
+
+    const state = writable({
+        experience,
+        isPreview,
+        results: {},
+        steps: [PresentationStep, MainStep, ThanksStep],
+        currentStep: 0,
+        thanks: {
+            toContact: undefined,
+            toInform: undefined
+        }
+    });
+
+    setContext('experience', state);
+
+    function onBackClick(e) {
+        e.preventDefault()
+        if ($state.currentStep > 0) {
+            $state.currentStep -= 1
+        }
+    }
+
+    function onNextClick(e) {
+        e.preventDefault()
+        if ($state.currentStep < $state.steps.length - 1) {
+            $state.currentStep += 1
+        }
+    }
+
+</script>
+
+<div class="exp-container">
+    <h1 class="exp-title">{experience.presentation.title}</h1>
+    <ProgressBar value={$state.currentStep} total={$state.steps.length}/>
+
+    <svelte:component this={$state.steps[$state.currentStep]} />
+    <div class="flex-container">
+        {#if $state.currentStep > 0 }
+            <button class="primary-button" on:click={onBackClick}>Retour</button>
+        {/if}
+        {#if $state.currentStep < $state.steps.length - 1}
+            <button class="primary-button" on:click={onNextClick}>Suivant</button>
+        {/if}
+    </div>
+
+</div>
+
+
+<style>
+    .exp-container {
+        max-width: 75%;
+        margin: 0 auto;
+    }
+
+    .exp-title {
+        font-family: "Varta", sans-serif;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: nowrap;
+        align-content: center;
+        margin: 10px auto;
+        justify-content: space-around;
+    }
+
+    .primary-button {
+        background-color: #151515;
+        height: 50px;
+        width: 80px;
+    }
+
+    .primary-button:hover {
+        background-color: #313131;
+    }
+
+</style>
