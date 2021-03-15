@@ -11,7 +11,7 @@ const participantSchema = mongoose.Schema({
   schoolDegreeID: { type: Number, required: false},
   maternalLanguageID: { type: Number, required: true},
   spokenLanguageID: { type: Number, required: false},
-  cityID: { type: Number, required: true}
+  regionID: { type: Number, required: true}
 });
 
 participantSchema.plugin(uniqueValidator);
