@@ -12,8 +12,6 @@ router.post('/signinParticipant', userCtrl.loginParticipant);
 router.post('/signupResearcher', userCtrl.signupResearcher);
 router.post('/signinResearcher', userCtrl.loginResearcher);
 
-router.get('/createExperiment', experimentCtrl.saveExperiment);
-router.post('/saveExperiment', experimentCtrl.saveExperiment);
 
 
 module.exports = router;

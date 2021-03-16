@@ -12,6 +12,8 @@ router.get('/experiment', experimentCtrl.getAllExperiments);
 router.get('/experiment/:id', experimentCtrl.getExperiment);
 //Possible de faire la même chose pour une inscription, supression, ...
 
+router.get('/createExperiment', experimentCtrl.saveExperiment);
+router.post('/saveExperiment', experimentCtrl.saveExperiment);
 //router.put('/:id', exempleCtr.updateExemple); --> Modification dans la base
 //router.delete('/:id', exempleCtr.deleteExemple); --> Supression dans la base
 //router.post('/', exempleCtr.createExemple); --> Ajout dans la base
