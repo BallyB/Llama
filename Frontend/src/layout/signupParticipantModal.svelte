@@ -1,37 +1,13 @@
 <script>
-    import auth from "../store/auth";
     import axios from "axios";
     import {push} from "svelte-spa-router";
-
-    /*function validation(){
-        const password = document.getElementById("password").value;
-        const confirm_password = document.getElementById("confirm password").value;
-
-        if (confirm_password != password){
-            document.getElementById('error-msg').innerHTML="Passwords are not matching";
-            return false;
-        }
-    }*/
-
-
-    /*function validatePassword(){
-        if(password.value != confirm_password.value){
-            confirm_password.setCustomValidity("Les deux mots de passe sont différents");
-        } else {
-            confirm_password.setCustomValidity("");
-        }
-    }*/
-
-
-    /*password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword; */
-
+    import auth from "../store/auth";
 
     let userType = 'participant';
     let userName;
     let sex;
     let birthdayDate;
-    let departements = [
+    let departments = [
         {
             label: 'Ain',
             value: 0,
@@ -109,6 +85,7 @@
     let email;
     let password;
 
+
     async function signup(e) {
         e.preventDefault();
 
@@ -128,8 +105,8 @@
             /*console.log(res)
             const { token, participantId } = res.data;
 
-            auth.setAuth({ userType, participantId, token });*/
-            await push('/home');
+            auth.setAuth({ userType, participantId, token });
+            await push('/home');*/
         } catch (error) {
             console.log(error)
         }
@@ -143,34 +120,32 @@
     <h1>Inscription participant</h1>
 </div>
 
-<form on:submit={signup}>
-    <label>
-        <input id = "userName" required type = "text" bind:value={userName} placeholder="Nom d'utilisateur">
-    </label>
+<form id="formSignup" on:submit={signup}>
 
+    <input id ="userName" required type="text" bind:value={userName} placeholder="Nom d'utilisateur">
 
     <p class="sex" >Êtes-vous</p>
-    <div required>
-        <input type = "radio" name = "sex" bind:group={sex}> <label class = "sex" for = "male">Un homme</label>
+    <div>
+        <input required type="radio" name="sex" bind:group={sex}><label>Un homme</label>
 
-        <input type = "radio" name = "sex" bind:group={sex}><label class = "sex" for = "female">Une femme</label>
+        <input required type="radio" name="sex" bind:group={sex}><label>Une femme</label>
 
-        <input type = "radio" name = "sex" bind:group={sex}><label class = "sex" for = "other">Je ne souhaite pas l'indiquer</label>
+        <input required type="radio" name="sex" bind:group={sex}><label>Je ne souhaite pas l'indiquer</label>
     </div>
 
-    <input required type = "date" id = "start" bind:value={birthdayDate} min = "1950-01-01" max = "2020-12-31">
+    <input required type="date" id="start" bind:value={birthdayDate} min="1950-01-01" max="2020-12-31">
 
-    <select required id = "dept" name = "dept" bind:value={dept}>
+    <select required id="dept" name="dept" bind:value={dept}>
         <option value = "" disabled selected>Sélectionnez votre département de résidence</option>
-        {#each departements as level}
+        {#each departments as level}
             <option value={level.value}>{level.label}</option>
         {/each}
     </select>
 
-    <p class="trouble" required>Souffrez-vous d un trouble du language ? (écrit ou parlé)</p>
+    <p class="trouble">Souffrez-vous d un trouble du langage ? (écrit ou parlé)</p>
     <div>
-        <input type="radio" name = "trouble" bind:group={disorder}><label class = "trouble" for = "Oui">Oui</label>
-        <input type="radio" name = "trouble" bind:group={disorder}><label class = "trouble" for = "Non">Non</label>
+        <input required type="radio" name="trouble" bind:group={disorder}><label>Oui</label>
+        <input required type="radio" name="trouble" bind:group={disorder}><label>Non</label>
     </div>
 
     <select required id = "motherTongue" name = "langue" multiple bind:value={motherTongues}>
@@ -194,11 +169,15 @@
         {/each}
     </select>
 
-    <input id = "email"  type = "email"  name = "email" bind:value={email} placeholder = "Adresse mail">
-    <input id = "password" type = "password"  name = "password" bind:value={password} placeholder = "Mot de passe">
-    <!--<input type = "password" id = "confirm password " placeholder = "Confirmation du mot de passe">-->
+    <input required id="email"  type="email"  name="email" bind:value={email} placeholder="Adresse mail">
+    <input required id="password" type="password"  name="password" bind:value={password} placeholder="Mot de passe">
 
-    <button onclick="validation" type="submit" name = "submit" value = "submit" class="primary-button">inscription participant</button>
+
+    <input required type="checkbox" name = "accept" id="accept"><label id="terms" for="accept">En poursuivant je reconnais avoir pris connaissance des termes et conditions d'utilisation. </label>
+    <br/>
+    <a href>Comment sont utilisées mes données ?</a>
+    <br/>
+    <button type="submit" class="primary-button" style="margin-top: 25px">inscription participant</button>
 
 </form>
 
@@ -219,12 +198,16 @@
         margin: 0 auto 13px;
     }
 
+    input:focus {
+        outline: none;
+    }
+
     .sex{
         font-size : 14px;
         color:#313131;
     }
 
-    #userName, #dept, #motherTongue, #langue, #password, #email, #scho {
+    #userName, #dept, #motherTongue, #langue, #password, #email, #scho, #confirmPassword {
         background-color: #eee;
         width: 100%;
         box-sizing: border-box;
@@ -232,6 +215,21 @@
         border-radius: 6px;
         padding: 12px 15px;
         margin: 8px auto;
+    }
+
+    #terms{
+        font-size : 12px;
+        color : #313131;
+    }
+
+    a {
+        color : #eb2f06;
+        text-decoration : underline;
+        font-size : 12px;
+    }
+    a:hover{
+        color : #b71540;
+        font-weight: bold;
     }
 
     error-msg {
