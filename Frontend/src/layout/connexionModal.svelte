@@ -5,7 +5,6 @@
     import axios from 'axios';
     import Toggle from './Toggle.svelte'
 
-    onMount(() => { Toggle });
 
 
     let userType = "chercheur";
@@ -34,7 +33,7 @@
         } else {
             await request('signinParticipant', '/home-p', 'participantId');
         }
-    };
+    }
 
     const setType = value => () => userType = value;
 </script>
@@ -46,11 +45,13 @@
 </div>
 
 <form id='signupForm' on:submit={login}>
-    <div class="switch-button">
+    <Toggle value1={setType('chercheur')} label1={"Chercheur"} value2={setType('participant')} label2={"Participant"}/>
+
+    <!--<div class="switch-button">
         <span class="active"></span>
         <button class="switch-button-case left active-case" on:click={setType('chercheur')}>Chercheur</button>
         <button class="switch-button-case right" on:click={setType('participant')}>Participant</button>
-    </div>
+    </div> -->
     <!-- <Toggle/> -->
     <input type="email" name="email" bind:value={email} placeholder="Adresse mail">
     <input type="password" name="password" bind:value={password} placeholder="Mot de passe">
