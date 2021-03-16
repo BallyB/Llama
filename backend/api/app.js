@@ -1,7 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
 const userRoutes = require('./routes/user');
+const experimentRoutes = require('./routes/experiment');
+const indexRoutes = require('./routes/index');
 
 mongoose.connect('mongodb+srv://Llama:lamatitia@cluster0.vavcg.mongodb.net/Llama?retryWrites=true&w=majority',
   {
@@ -31,8 +34,8 @@ app.use(bodyParser.json());
 
 //Define user routes
 app.use('/api/auth', userRoutes);
-
-
+app.use('/api/experiment', experimentRoutes);
+app.use('/api/index', indexRoutes);
 /*app.use((req, res, next) => {
   res.status(201).json({
     message: 'request received successfully!'
