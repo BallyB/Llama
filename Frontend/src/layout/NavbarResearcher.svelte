@@ -84,14 +84,12 @@
     border-bottom: 4px solid #f6b93b;
     font-weight: bolder;
   }
-
   .shadow {
     background-color: #fff;
     padding: 10px;
     box-shadow: 0px 15px 10px -15px #313131;
     z-index: 1000;
   }
-
   /* .nav {
     overflow: hidden;
     list-style: none;

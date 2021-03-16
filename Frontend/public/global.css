@@ -37,3 +37,7 @@
     --background: #eee;
     --itemColor: #313131;
 }
+
+body{
+    margin:0;
+}
