@@ -70,6 +70,11 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
+"@sveltejs/svelte-subdivide@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@sveltejs/svelte-subdivide/-/svelte-subdivide-2.2.0.tgz#d22b636cd66fe4c87ee368fd4c0689b316537d7a"
+  integrity sha512-VTxVVfa9TNYZ8iMJUS6TtaAiyppvRVZbPDwvM1LZs+X1clRS9z7xqNEH0m9ov/OaBaIjBvYWiqbkAGuTFrhhRQ==
+
 "@types/estree@*":
   version "0.0.46"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.46.tgz#0fb6bfbbeabd7a30880504993369c4bf1deab1fe"
@@ -404,6 +409,11 @@ magic-string@^0.25.7:
   integrity sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==
   dependencies:
     sourcemap-codec "^1.4.4"
+
+marked@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-2.0.1.tgz#5e7ed7009bfa5c95182e4eb696f85e948cefcee3"
+  integrity sha512-5+/fKgMv2hARmMW7DOpykr2iLhl0NgjyELk5yn92iE7z8Se1IS9n3UsFm86hFXIkvMBmVxki8+ckcpjBeyo/hw==
 
 materialize-css@^1.0.0-rc.2:
   version "1.0.0"

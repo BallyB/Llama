@@ -7,7 +7,6 @@
     import Preview from '../layout/CreationPreview.svelte';
     import Tabs from '../layout/CreationTab.svelte';
     import {writable} from "svelte/store";
-
     let items = [
         {
             label: "Présentation",
@@ -30,7 +29,6 @@
             component: Preview
         }
     ];
-
     const state = writable({
         items,
         activeItem: items[0].value,
@@ -58,9 +56,7 @@
             //...
         },
     });
-
     setContext('creation-form', state);
-
 </script>
 
 <body>
@@ -97,7 +93,6 @@
         text-align: center;
         font-family: "Varta", sans-serif;
     }
-
     .flex-container {
         display: flex;
         flex-wrap: nowrap;
@@ -105,13 +100,10 @@
         margin: 10px auto;
         justify-content: space-around;
     }
-
     .color {
         background: black;
     }
-
     .color:hover {
         background: #313131;
     }
-
 </style>
