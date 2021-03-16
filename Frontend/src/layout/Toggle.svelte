@@ -1,4 +1,7 @@
 <script>
+  import {onMount} from "svelte";
+  export let value1, label1, value2, label2;
+
   onMount(() => {
         const switchButton = document.querySelector('.switch-button');
         const switchBtnRight = document.querySelector('.switch-button-case.right');
@@ -27,8 +30,8 @@
 
 <div class="switch-button">
   <span class="active"></span>
-  <button class="switch-button-case left active-case" on:click={setType('chercheur')}>Chercheur</button>
-  <button class="switch-button-case right" on:click={setType('participant')}>Participant</button>
+  <button class="switch-button-case left active-case" on:click={value1}>{label1}</button>
+  <button class="switch-button-case right" on:click={value2}>{label2}</button>
 </div>
 
 

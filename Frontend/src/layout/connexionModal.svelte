@@ -1,11 +1,8 @@
 <script>
-    import { onMount } from 'svelte';
     import auth from "../store/auth";
     import {push} from 'svelte-spa-router'
     import axios from 'axios';
     import Toggle from './Toggle.svelte'
-
-    onMount(() => { Toggle });
 
 
     let userType = "chercheur";
@@ -34,7 +31,7 @@
         } else {
             await request('signinParticipant', '/home-p', 'participantId');
         }
-    };
+    }
 
     const setType = value => () => userType = value;
 </script>
@@ -46,12 +43,8 @@
 </div>
 
 <form id='signupForm' on:submit={login}>
-    <div class="switch-button">
-        <span class="active"></span>
-        <button class="switch-button-case left active-case" on:click={setType('chercheur')}>Chercheur</button>
-        <button class="switch-button-case right" on:click={setType('participant')}>Participant</button>
-    </div>
-    <!-- <Toggle/> -->
+    <Toggle value1={setType('chercheur')} label1={"Chercheur"} value2={setType('participant')} label2={"Participant"}/>
+
     <input type="email" name="email" bind:value={email} placeholder="Adresse mail">
     <input type="password" name="password" bind:value={password} placeholder="Mot de passe">
     <a href="#"> Mot de passe oublié ? </a>
@@ -105,58 +98,6 @@
         border-radius: 6px;
         padding: 12px 15px;
         margin: 8px auto;
-    }
-
-    .switch-button {
-        text-align: center;
-        height: 37px;
-        will-change: transform;
-        transition: .3s ease all;
-        border: 1px solid #F6B93B;
-        border-radius: 30px;
-        margin: 0 auto 8px auto;
-        cursor: pointer;
-    }
-
-    .switch-button-case {
-        font-family: "Varta", sans-serif;
-        font-weight: bolder;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: black;
-        width: 49%;
-        height: 100%;
-        background:none;
-        position: relative;
-        border: none;
-        transition: .3s ease all;
-        cursor: pointer;
-    }
-
-    .switch-button:hover {
-        color: grey;
-        cursor: pointer;
-    }
-
-    .switch-button-case:focus{
-        outline: none;
-    }
-
-    .active {
-        color: #151515;
-        background-color: #F6B93B;
-        width: 50%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: -1;
-        transition: .3s ease-out all;
-        border-radius: 30px;
-    }
-
-    .active-case {
-        color: white;
     }
 
 </style>
