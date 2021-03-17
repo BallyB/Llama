@@ -18,11 +18,45 @@
     transition: all 0.34s;
     cursor: pointer;
 }
-
+.primary-button-black {
+    font-family: 'Varta', sans-serif;
+    font-weight: bolder;
+    font-size: 14px;
+    color:#FFFFFF;
+    background: #000;
+    width: 133px;
+    height: 56px;
+    left: 394px;
+    top: 509px;
+    border: none;
+    border-radius: 26px;
+    box-shadow: 0 10px 13px -7px #313131;
+    transition: all 0.34s;
+    cursor: pointer;
+}
 .primary-button:hover {
     background-color: #e58e26;
 }
-
+.primary-button-black:hover {
+    background-color: #313131;
+}
 .primary-button:focus {
     outline: 0;
+}
+.primary-button-black:focus {
+    outline: 0;
+}
+.select-item {  
+    font-family: "Varta", sans-serif;
+    color:#313131;
+    --border:none;
+    --borderRadius: 6px;
+    --borderFocusColor: #313131;
+    --borderHoverColor: #313131;
+    --background: #eee;
+    --itemColor: #313131;
+}
+
+body{
+    margin:0;
 }

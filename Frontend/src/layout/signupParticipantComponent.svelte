@@ -1,8 +1,7 @@
 <script>
     import { getContext } from 'svelte';
 
-    import popup from './SignupResearchersModal.svelte';
-
+    import popup from './signupParticipantModal.svelte';
 
     const { open } = getContext('simple-modal');
 
@@ -12,17 +11,15 @@
     let closed = false;
 
     const showPopup = () => {
-        open(popup, { message: "It's a popup!" });
+        open(popup);
     };
 
 </script>
 
 <section>
-    <button class = "primary-button-black" on:click={showPopup}><b>Inscription chercheur</b></button>
-    <br/>
+    <button type="submit" class="primary-button" on:click={showPopup}><b>Inscription participant</b></button>
 
-
-    <div id="state">
+    <div>
         {#if opening}
             <p>opening modal...</p>
         {:else if opened}
@@ -39,22 +36,6 @@
     section {
         padding-top: 0.5em;
     }
-    
-    /* .primary-button-black {
-        display: block;
-        margin: auto;
-        width: 193px;
-        height: 46px;
-        left: 394px;
-        top: 509px;
-    } */
 
-    #state {
-        position: absolute;
-        top: 0;
-        right: 0;
-        opacity: 0.33;
-        font-size: 0.8em;
-    }
 
 </style>

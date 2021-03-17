@@ -8,7 +8,6 @@ const researcherSchema = mongoose.Schema({
   password: { type: String, required: true },
   sex: { type: String, required: true},
   laboratory: { type: Number, required: false},
-  cityID: { type: Number, required: true}
 });
 
 researcherSchema.plugin(uniqueValidator);

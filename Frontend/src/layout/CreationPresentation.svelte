@@ -10,11 +10,11 @@
         <textarea type="text" id="instruction" name="instruction" bind:value={$context.formData.presentation.instruction} placeholder="Consigne de l'expérience"></textarea>
         <textarea type="text" id="consent" name="consent" bind:value={$context.formData.presentation.consent} placeholder="Formulaire de consentement"></textarea>
 
-        <select  name="expType" bind:value={$context.formData.presentation.expType}>
+        <!-- <select  name="expType" bind:value={$context.formData.presentation.expType}>
             <option value="" disabled selected>Sélectionnez un type d'expérience</option>
             <option value="type1">Jugement d'acceptabilité</option>
             <option value="type2">Reconnaissance de mot</option>
-        </select>
+        </select> -->
     </div>
 
 
@@ -27,14 +27,7 @@
         outline: 0;
     }
 
-    select:focus {
-        outline: 0;
-    }
-    select:invalid {
-        color: gray;
-    }
-
-    input, select, textarea {
+    input, textarea {
         background-color: #eee;
         width: 100%;
         box-sizing: border-box;
