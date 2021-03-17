@@ -2,6 +2,7 @@
     import Modal from "../layout/Modal.svelte";
     import ConnexionComponent from "../layout/connexionComponent.svelte";
     import SignupResearchers from "../layout/SignupResearchersComponent.svelte";
+    import SignupParticipants from "../layout/signupParticipantComponent.svelte";
 </script>
         <div class="container">
 
@@ -83,7 +84,7 @@
                     </div>
                     <div class="signup-participants">
                         <Modal>
-                            <SignupResearchers />
+                            <SignupParticipants />
                         </Modal>
                     </div>
                 </div>
