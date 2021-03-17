@@ -4,7 +4,7 @@
     import axios from 'axios';
     import auth from './store/auth';
 
-	onMount(async () => {
+	/*onMount(async () => {
 	   const token = localStorage.getItem('jwt');
 
 	   if (token) {
@@ -19,7 +19,7 @@
                auth.setAuth({ userType, user, token, userId: user._id });
            }
        }
-    });
+    });*/
 </script>
 
 <main>
