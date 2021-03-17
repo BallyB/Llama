@@ -18,7 +18,7 @@
 </script>
 
 <section>
-    <button class = "primary-button" on:click={showPopup}><b>Inscription chercheur</b></button>
+    <button class = "primary-button-black" on:click={showPopup}><b>Inscription chercheur</b></button>
     <br/>
 
 
@@ -39,42 +39,14 @@
     section {
         padding-top: 0.5em;
     }
-
-    .primary-button {
-        font-weight: bolder;
-        background-color: black;
-        width: 115px;
-        height: 47px;
+    
+    /* .primary-button-black {
         display: block;
         margin: auto;
         width: 193px;
         height: 46px;
         left: 394px;
         top: 509px;
-        font-size: 14px;
-    }
-
-    .primary-button:hover {
-        background-color: #313131;
-    }
-
-    /* button {
-        font-size: 14px;
-        sliders: pointer;
-        color:#FFFFFF;
-        background: #313131;
-        border: none;
-        border-radius: 26px;
-        box-shadow: 0px 10px 13px -7px #313131;
-        width: 193px;
-        height: 46px;
-        left: 394px;
-        top: 509px;
-        transition: all 0.34s;
-    }
-
-    button:hover {
-        background-color: #202020;
     } */
 
     #state {
