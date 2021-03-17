@@ -58,7 +58,6 @@
         margin: auto;
         width: 50%;
     }
-
     input, select {
         background-color: #eee;
         width: 100%;
@@ -77,7 +76,10 @@
     select:invalid {
         color: gray;
     }
-    
+
+    select:invalid {
+        color: gray;
+    }
     .addSentence{
         border-radius: 30px ;
         height: 35px ;
@@ -87,7 +89,6 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, .5);
         border:none;
         background-color: #F6B93B;
-        /* color:#FFF; */
         font-family: 'Varela Round', sans-serif;
     }
     .addSentence:focus {
@@ -102,11 +103,7 @@
         border:none;
         box-shadow: 0 2px 8px rgba(0, 0, 0, .5);
     }
-
     select{
         cursor: pointer;
-    }
-    button{
-        cursor:pointer;
     }
 </style>

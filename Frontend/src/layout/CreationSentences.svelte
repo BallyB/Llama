@@ -20,9 +20,6 @@
 
 
 <style>
-    /* img{
-            width: 20px;
-    } */
     span{
         font-family: "Varta", sans-serif;
     }
@@ -34,7 +31,6 @@
     .sentence:focus {
             outline: 0;
     }
-    
     .sentence {
             cursor: pointer;
             background-color: #eee;

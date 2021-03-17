@@ -81,21 +81,6 @@
         height: 400px;
         width:600px;
     }
-    .multiSelectItem {  
-        font-family: "Varta", sans-serif;
-        color:#313131;
-        /* --multiClearTop: 8px;
-        --multiItemHeight:35px; */
-        --multiLabelMargin:4px;
-        --borderColor: #313131;
-        --borderFocusColor: #313131;
-        --background: #eee;
-        --itemColor: #313131;
-        --multiItemBG: #f6b93b;
-        --multiItemActiveBG: #e58e26 ;
-        --multiClearHoverFill: #313131;
-        --multiClearBG: #313131;
-    }
 
 
 </style>

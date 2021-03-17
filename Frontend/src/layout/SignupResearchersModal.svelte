@@ -59,7 +59,7 @@
         <br/>
 
         <p class="sex">Êtes-vous</p>
-            <div>
+            <div class="radio-position">
                 <input required type = "radio" id = "choice1" name = "sex" value = "male"> <label class = "sex" for = "male">Un homme</label>
 
                 <input required type = "radio" id = "choice2" name = "sex" value = "female"><label class = "sex" for = "female">Une femme</label>
@@ -92,11 +92,8 @@
         <br/>
         <a href="#">Comment sont utilisées mes données ?</a>
         <br/>
-        <!-- <input type="submit" name="submit"  value="registration"  id="submit" disabled/> -->
-        <!-- <Component on:click={() => validation()} type = "submit" name = "submit" id = "submit" /> -->
-        <!-- disabled=true si mdp et confirmation différents, sinon disabled = false  -->
 
-        <input class="primary-button" on:click={() => validation()} value="Inscription chercheur" type="submit" >
+        <input class="primary-button-black" on:click={() => validation()} value="Inscription chercheur" type="submit" >
 
         <br/>
     </form>
@@ -113,29 +110,13 @@
         width: 400px;
         margin: 0 auto 13px;
     }
-    .primary-button {
-        font-weight: bolder;
-        background-color: black;
-        width: 115px;
-        height: 47px;
+    .primary-button-black {
         display: block;
         margin: 1.25rem auto;
         width: 193px;
         height: 46px;
         left: 394px;
         top: 509px;
-        font-size: 14px;
-    }
-    .primary-button:hover {
-        background-color: #313131;
-    }
-
-    input[type="submit"]:hover {
-        background-color: #202020;
-    }
-
-    input[type="submit"]:focus {
-        outline: 0;
     }
 
     #terms{
@@ -159,9 +140,6 @@
         border-radius: 6px;
         padding: 12px 15px;
         margin: 8px auto;
-    }
-    input:focus {
-        outline: 0;
     }
     .sex{
         font-size : 14px;

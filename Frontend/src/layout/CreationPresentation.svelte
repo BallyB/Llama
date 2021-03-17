@@ -23,10 +23,10 @@
         margin: auto;
         width: 50%;
     }
+
     input:focus {
         outline: 0;
     }
-
     input, textarea {
         background-color: #eee;
         width: 100%;
@@ -37,7 +37,7 @@
         margin: 8px auto;
         resize: none;
     }
-
+    
     #description, #instruction  {
         height: 140px ;
     }

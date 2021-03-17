@@ -3,6 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
+
+
+body{
+    margin:0;
+}
+
 .primary-button {
     font-family: 'Varta', sans-serif;
     font-size: 16px;
@@ -46,6 +52,9 @@
 .primary-button-black:focus {
     outline: 0;
 }
+button{
+    cursor:pointer;
+}
 .select-item {  
     font-family: "Varta", sans-serif;
     color:#313131;
@@ -57,6 +66,31 @@
     --itemColor: #313131;
 }
 
-body{
-    margin:0;
+.multiSelectItem {  
+    font-family: "Varta", sans-serif;
+    color:#313131;
+    --multiLabelMargin:4px;
+    --borderColor: #313131;
+    --borderFocusColor: #313131;
+    --background: #eee;
+    --itemColor: #313131;
+    --multiItemBG: #f6b93b;
+    --multiItemActiveBG: #e58e26 ;
+    --multiClearHoverFill: #313131;
+    --multiClearBG: #313131;
 }
+
+/* input, textarea, select {
+    background-color: #eee;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 15px;
+    margin: 8px auto;
+    resize: none;
+} */
+
+/* input:focus, select:focus {
+    outline: 0;
+} */
