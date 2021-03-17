@@ -49,7 +49,7 @@
     <input type="password" name="password" bind:value={password} placeholder="Mot de passe">
     <a href="#"> Mot de passe oublié ? </a>
 
-    <button type="submit" class="primary-button">Connexion</button>
+    <button type="submit" class="primary-button-black">Connexion</button>
 </form>
 </body>
 
@@ -69,18 +69,13 @@
         margin: 0 auto 13px;
     }
 
-    .primary-button {
-        font-weight: bolder;
-        background-color: black;
+    .primary-button-black {
         width: 115px;
         height: 47px;
         display: block;
         margin: 1.25rem auto;
     }
 
-    .primary-button:hover {
-        background-color: #313131;
-    }
 
     a {
         color: red;

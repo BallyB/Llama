@@ -72,13 +72,13 @@
                 <button on:click={e => {
                     e.preventDefault();
                     $state.activeItem -= 1;
-                }} class="primary-button color">Retour</button>
+                }} class="primary-button-black">Retour</button>
             {/if}
             {#if $state.activeItem < 4 }
                 <button on:click={e => {
             e.preventDefault();
             $state.activeItem += 1;
-        }} class="primary-button color">Suivant</button>
+        }} class="primary-button-black">Suivant</button>
             {:else }
             <button class="primary-button" type="submit">Valider l'expérience</button>
             {/if}
@@ -99,11 +99,5 @@
         align-content: center;
         margin: 10px auto;
         justify-content: space-around;
-    }
-    .color {
-        background: black;
-    }
-    .color:hover {
-        background: #313131;
     }
 </style>

@@ -47,10 +47,10 @@
     <svelte:component this={$state.steps[$state.currentStep]} />
     <div class="flex-container">
         {#if $state.currentStep > 0 }
-            <button class="primary-button" on:click={onBackClick}>Retour</button>
+            <button class="primary-button-black" on:click={onBackClick}>Retour</button>
         {/if}
         {#if $state.currentStep < $state.steps.length - 1}
-            <button class="primary-button" on:click={onNextClick}>Suivant</button>
+            <button class="primary-button-black" on:click={onNextClick}>Suivant</button>
         {/if}
     </div>
 
@@ -79,14 +79,8 @@
         justify-content: space-around;
     }
 
-    .primary-button {
-        background-color: #151515;
+    .primary-button-black {
         height: 50px;
         width: 80px;
     }
-
-    .primary-button:hover {
-        background-color: #313131;
-    }
-
 </style>
