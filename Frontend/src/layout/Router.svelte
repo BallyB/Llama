@@ -48,6 +48,7 @@ import ResultsParticipant from '../pages/ResultsParticipant.svelte';
             component: Creation,
             conditions: [
                 isAuthenticated,
+                isResearcher,
             ]
         }),
         '/messagerie-p': wrap({

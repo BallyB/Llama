@@ -1,6 +1,6 @@
 <script>
     import auth from '../store/auth';
-    import Navbar from '../layout/NavbarResearcher.svelte';
+    import Navbar from '../layout/NavbarParticipant.svelte';
 </script>
 
 

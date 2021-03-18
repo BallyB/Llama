@@ -1,85 +1,136 @@
 <script>
 	export let selectedHome;
-	export let selectedCreation;
+	export let selectedParticipation;
 	export let selectedResults;
   </script>
 
-<div class="container">
-  <nav class="shadow">
-	<div class="left-links">
-	  <a class="logo" href="/"><img class="logo" src="images/llama.png" alt="logo" /></a>
-	</div>
-	<div class="centered-links">
-	  <a class="links {selectedHome}" href="/">Accueil</a>
-	  <a class="links {selectedCreation}" href="/"> Création</a>
-	  <a class="links {selectedResults}" href="/"> Résultats</a>
-	</div>
-	<div class="right-links">
-	  <a class="profile" href="/"><img class="profile" src="images/user.png" alt="profile" /></a>
-	  <a class="chat" href="/"><img class="chat" src="images/email.png" alt="chat" /></a>
-	</div>
-  </nav>
-</div>
-  
-  <style>
-	.container{
-		margin-bottom: 5em;
+<nav class="nav" role="navigation">
+	 
+        <ul class="menu">
+					<div class="left-links">
+						<a class="logo" href="/"><img class="logo" src="images/llama.png" alt="logo" /></a>
+						<!-- <a class="links" href="/">LOGO</a> -->
+					</div>
+					<div class="menu">
+						 <li><a class="links {selectedHome}"  href="/">Accueil</a></li>
+            			 <li><a class="links {selectedParticipation}"  href="/">Participation</a></li>
+            			 <li><a class="links {selectedResults}"  href="/">Résultats</a></li>
+					</div>
+           <div class="right-links menu">
+						<a class="profile" href="/"><img class="profile" src="images/user.png" alt="profile" /></a>
+						<a class="chat" href="/"><img class="chat" src="images/email.png" alt="chat" /></a>
+						<!-- <a class="links" href="/">Profil</a>
+						<a class="links" href="/">Messagerie</a> -->
+					</div>
+        </ul>
+    </nav>
+
+
+<style>
+	/* .nav{
+		display:flex;
+		flex-direction:column;
+		position: fixed;
+		width: 100%;
+	} */
+	
+	.nav ul {
+		/* position: fixed; */
+		width:100%;
+   		margin: 0px;
+		padding: 0px;
+		background: white;
+		list-style:none;
+		box-shadow: 0px 15px 10px -15px #313131;
 	}
-	nav {
-	  display: flex;
-	  position: fixed;
-	  top: 0;
-	  width: 95vw;
-	  overflow: auto;
-	  height: auto;
-	  justify-content: space-between;
+
+	.links {
+		/* padding-top: 2em;
+		padding-right: 2em;
+		padding-left: 2em;
+		padding-bottom: 1.7em; */
+		padding:1em;
+		display: inline-block;
+		text-align:center;
+		text-decoration: none;
+		color: #313131;
+		font-family: "Varta", sans-serif;
+		font-size: 18px;
+		border-bottom: 4px solid white;
+
 	}
+		
+	.links:hover {
+		border-bottom: 4px solid #f6b93b;
+	}
+
+	.selected {
+		border-bottom: 4px solid #f6b93b;
+		font-weight: bolder;
+	}
+
 	.logo {
-	  height: 50px;
-	  display: inline-block;
+		height: 50px;
+		display: inline-block;
 	}
 	.chat,.profile {
-	  height: 20px;
-	  display: inline-block;
+		height: 20px;
+		display: inline-block;
+		padding-right: 14px;
 	}
-	.profile{
-	  padding-right: 14px;
+	
+	.nav .menu {
+		display: flex;
+		justify-content: space-between;
+		/* height: auto; */
+		height:6em;
+		align-items: center;
 	}
-	.left-links {
-	  display: flex;
-	  align-items: center;
-	  justify-content: space-around;
+		
+	.has-children {
+		position: relative;
 	}
-	.centered-links {
-	  /* display: flex; */
-	  align-items: center;
-	  justify-content: space-around;
+
+	.has-children:hover .drop {
+		/* display: flex; */
+
+		visibility: visible; /* shows sub-menu */
+		opacity: 1;
+		z-index: 1;
+		transform: translateY(0%);
+		transition-delay: 0s, 0s, 0.3s;
 	}
-	.right-links {
-	  display: flex;
-	  align-items: center;
-	  justify-content: space-around;
+
+	.drop {
+		visibility: hidden;
+		transform: translateY(2em);
+		transition: ease-in-out 0s, visibility 0s, z-index 0s linear 0.01s;
+		/* transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; */
+		border: none;
+		z-index: 0;
+		/* display: none; */
+		/* flex-flow: column wrap; */
+		/* min-width: 100px; */
+		position: absolute;
+  }
+	
+	.drop-links {
+		padding: 1em;
+		display: block;
+		align-items: center;
+		width: 300px;
+		text-decoration: none;
+    	text-align: left;
+    	color:white;
+		background-color: #f6b93b;
+		font-family: "Varta", sans-serif;
+		box-shadow: 0px 15px 10px -15px #313131;
+    }
+
+	.drop-links:hover {
+		text-align: left;
+		color:white;
+		background-color: #F3B22B;
 	}
-	.links {
-	  display: inline-block;
-	  text-align: center;
-	  padding: 12px 24px;
-	  color: #313131;
-	  text-decoration: none;
-	  font-size: 18px;
-	  font-family: "Varta", sans-serif;
-	}
-	.links:hover {
-	  border-bottom: 4px solid #f6b93b;
-	}
-	.selected {
-	  border-bottom: 4px solid #f6b93b;
-	  font-weight: bolder;
-	}
-	.shadow {
-	  background-color: #fff;
-	  padding: 10px;
-	  box-shadow: 0px 15px 10px -15px #313131;
-	  z-index: 1000;
-	}
-  </style>
+
+</style>
