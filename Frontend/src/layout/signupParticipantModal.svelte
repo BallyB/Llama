@@ -176,7 +176,7 @@
     <br/>
     <a href>Comment sont utilisées mes données ?</a>
     <br/>
-    <button type="submit" class="primary-button" style="margin-top: 25px">inscription participant</button>
+    <button type="submit" class="primary-button-black" style="margin-top: 25px">inscription participant</button>
 
 </form>
 

@@ -56,7 +56,7 @@
         try {
             const res = await axios.post('http://localhost:3000/api/auth/signupResearcher', {
                 firstname: firstname,
-                name: lastname,
+                name: surname,
                 email: email,
                 password: password,
                 sex: sex,
@@ -80,35 +80,30 @@
 </script>
   
     <h1> Inscription Chercheur </h1>
-    <form id= "formSignup"
-        on:submit|preventDefault={() => {}}
-			target="_self"
-        on:submit|preventDefault = "{handleSubmit}"
-        on:invalid = {validateMessageEmail}
-        on:changed = {validateMessageEmail}
-        on:input = {validateMessageEmail}
-    >
+    <form id= "formSignup">
 
-        <input required type = "firstname" id = "firstname" placeholder = "Prénom" />
+        <input id ="firstname" required type="text" bind:value={firstname} placeholder="Prénom">
         <br/>
 
-        <input required type = "surname" id = "surname" placeholder = "Nom" />
+        <input id ="surname" required type="text" bind:value={surname} placeholder="Nom">
         <br/>
 
-        <p class="sex">Êtes-vous</p>
-            <div class="radio-position">
-                <input required type = "radio" id = "choice1" name = "sex" value = "male"> <label class = "sex" for = "male">Un homme</label>
+        <p class="sex" >Êtes-vous</p>
+            <div>
+                <input required type="radio" name="sex" bind:group={sex}><label>Un homme</label>
 
-                <input required type = "radio" id = "choice2" name = "sex" value = "female"><label class = "sex" for = "female">Une femme</label>
+                <input required type="radio" name="sex" bind:group={sex}><label>Une femme</label>
 
-                <input required type = "radio" id = "choice3" name = "sex" value = "other" ><label class = "sex" for = "other">Je ne souhaite pas l'indiquer</label>
+                <input required type="radio" name="sex" bind:group={sex}><label>Je ne souhaite pas l'indiquer</label>
             </div>
         <br/>
 
         <div class="container">
-                <div class='select-item'><Select items={lab} isMulti={false} placeholder="Sélectionnez votre laboratoire de rattachement"/></div>
+                <div class='select-item'><Select items={lab} bind:value={lab} isMulti={false} placeholder="Sélectionnez votre laboratoire de rattachement"/></div>
         </div>
         
+
+
 
         <!-- <select required id="lab" name="lab">
             <option value="" disabled selected>Sélectionnez votre laboratoire de rattachement</option>
@@ -130,7 +125,7 @@
         <a href="#">Comment sont utilisées mes données ?</a>
         <br/>
 
-        <input class="primary-button-black" on:click={() => validation()} value="Inscription chercheur" type="submit" >
+        <button type="submit" class="primary-button-black" style="margin-top: 25px">inscription chercheur</button>
 
         <br/>
     </form>
@@ -169,7 +164,7 @@
         color : #b71540;
         font-weight: bold;
     }
-    input[type=password],input[type=email],input[type=surname],input[type=firstname] {
+    #firstname, #surname, #password, #email {
         background-color: #eee;
         width: 100%;
         box-sizing: border-box;
