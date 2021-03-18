@@ -2,38 +2,29 @@
 	export let selectedHome;
 	export let selectedParticipation;
 	export let selectedResults;
+	import {link} from 'svelte-spa-router'
   </script>
 
 <nav class="nav" role="navigation">
 	 
         <ul class="menu">
 					<div class="left-links">
-						<a class="logo" href="/"><img class="logo" src="images/llama.png" alt="logo" /></a>
-						<!-- <a class="links" href="/">LOGO</a> -->
+						<a class="logo" href="/home-p" use:link><img class="logo" src="images/llama.png" alt="logo" /></a>
 					</div>
 					<div class="menu">
-						 <li><a class="links {selectedHome}"  href="/">Accueil</a></li>
-            			 <li><a class="links {selectedParticipation}"  href="/">Participation</a></li>
-            			 <li><a class="links {selectedResults}"  href="/">Résultats</a></li>
+						 <li><a class="links {selectedHome}"  href="/home-p" use:link>Accueil</a></li>
+            			 <li><a class="links {selectedParticipation}" href="/participation" use:link>Participation</a></li>
+            			 <li><a class="links {selectedResults}"  href="/resultats-p" use:link>Résultats</a></li>
 					</div>
            <div class="right-links menu">
-						<a class="profile" href="/"><img class="profile" src="images/user.png" alt="profile" /></a>
-						<a class="chat" href="/"><img class="chat" src="images/email.png" alt="chat" /></a>
-						<!-- <a class="links" href="/">Profil</a>
-						<a class="links" href="/">Messagerie</a> -->
+						<a class="profile" href="/profil-p" use:link><img class="profile" src="images/user.png" alt="profile" /></a>
+						<a class="chat" href="/messagerie-p" use:link><img class="chat" src="images/email.png" alt="chat" /></a>
 					</div>
         </ul>
     </nav>
 
 
-<style>
-	/* .nav{
-		display:flex;
-		flex-direction:column;
-		position: fixed;
-		width: 100%;
-	} */
-	
+<style>	
 	.nav ul {
 		/* position: fixed; */
 		width:100%;
@@ -86,51 +77,4 @@
 		height:6em;
 		align-items: center;
 	}
-		
-	.has-children {
-		position: relative;
-	}
-
-	.has-children:hover .drop {
-		/* display: flex; */
-
-		visibility: visible; /* shows sub-menu */
-		opacity: 1;
-		z-index: 1;
-		transform: translateY(0%);
-		transition-delay: 0s, 0s, 0.3s;
-	}
-
-	.drop {
-		visibility: hidden;
-		transform: translateY(2em);
-		transition: ease-in-out 0s, visibility 0s, z-index 0s linear 0.01s;
-		/* transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; */
-		border: none;
-		z-index: 0;
-		/* display: none; */
-		/* flex-flow: column wrap; */
-		/* min-width: 100px; */
-		position: absolute;
-  }
-	
-	.drop-links {
-		padding: 1em;
-		display: block;
-		align-items: center;
-		width: 300px;
-		text-decoration: none;
-    	text-align: left;
-    	color:white;
-		background-color: #f6b93b;
-		font-family: "Varta", sans-serif;
-		box-shadow: 0px 15px 10px -15px #313131;
-    }
-
-	.drop-links:hover {
-		text-align: left;
-		color:white;
-		background-color: #F3B22B;
-	}
-
 </style>

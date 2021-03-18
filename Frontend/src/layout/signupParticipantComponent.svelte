@@ -17,7 +17,7 @@
 </script>
 
 <section>
-    <button type="submit" class="primary-button" on:click={showPopup}><b>Inscription participant</b></button>
+    <button type="submit" class="primary-button-black" on:click={showPopup}><b>Inscription participant</b></button>
 
     <div>
         {#if opening}

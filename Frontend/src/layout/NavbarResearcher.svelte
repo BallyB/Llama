@@ -2,46 +2,37 @@
 	export let selectedHome;
 	export let selectedCreation;
 	export let selectedResults;
+	import {link} from 'svelte-spa-router'
   </script>
 
 <nav class="nav" role="navigation">
 	 
         <ul class="menu">
 					<div class="left-links">
-						<a class="logo" href="/"><img class="logo" src="images/llama.png" alt="logo" /></a>
-						<!-- <a class="links" href="/">LOGO</a> -->
+						<a class="logo" href="/home-r" use:link><img class="logo" src="images/llama.png" alt="logo" /></a>
 					</div>
 					<div class="menu">
-						 <li><a class="links {selectedHome}"  href="/">Accueil</a></li>
-            <li class="has-children"><a class="links {selectedCreation}"  href="/">Création</a>
+						 <li><a class="links {selectedHome}"  href="/home-r" use:link>Accueil</a></li>
+            <li class="has-children"><a class="links {selectedCreation}"  href="/creation" use:link>Création</a>
                 <!-- drop menu -->
                 <ul class="drop">
-                    <li><a class="drop-links" href="/">Jugement d'acceptabilité</a></li>
+                    <li><a class="drop-links" href="/creation" use:link>Jugement d'acceptabilité</a></li>
                     <li><a class="drop-links" href="/">Reconnaissance de mot</a></li>
                     <li><a class="drop-links" href="/">Prononciation</a></li>
                 </ul>
                 <!-- /drop menu-->
             </li>
-            <li><a class="links {selectedResults}"  href="/">Résultats</a></li>
+            <li><a class="links {selectedResults}" href="/resultats-r" use:link>Résultats</a></li>
 					</div>
            <div class="right-links menu">
-						<a class="profile" href="/"><img class="profile" src="images/user.png" alt="profile" /></a>
-						<a class="chat" href="/"><img class="chat" src="images/email.png" alt="chat" /></a>
-						<!-- <a class="links" href="/">Profil</a>
-						<a class="links" href="/">Messagerie</a> -->
+						<a class="profile" href="/profil-r" use:link><img class="profile" src="images/user.png" alt="profile" /></a>
+						<a class="chat" href="/messagerie-r" use:link><img class="chat" src="images/email.png" alt="chat" /></a>
 					</div>
         </ul>
     </nav>
 
 
 <style>
-	/* .nav{
-		display:flex;
-		flex-direction:column;
-		position: fixed;
-		width: 100%;
-	} */
-	
 	.nav ul {
 		/* position: fixed; */
 		width:100%;
@@ -100,9 +91,7 @@
 	}
 
 	.has-children:hover .drop {
-		/* display: flex; */
-
-		visibility: visible; /* shows sub-menu */
+		visibility: visible;
 		opacity: 1;
 		z-index: 1;
 		transform: translateY(0%);
@@ -116,9 +105,6 @@
 		/* transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; */
 		border: none;
 		z-index: 0;
-		/* display: none; */
-		/* flex-flow: column wrap; */
-		/* min-width: 100px; */
 		position: absolute;
   }
 	

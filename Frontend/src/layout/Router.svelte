@@ -6,6 +6,7 @@
     import ProfilR from '../pages/ProfilResearcher.svelte';
     import ProfilP from '../pages/ProfilParticipant.svelte';
     import Creation from '../pages/Creation.svelte';
+    import Participation from '../pages/Participation.svelte';
     import HomeResearcher from '../pages/HomeResearcher.svelte';
     import HomeParticipant from '../pages/HomeParticipant.svelte';
     import ChatR from '../pages/ChatResearcher.svelte';
@@ -13,8 +14,8 @@
     import ResultsR from '../pages/ResultsResearcher.svelte';
     import ResultsP from '../pages/ResultsParticipant.svelte';
     import auth from "../store/auth.js";
-import ResultsResearcher from '../pages/ResultsResearcher.svelte';
-import ResultsParticipant from '../pages/ResultsParticipant.svelte';
+    import ResultsResearcher from '../pages/ResultsResearcher.svelte';
+    import ResultsParticipant from '../pages/ResultsParticipant.svelte';
 
     function isAuthenticated() {
         return !!$auth.token
@@ -49,6 +50,13 @@ import ResultsParticipant from '../pages/ResultsParticipant.svelte';
             conditions: [
                 isAuthenticated,
                 isResearcher,
+            ]
+        }),
+        '/participation': wrap({
+            component: Participation,
+            conditions: [
+                isAuthenticated,
+                isParticipant,
             ]
         }),
         '/messagerie-p': wrap({
