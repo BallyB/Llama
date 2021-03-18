@@ -122,8 +122,8 @@
 
         <input required type = "password" id = "password" placeholder = "Mot de passe (entre 8 et 50 caractères)" />
         <br/>
-        <input required type = "password" id = "confirmPassword" placeholder = "Confirmation du mot de passe" />
-        <br/>
+        <!-- <input required type = "password" id = "confirmPassword" placeholder = "Confirmation du mot de passe" /> -->
+        <!-- <br/> -->
 
         <input required type="checkbox" name = "accept" id="accept"> <label id = "terms" for = "accept"> En poursuivant je reconnais avoir pris connaissance des termes et conditions d'utilisation.</label>
         <br/>
