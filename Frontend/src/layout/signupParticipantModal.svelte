@@ -2,86 +2,42 @@
     import axios from "axios";
     import {push} from "svelte-spa-router";
     import auth from "../store/auth";
+    import Select from "svelte-select";
+
 
     let userType = 'participant';
     let userName;
-    let sex;
+    let sex = '';
     let birthdayDate;
-    let departments = [
-        {
-            label: 'Ain',
-            value: 0,
-        },
-        {
-            label: 'Aine',
-            value: 1,
-        },
-        {
-            label: 'Allier',
-            value: 2,
-        },
-        {
-            label: 'Hautes-Alpes',
-            value: 3,
-        },
-        {
-            label: 'Basses-Alpes',
-            value: 4,
-        },
-        {
-            label: 'Ardeche',
-            value: 5,
-        },
+    const departments = [
+        {value: 0, label: 'Ain'},
+        {value: 1, label: 'Aine'},
+        {value: 2, label: 'Allier'},
+        {value: 3, label: 'Hautes-Alpes'},
+        {value: 4, label: 'Basses-Alpes'},
+        {value: 5, label: 'Ardeche'},
     ];
-    let dept = [];
+    let dept;
     let disorder;
-    let possibleLanguages = [
-        {
-            label: 'Allemand',
-            value: 0,
-        },
-        {
-            label: 'Anglais',
-            value: 1,
-        },
-        {
-            label: 'Espagnol',
-            value: 2,
-        },
-        {
-            label: 'Français',
-            value: 3,
-        },
+    const possibleLanguages = [
+        {value: 0, label: 'Allemand'},
+        {value: 1, label: 'Anglais'},
+        {value: 2, label: 'Espagnol'},
+        {value: 3, label: 'Français'},
     ];
-    let motherTongues = [];
-    let languages = [];
-    let schoolLevels = [
-        {
-            label: 'BAC',
-            value: 0,
-        },
-        {
-            label: 'BAC +1',
-            value: 1,
-        },
-        {
-            label: 'BAC +2',
-            value: 2,
-        },
-        {
-            label: 'BAC +3',
-            value: 3,
-        },
-        {
-            label: 'BAC +4',
-            value: 4,
-        },
-        {
-            label: 'BAC +5',
-            value: 5,
-        },
+
+    let motherTongues;
+    let languages;
+    const schoolLevels = [
+        {value: 0, label: 'BAC',},
+        {value: 1, label: 'BAC +1'},
+        {value: 2, label: 'BAC +2'},
+        {value: 3, label: 'BAC +3'},
+        {value: 4, label: 'BAC +4'},
+        {value: 5, label: 'BAC +5'},
     ];
-    let school = [];
+
+    let school;
     let email;
     let password;
 
@@ -98,8 +54,9 @@
                 sex: sex,
                 disorder: disorder,
                 schoolDegreeID: school,
-                MaternalLanguageID: motherTongues,
-                SpokenLanguageID: languages,
+                maternalLanguageID: motherTongues,
+                spokenLanguageID: languages,
+                regionID: dept,
             });
             console.log(res)
             const { token, participantId } = res.data;
@@ -107,7 +64,7 @@
             auth.setAuth({ userType, participantId, token });
             await push('/home');
         } catch (error) {
-            console.log(error, "coucou")
+            console.log(error)
         }
     }
 
@@ -125,21 +82,22 @@
 
     <p class="sex" >Êtes-vous</p>
     <div>
-        <input required type="radio" name="sex" bind:group={sex}><label>Un homme</label>
+        <input required type="radio" name="sex" bind:group={sex} value="M"><label>Un homme</label>
 
-        <input required type="radio" name="sex" bind:group={sex}><label>Une femme</label>
+        <input required type="radio" name="sex" bind:group={sex} value="F"><label>Une femme</label>
 
-        <input required type="radio" name="sex" bind:group={sex}><label>Je ne souhaite pas l'indiquer</label>
+        <input required type="radio" name="sex" bind:group={sex} value="Undefined"><label>Je ne souhaite pas l'indiquer</label>
     </div>
 
     <input required type="date" id="start" bind:value={birthdayDate} min="1950-01-01" max="2020-12-31">
 
-    <select required id="dept" name="dept" bind:value={dept}>
+    <Select items={departments} isRequired={true} isMulti={false} bind:value={dept} placeholder="Sélectionnez votre département"/>
+    <!--<Select required id="dept" name="dept" bind:value={dept}>
         <option value = "" disabled selected>Sélectionnez votre département de résidence</option>
         {#each departments as level}
             <option value={level.value}>{level.label}</option>
         {/each}
-    </select>
+    </Select>-->
 
     <p class="trouble">Souffrez-vous d un trouble du langage ? (écrit ou parlé)</p>
     <div>
@@ -147,26 +105,28 @@
         <input required type="radio" name="trouble" bind:group={disorder}><label>Non</label>
     </div>
 
-    <select required id = "motherTongue" name = "langue" multiple bind:value={motherTongues}>
+    <Select items={possibleLanguages} isRequired={true} isMulti={true} bind:value={motherTongues} placeholder="Sélectionnez votre ou vos langues(s) maternelle(s)"/>
+    <!--<select required id = "motherTongue" name = "langue" bind:value={motherTongues}>
         <option value = "" disabled selected>Sélectionnez votre ou vos langue(s) maternelle(s)</option>
         {#each possibleLanguages as level}
             <option value ={level.value}>{level.label}</option>
         {/each}
-    </select>
-
-    <select id = "langue" name = "langue" multiple bind:value={languages}>
+    </select>-->
+    <Select items={possibleLanguages} isRequired={true} isMulti={true} bind:value={languages} placeholder="Sélectionnez la ou les autre(s) langue(s) que vous parlez"/>
+    <!--<select id = "langue" name = "langue" bind:value={languages}>
         <option value = "" disabled selected>Sélectionnez la ou les autre(s) langue(s) que vous parlez</option>
         {#each possibleLanguages as level}
             <option value={level.value}>{level.label}</option>
         {/each}
-    </select>
+    </select>-->
 
-    <select required id = "scho" name = "scho" bind:value={school}>
+    <Select items={schoolLevels} isRequired={true} isMulti={false} bind:value={school} placeholder="Sélectionnez votre niveau scolaire"/>
+    <!--<select required id = "scho" name = "scho" bind:value={school}>
         <option value = "" disabled selected>Sélectionnez votre niveau scolaire</option>
         {#each schoolLevels as level}
             <option value={level.value}>{level.label}</option>
         {/each}
-    </select>
+    </select>-->
 
     <input required id="email"  type="email"  name="email" bind:value={email} placeholder="Adresse mail">
     <input required id="password" type="password"  name="password" bind:value={password} placeholder="Mot de passe">
