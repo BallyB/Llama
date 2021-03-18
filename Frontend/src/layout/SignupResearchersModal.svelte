@@ -9,6 +9,13 @@
         {value: 'labo2', label: 'Laboratoire 2'}
     ];
 
+    let userType = 'researcher';
+    let firstname;
+    let surname;
+    let sex;
+    let email;
+    let password;
+
     function validateMessageEmail(event) {
         let textbox = event.target;
         error_boolean = false;
@@ -43,6 +50,27 @@
         console.log(event.target.password.value);
     }
 
+    async function signup(e) {
+        e.preventDefault();
+
+        try {
+            const res = await axios.post('http://localhost:3000/api/auth/signupResearcher', {
+                firstname: firstname,
+                name: lastname,
+                email: email,
+                password: password,
+                sex: sex,
+                laboratory: lab,
+            });
+            /*console.log(res)
+            const { token, participantId } = res.data;
+
+            auth.setAuth({ userType, participantId, token });
+            await push('/home');*/
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     
 
