@@ -1,3 +1,4 @@
+  
 <script>
     import Navbar from '../layout/NavbarParticipant.svelte';
 </script>
