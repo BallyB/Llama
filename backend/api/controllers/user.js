@@ -17,7 +17,7 @@ exports.signupParticipant = (req, res, next) => {
             schoolDegreeID: req.body.schoolDegreeID,
             maternalLanguageID: req.body.maternalLanguageID, //Liste d'id?
             spokenLanguageID: req.body.spokenLanguageID,
-            // cityID: req.body.cityID
+            cityID: req.body.cityID
           });
           participant.save().then(
               () => {
@@ -94,7 +94,7 @@ exports.signupResearcher = (req, res, next) => {
               password: hash, //Faire vérification MDP
               sex: req.body.sex,
               laboratory: req.body.laboratory,
-              cityID: req.body.cityID
+            //   cityID: req.body.cityID
             });
             researcher.save().then(
                 () => {
