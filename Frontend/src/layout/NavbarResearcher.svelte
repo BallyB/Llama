@@ -53,13 +53,18 @@
 	}
 
 	.links {
-		padding: 1em;
+		/* padding-top: 2em;
+		padding-right: 2em;
+		padding-left: 2em;
+		padding-bottom: 1.7em; */
+		padding:1em;
 		display: inline-block;
 		text-align:center;
 		text-decoration: none;
 		color: #313131;
 		font-family: "Varta", sans-serif;
 		font-size: 18px;
+
 	}
 		
 	.links:hover {
@@ -93,29 +98,42 @@
 		position: relative;
 	}
 
-	.has-children:hover > .drop {
-		display: flex;
+	.has-children:hover .drop {
+		/* display: flex; */
+
+		visibility: visible; /* shows sub-menu */
+		opacity: 1;
+		z-index: 1;
+		transform: translateY(0%);
+		transition-delay: 0s, 0s, 0.3s;
 	}
 
 	.drop {
-		display: none;
-		flex-flow: column wrap;
-		min-width: 100px;
+		visibility: hidden;
+		transform: translateY(-2em);
+		transition: all 0.3s ease-in-out 0s, visibility 0s, z-index 0s linear 0.01s;
+		/* transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; */
+		border: none;
+		z-index: 0;
+		/* display: none; */
+		/* flex-flow: column wrap; */
+		/* min-width: 100px; */
 		position: absolute;
-    	/* position: fixed; */
   }
 	
 	.drop-links {
 		padding: 1em;
 		display: block;
+		align-items: center;
 		width: 300px;
 		text-decoration: none;
-		color: #313131;
     	text-align: left;
     	color:white;
 		background-color: #f6b93b;
 		font-family: "Varta", sans-serif;
+		box-shadow: 0px 15px 10px -15px #313131;
     }
+
 	.drop-links:hover {
 		text-align: left;
 		color:white;
