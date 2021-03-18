@@ -64,6 +64,7 @@
 		color: #313131;
 		font-family: "Varta", sans-serif;
 		font-size: 18px;
+		border-bottom: 4px solid white;
 
 	}
 		
@@ -110,8 +111,8 @@
 
 	.drop {
 		visibility: hidden;
-		transform: translateY(-2em);
-		transition: all 0.3s ease-in-out 0s, visibility 0s, z-index 0s linear 0.01s;
+		transform: translateY(2em);
+		transition: ease-in-out 0s, visibility 0s, z-index 0s linear 0.01s;
 		/* transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; */
 		border: none;
 		z-index: 0;

@@ -27,7 +27,7 @@
         e.preventDefault();
 
         if (userType === 'chercheur') {
-            await request('signinChercheur', '/home-r', 'chercheurId');
+            await request('signinResearcher', '/home-r', 'chercheurId');
         } else {
             await request('signinParticipant', '/home-p', 'participantId');
         }
