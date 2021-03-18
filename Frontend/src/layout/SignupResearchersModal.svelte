@@ -1,7 +1,10 @@
 <script>
     import Select from "svelte-select";
+    import axios from "axios";
+    import {push} from "svelte-spa-router";
+    import auth from "../store/auth";
     let error_boolean = false;
-    const lab =[
+    let lab =[
         {value: 'labo1', label: 'Laboratoire 1'},
         {value: 'labo2', label: 'Laboratoire 2'}
     ];
@@ -39,6 +42,12 @@
         console.log(event.target.email.value);
         console.log(event.target.password.value);
     }
+
+
+    
+
+
+    
 
 </script>
   
