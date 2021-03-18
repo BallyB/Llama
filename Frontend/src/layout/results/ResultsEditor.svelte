@@ -43,3 +43,8 @@
 <div class="editor" bind:this={node}></div>
 
 
+<style>
+    .editor{
+        height:50em;
+    }
+</style>

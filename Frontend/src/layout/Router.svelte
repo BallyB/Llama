@@ -29,7 +29,7 @@ import ResultsParticipant from '../pages/ResultsParticipant.svelte';
     }
 
     export const routes = {
-        '/': LandingPage,
+        '/': ResultsResearcher,
         '/home-r': wrap({
             component: HomeResearcher,
             conditions: [
