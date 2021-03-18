@@ -57,6 +57,12 @@
         },
     });
     setContext('creation-form', state);
+
+
+    function handleClick() {
+        alert("Votre expérience a bien été publiée !");
+        window.location.href="#/home-r";
+	}
 </script>
 
 <body>
@@ -80,7 +86,7 @@
             $state.activeItem += 1;
         }} class="primary-button-black">Suivant</button>
             {:else }
-            <button class="primary-button" type="submit">Valider l'expérience</button>
+            <button class="primary-button" type="submit" on:click={handleClick}>Valider l'expérience</button>
             {/if}
         </div>
     </form>
