@@ -22,6 +22,8 @@
         </div>
     {/if}
 {/each}
+
+
 <style>
     .box {
         margin-bottom: 10px;
