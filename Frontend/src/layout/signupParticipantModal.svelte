@@ -100,15 +100,14 @@
                 schoolDegreeID: school,
                 MaternalLanguageID: motherTongues,
                 SpokenLanguageID: languages,
-                cityID: dept,
             });
-            /*console.log(res)
+            console.log(res)
             const { token, participantId } = res.data;
 
             auth.setAuth({ userType, participantId, token });
-            await push('/home');*/
+            await push('/home');
         } catch (error) {
-            console.log(error)
+            console.log(error, "coucou")
         }
     }
 
