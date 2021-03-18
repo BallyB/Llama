@@ -20,7 +20,7 @@
             component: ResultsPreview
         },
     ];
-    const state = writable({
+    export const state = writable({
         items,
         activeItem: items[0].value,
         content: '',
