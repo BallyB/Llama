@@ -31,17 +31,17 @@
     }
 
 	
-	function validation(){
-		confirmPassword.setCustomValidity("")
-		if (password.value !== confirmPassword.value){
-			  confirmPassword.setCustomValidity("Les mots de passe saisis ne correspondent pas");
-    		confirmPassword.reportValidity()
-				return
-		}         
-		if (formSignup.checkValidity()){
-				alert('Votre inscription a bien été prise en compte !')
-		}
-	}
+	// function validation(){
+	// 	confirmPassword.setCustomValidity("")
+	// 	if (password.value !== confirmPassword.value){
+	// 		  confirmPassword.setCustomValidity("Les mots de passe saisis ne correspondent pas");
+    // 		confirmPassword.reportValidity()
+	// 			return
+	// 	}         
+	// 	if (formSignup.checkValidity()){
+	// 			alert('Votre inscription a bien été prise en compte !')
+	// 	}
+	// }
 
     function handleSubmit(event) {
         console.log(event);
