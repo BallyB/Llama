@@ -75,7 +75,7 @@ import ResultsParticipant from '../pages/ResultsParticipant.svelte';
             component: ResultsR,
             conditions: [
                 isAuthenticated,
-                isResearcher,
+                isParticipant,
             ]
         }),
         '/profil-p': wrap({
