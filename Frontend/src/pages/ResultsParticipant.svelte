@@ -1,12 +1,3 @@
-<script>
-<<<<<<< HEAD
-    import Navbar from '../layout/NavbarParticipant.svelte';
-</script>
-
-
-
-<Navbar selectedResults={"selected"}/>
-
 <h1>POLYSÉMIE ET TRONCATION DES NOMS EN -ION EN FRANÇAIS</h1>
 
 <p>
@@ -44,14 +35,3 @@ compte une telle généralisation.
         font-family: 'Varta', sans-serif;
     }
 </style>
-=======
-    import ResultsCreation from '../layout/results/ResultsCreation.svelte';
-
-    const experience = {
-        title: "Titre de l'expérience",
-        id: 2
-    }
-</script>
-
-<ResultsCreation experience={experience}/>
->>>>>>> 6c5ab0cd9459abe0ab52283b71fc8e71f2ef1541
