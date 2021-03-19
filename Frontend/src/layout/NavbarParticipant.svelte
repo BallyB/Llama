@@ -11,11 +11,11 @@
 <nav class="nav" role="navigation">
 	<ul class="menu">
 		<div class="left-links">
-			<a class="logo" href="/home-r" use:link><img class="logo" src="images/llama.png" alt="logo" /></a>
+			<a class="logo" href="/home-p" use:link><img class="logo" src="images/llama.png" alt="logo" /></a>
 		</div>
 		<div class="menu">
 			<li>
-				<a class="links {selectedHome}" href="/home-r" use:link>Accueil</a>
+				<a class="links {selectedHome}" href="/home-p" use:link>Accueil</a>
 			</li>
 
 			<li>
@@ -39,7 +39,7 @@
 
 					<div slot="content" class="profile-drop" transition:fly>
 						<div>
-							<a class="link-profile" href="/profil-p" use:link>Mon profil</a>
+							<a class="profile-links" href="/profil-p" use:link>Mon profil</a>
 						</div>
 						<div>Paramètres</div>
 						<div>Aide</div>
@@ -59,6 +59,7 @@
 		padding-bottom: 8em;
 	}
 	.nav ul {
+		position: fixed;
 		width: 100%;
 		margin: 0px;
 		padding: 0px;
