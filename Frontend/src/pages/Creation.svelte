@@ -61,7 +61,7 @@
 
     function handleClick() {
         alert("Votre expérience a bien été publiée !");
-        location.href="#/home-r";
+        // location.href="#/home-r";
     }
     
 </script>
