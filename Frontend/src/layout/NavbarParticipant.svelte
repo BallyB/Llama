@@ -28,7 +28,7 @@
 		</div>
 		<div class="right-links menu">
 			<li>
-				<Overlay closeOnClickOutside={true} position={"left-center"} >
+				<Overlay closeOnClickOutside={true} position={"bottom-left"} >
 					<button
 						class="profile-button"
 						slot="parent"
