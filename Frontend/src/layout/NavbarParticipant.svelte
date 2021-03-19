@@ -1,6 +1,7 @@
 <script>
 	export let selectedHome;
-	export let selectedCreation;
+	export let selectedExpList;
+	export let selectedRecommendations;
 	export let selectedResults;
 	import { link } from "svelte-spa-router";
 	import { fly, fade } from "svelte/transition";
@@ -19,7 +20,13 @@
 			</li>
 
 			<li>
-				<a class="links {selectedCreation}" href="/participation" use:link>Participation</a>
+				<p class="links">Ma liste</p>
+				<!-- <a class="links {selectedExpList}" href="/maliste" use:link>Ma liste</a> -->
+			</li>
+			
+			<li>
+				<p class="links">Recommandations</p>
+				<!-- <a class="links {selectedRecommendations}" href="/recommandations" use:link>Recommandations</a> -->
 			</li>
 
 			<li>
@@ -75,7 +82,7 @@
 		align-items: center;
 	}
 	.links {
-		padding: 1em;
+		padding: 1em 2em;
 		display: inline-block;
 		text-align: center;
 		text-decoration: none;
