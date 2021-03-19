@@ -62,7 +62,8 @@
     function handleClick() {
         alert("Votre expérience a bien été publiée !");
         window.location.href="#/home-r";
-	}
+    }
+    
 </script>
 
 <body>
