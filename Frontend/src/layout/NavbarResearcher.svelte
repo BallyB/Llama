@@ -32,7 +32,7 @@
 					</div>
            <div class="right-links menu">
 						<li>
-							<Overlay closeOnClickOutside={true} position={"left-center"} >
+							<Overlay closeOnClickOutside={true} position={"bottom-left"} >
 							<button class="profile-button" slot="parent" let:toggle on:click={toggle} >
 								<img class="profile" src="images/user.png" alt="profile" />
 							</button>
@@ -53,7 +53,7 @@
 
 <style>
 	.nav{
-		padding-bottom: 6em;
+		padding-bottom: 8em;
 	}
 	.nav ul {
 		position: fixed;

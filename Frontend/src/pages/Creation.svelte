@@ -68,7 +68,7 @@
 <body>
     <Navbar selectedCreation={"selected"}/>
 
-    <h1>Créer une expérience</h1>
+    <h1>Jugement d'acceptabilité</h1>
 
     <form>
         <Tabs />
@@ -98,6 +98,7 @@
         /* margin-top:20vh; */
         text-align: center;
         font-family: "Varta", sans-serif;
+        color: #F3B22B;
     }
     .flex-container {
         display: flex;

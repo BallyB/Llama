@@ -55,6 +55,9 @@
 </nav>
 
 <style>
+	.nav {
+		padding-bottom: 8em;
+	}
 	.nav ul {
 		width: 100%;
 		margin: 0px;
@@ -67,7 +70,7 @@
 		display: flex;
 		justify-content: space-between;
 		/* height: auto; */
-		height: 6em;
+		height: 7em;
 		align-items: center;
 	}
 	.links {
