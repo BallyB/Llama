@@ -9,8 +9,8 @@ const participantSchema = mongoose.Schema({
   sex: { type: String, required: true},
   disorder: {type: Boolean, required: false},
   schoolDegreeID: { type: Number, required: false},
-  maternalLanguageID: { type: Number, required: true},
-  spokenLanguageID: { type: Number, required: false},
+  maternalLanguageID: { type: String, required: true},
+  spokenLanguageID: { type: String, required: false},
   regionID: { type: Number, required: true}
 });
 

@@ -44,7 +44,7 @@
 
     async function signup(e) {
         e.preventDefault();
-
+        //console.log(languages.map(v => v.value).toString());
         try {
             const res = await axios.post('http://localhost:3000/api/auth/signupParticipant', {
                 nickname: userName,
@@ -54,8 +54,8 @@
                 sex: sex,
                 disorder: disorder,
                 schoolDegreeID: school.value,
-                maternalLanguageID: motherTongues.map(v => v.value),
-                spokenLanguageID: languages.map(v => v.value),
+                maternalLanguageID: motherTongues.map(v => v.value).toString(),
+                spokenLanguageID: languages.map(v => v.value).toString(),
                 regionID: dept.value,
             });
             console.log(res)
