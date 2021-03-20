@@ -43,7 +43,7 @@
 </div>
 
 <form id='signupForm' on:submit={login}>
-    <Toggle value1={setType('chercheur')} label1={"Chercheur"} value2={setType('participant')} label2={"Participant"}/>
+    <Toggle value1={setType('researcher')} label1={"Chercheur"} value2={setType('participant')} label2={"Participant"}/>
 
     <input type="email" name="email" bind:value={email} placeholder="Adresse mail">
     <input type="password" name="password" bind:value={password} placeholder="Mot de passe">
