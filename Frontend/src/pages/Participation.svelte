@@ -2,11 +2,29 @@
 <script>
     import Navbar from '../layout/NavbarParticipant.svelte';
     import Experience from "../layout/experience/Experience.svelte";
-    import {getContext} from "svelte";
+    import {onMount} from "svelte";
+    import axios from "axios";
+    import {replace} from "svelte-spa-router";
 
-    const state = getContext('experience')
+    export let params = {};
 
-    const experience= {
+    let experience;
+
+    onMount(async () => {
+        /*const { id } = params;
+
+        try {
+            const res = await axios.get(`http://localhost:3000/api/experiment/experiment/${id}`);
+            console.log(res);
+            experience = res.body;
+        } catch (e) {
+            console.error(e);
+            await replace('#/home-p');
+        }*/
+    });
+
+    experience= {
+        id: '2', // experience.id
         presentation: {
             title: 'Ces phrases sont-elles grammaticales ?',
             description: 'Vous allez lire des phrases plus ou moins acceptables grammaticalement.\n' + 'Nous vous demandons de juger l’acceptabilité des phrases.',
@@ -34,4 +52,7 @@
 </script>
 
 <Navbar selectedParticipation={"selected"}/>
-<Experience isPreview={false} experience={experience}/>
+
+{#if (experience)}
+    <Experience isPreview={false} experience={experience}/>
+{/if}

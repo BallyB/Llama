@@ -52,7 +52,7 @@
                 isResearcher,
             ]
         }),
-        '/participation': wrap({
+        '/participation/:id': wrap({
             component: Participation,
             conditions: [
                 isAuthenticated,

@@ -5,7 +5,8 @@
     import ThanksStep from "./steps/Thanks.svelte";
     import {writable} from "svelte/store";
     import {setContext} from "svelte";
-
+    import axios from "axios";
+    import {push} from "svelte-spa-router";
 
     export let experience;
     export let isPreview = false;
@@ -38,6 +39,19 @@
         }
     }
 
+    async function submitResults(e) {
+        e.preventDefault();
+
+        const { results, thanks } = $state;
+
+        try {
+            await axios.post(`http://localhost:3000/api/results/saveResults/${experience.id}`, { results, thanks });
+            await push('#/home-p');
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
 </script>
 
 <div class="exp-container">
@@ -51,6 +65,10 @@
         {/if}
         {#if $state.currentStep < $state.steps.length - 1}
             <button class="primary-button-black" on:click={onNextClick}>Suivant</button>
+        {:else}
+            {#if (!isPreview)}
+                <button class="primary-button" on:click={submitResults}>Valider</button>
+            {/if}
         {/if}
     </div>
 

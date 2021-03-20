@@ -641,6 +641,11 @@
   dependencies:
     "has-flag" "^4.0.0"
 
+"svelte-overlay@^1.4.1":
+  "integrity" "sha512-HNtAvOeywwGNvIdeK4QpBa2IYhUNDSwMmwqpvb2XqAhscUT+R4RMEmRn9pEW5p/wmlcmJiiS8MGJ7ogUGFRS8w=="
+  "resolved" "https://registry.npmjs.org/svelte-overlay/-/svelte-overlay-1.4.1.tgz"
+  "version" "1.4.1"
+
 "svelte-router-spa@^5.8.4":
   "integrity" "sha512-e8cGTfZxeSS4S1/q0e3DTDdlwHhzxTytvOFaKPyFwRcUIpjuOfCpQfi3QOpqTdpU59TVPtJCYUBENz7K6gmStg=="
   "resolved" "https://registry.npmjs.org/svelte-router-spa/-/svelte-router-spa-5.8.4.tgz"

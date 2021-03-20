@@ -35,14 +35,18 @@
         {value: 'BAC +3', label: 'BAC +3'}
     ];
     const trouble = [
-        {value: 'oui', label: 'Oui'},
-        {value: 'non', label: 'Non'}
+        {value: true, label: 'Oui'},
+        {value: false, label: 'Non'}
     ];
 
     function handleSelectForFilter(filterName) {
         return event => {
-            $context.formData.filter[filterName] = event.detail.map(item => item.value);
+            $context.formData.filter[filterName] = (event.detail || []).map(item => item.value);
         }
+    }
+
+    function handleSelectTrouble(event) {
+        $context.formData.filter.trouble = event.detail ? event.detail.value : null;
     }
 
 </script>
@@ -62,7 +66,7 @@
 
         <div class='multiSelectItem'><Select items={schoolLevel} isMulti={true} on:select={handleSelectForFilter("schoolLevel")} placeholder="Niveau scolaire"/></div>
 
-        <div class='multiSelectItem'><Select items={trouble} isMulti={true} on:select={handleSelectForFilter("trouble")} placeholder="Trouble du langage"/></div>
+        <div class='multiSelectItem'><Select items={trouble} isMulti={false} on:select={handleSelectTrouble} placeholder="Trouble du langage"/></div>
 
     <!-- </div> -->
 </div>

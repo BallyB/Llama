@@ -53,10 +53,10 @@
                 birthDate: birthdayDate,
                 sex: sex,
                 disorder: disorder,
-                schoolDegreeID: school,
-                maternalLanguageID: motherTongues,
-                spokenLanguageID: languages,
-                regionID: dept,
+                schoolDegreeID: school.value,
+                maternalLanguageID: motherTongues.map(v => v.value),
+                spokenLanguageID: languages.map(v => v.value),
+                regionID: dept.value,
             });
             console.log(res)
             const { token, participantId } = res.data;
@@ -86,12 +86,12 @@
 
         <input required type="radio" name="sex" bind:group={sex} value="F"><label>Une femme</label>
 
-        <input required type="radio" name="sex" bind:group={sex} value="Undefined"><label>Je ne souhaite pas l'indiquer</label>
+        <input required type="radio" name="sex" bind:group={sex} value="NA"><label>Je ne souhaite pas l'indiquer</label>
     </div>
 
     <input required type="date" id="start" bind:value={birthdayDate} min="1950-01-01" max="2020-12-31">
 
-    <Select items={departments} isRequired={true} isMulti={false} bind:value={dept} placeholder="Sélectionnez votre département"/>
+    <Select items={departments} selectedValue={dept} isRequired={true} isMulti={false} on:select={e => dept = e.detail} placeholder="Sélectionnez votre département"/>
     <!--<Select required id="dept" name="dept" bind:value={dept}>
         <option value = "" disabled selected>Sélectionnez votre département de résidence</option>
         {#each departments as level}
@@ -101,18 +101,19 @@
 
     <p class="trouble">Souffrez-vous d un trouble du langage ? (écrit ou parlé)</p>
     <div>
-        <input required type="radio" name="trouble" bind:group={disorder}><label>Oui</label>
-        <input required type="radio" name="trouble" bind:group={disorder}><label>Non</label>
+        <input required type="radio" name="trouble" bind:group={disorder} value={true}><label>Oui</label>
+        <input required type="radio" name="trouble" bind:group={disorder} value={false}><label>Non</label>
     </div>
 
-    <Select items={possibleLanguages} isRequired={true} isMulti={true} bind:value={motherTongues} placeholder="Sélectionnez votre ou vos langues(s) maternelle(s)"/>
+    <Select items={possibleLanguages} selectedValue={motherTongues} isRequired={true} isMulti={true} on:select={e => {
+        console.log(e.detail);motherTongues = e.detail}} placeholder="Sélectionnez votre ou vos langues(s) maternelle(s)"/>
     <!--<select required id = "motherTongue" name = "langue" bind:value={motherTongues}>
         <option value = "" disabled selected>Sélectionnez votre ou vos langue(s) maternelle(s)</option>
         {#each possibleLanguages as level}
             <option value ={level.value}>{level.label}</option>
         {/each}
     </select>-->
-    <Select items={possibleLanguages} isRequired={true} isMulti={true} bind:value={languages} placeholder="Sélectionnez la ou les autre(s) langue(s) que vous parlez"/>
+    <Select items={possibleLanguages} selectedValue={languages} isRequired={true} isMulti={true} on:select={e => languages = e.detail} placeholder="Sélectionnez la ou les autre(s) langue(s) que vous parlez"/>
     <!--<select id = "langue" name = "langue" bind:value={languages}>
         <option value = "" disabled selected>Sélectionnez la ou les autre(s) langue(s) que vous parlez</option>
         {#each possibleLanguages as level}
@@ -120,7 +121,7 @@
         {/each}
     </select>-->
 
-    <Select items={schoolLevels} isRequired={true} isMulti={false} bind:value={school} placeholder="Sélectionnez votre niveau scolaire"/>
+    <Select items={schoolLevels} selectedValue={school} isRequired={true} isMulti={false} on:select={e => school = e.detail} placeholder="Sélectionnez votre niveau scolaire"/>
     <!--<select required id = "scho" name = "scho" bind:value={school}>
         <option value = "" disabled selected>Sélectionnez votre niveau scolaire</option>
         {#each schoolLevels as level}

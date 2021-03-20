@@ -7,6 +7,8 @@
     import Preview from '../layout/CreationPreview.svelte';
     import Tabs from '../layout/CreationTab.svelte';
     import {writable} from "svelte/store";
+    import axios from "axios";
+    import {replace} from "svelte-spa-router";
     let items = [
         {
             label: "Présentation",
@@ -41,12 +43,12 @@
             //   expType: '',
           },
           filter: {
-              age: 'tout' ,
-              spokenLanguage: 'tout',
-              motherTongue: 'tout',
-              department: 'tout',
-              schoolLevel: 'tout',
-              trouble: 'avec et sans trouble du langage',
+              age: [] ,
+              spokenLanguage: [],
+              motherTongue: [],
+              department: [],
+              schoolLevel: [],
+              trouble: false,
           },
           experience: {
               question: '',
@@ -59,11 +61,34 @@
     setContext('creation-form', state);
 
 
-    function handleClick() {
-        alert("Votre expérience a bien été publiée !");
-        // location.href="#/home-r";
+    async function creation(e) {
+        e.preventDefault();
+
+        try {
+            const res = await axios.post('http://localhost:3000/api/experiment/saveExperiment', {
+                title : $state.formData.presentation.title,
+                description : $state.formData.presentation.description,
+                guideline : $state.formData.presentation.instruction,
+                consentForm : $state.formData.presentation.consent,
+                content : JSON.stringify($state.formData.experience),
+                experimentType : 1,
+                ageFilter : $state.formData.filter.age,
+                spokenLanguage : $state.formData.filter.spokenLanguage,
+                nativeLanguage :$state.formData.filter.motherTongue,
+                region : $state.formData.filter.department,
+                schoolLevel : $state.formData.filter.schoolLevel,
+                trouble : $state.formData.filter.trouble
+            });
+            console.log(res);
+            alert('Votre experience a bien été enregistrée');
+
+            await replace('#/home-r');
+        } catch (error) {
+            console.log(error);
+        }
     }
-    
+
+
 </script>
 
 <body>
@@ -87,7 +112,7 @@
             $state.activeItem += 1;
         }} class="primary-button-black">Suivant</button>
             {:else }
-            <button class="primary-button" type="submit" on:click={handleClick}>Valider l'expérience</button>
+            <button class="primary-button" type="submit" on:click={creation}>Valider l'expérience</button>
             {/if}
         </div>
     </form>
