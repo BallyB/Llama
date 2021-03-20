@@ -59,6 +59,7 @@ exports.loginParticipant = (req, res, next) => {
                       { data: payload});
                   res.status(200).json({
                       participantId: participant._id,
+                      participant: participant,
                       token: token
                   });
               }
@@ -136,6 +137,7 @@ exports.signupResearcher = (req, res, next) => {
                         { data: payload});
                     res.status(200).json({
                         researcherId: researcher._id,
+                        researcher: researcher,
                         token: token
                     });
                 }
