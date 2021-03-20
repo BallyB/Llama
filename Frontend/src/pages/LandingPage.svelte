@@ -3,6 +3,7 @@
     import ConnexionComponent from "../layout/connexionComponent.svelte";
     import SignupResearchers from "../layout/SignupResearchersComponent.svelte";
     import SignupParticipants from "../layout/signupParticipantComponent.svelte";
+    import ResultsCreation from "../layout/results/ResultsCreation.svelte";
 </script>
         <div class="container">
 

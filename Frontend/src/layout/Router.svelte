@@ -30,7 +30,7 @@
     }
 
     export const routes = {
-        '/': LandingPage,
+        '/': ResultsResearcher,
         '/home-r': wrap({
             component: HomeResearcher,
             conditions: [
@@ -84,7 +84,7 @@
             component: ResultsR,
             conditions: [
                 isAuthenticated,
-                isResearcher,
+                isParticipant,
             ]
         }),
         '/profil-p': wrap({
