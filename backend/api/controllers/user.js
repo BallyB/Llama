@@ -17,7 +17,7 @@ exports.signupParticipant = (req, res, next) => {
             schoolDegreeID: req.body.schoolDegreeID,
             maternalLanguageID: req.body.maternalLanguageID, //Liste d'id?
             spokenLanguageID: req.body.spokenLanguageID,
-            cityID: req.body.cityID
+            regionID: req.body.regionID
           });
           participant.save().then(
               () => {
