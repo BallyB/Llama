@@ -82,29 +82,29 @@
 		align-items: center;
 	}
 	.links {
-		padding: 1em 2em;
+		padding: 0.5em 1em;
 		display: inline-block;
-		text-align: center;
+		text-align:center;
 		text-decoration: none;
 		color: #313131;
 		font-family: "Varta", sans-serif;
-		font-size: 18px;
-		border-bottom: 4px solid white;
-	}
+		font-size: 20px;
+		border-bottom: 5px solid white;
+	}	
 	.links:hover {
-		border-bottom: 4px solid #f6b93b;
+		border-bottom: 5px solid #f6b93b;
 	}
 	.selected {
-		border-bottom: 4px solid #f6b93b;
+		border-bottom: 5px solid #f6b93b;
 		font-weight: bolder;
 	}
 	.logo {
-		height: 50px;
+		height: 80px;
 		display: inline-block;
+		padding-right: 14px;
 	}
-	.chat,
-	.profile {
-		height: 20px;
+	.chat,.profile {
+		height: 25px;
 		display: inline-block;
 		padding-right: 14px;
 	}
