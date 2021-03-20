@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const Participant = require('../models/participant');
 
 module.exports = (req, res, next) => {
   try {
@@ -8,7 +9,23 @@ module.exports = (req, res, next) => {
     if (req.body.userId && req.body.userId !== userId) {
       throw 'Invalid user ID';
     } else {
-      next();
+      Participant.findOne({ _id: req.body.userId }).then(
+        (participant) => {
+          if (!participant) {
+            return res.status(401).json({
+              error: new Error('Non existing user!')
+            });
+          }else{
+            next();
+          }
+        }
+      ).catch(
+        (error) => {
+          res.status(500).json({
+            error: error
+          });
+        }
+      );
     }
   } catch {
     res.status(401).json({
