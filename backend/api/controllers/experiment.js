@@ -27,9 +27,7 @@ exports.saveExperiment = (req, res, next) => {
           }
       ).catch(
           (error) => {
-              res.status(500).json({
-                  error: new Error('experiment impossible to save')
-              });
+              res.status(400).json(error);
           }
       );
 };
