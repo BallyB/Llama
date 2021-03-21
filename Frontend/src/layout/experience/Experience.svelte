@@ -18,8 +18,8 @@
         steps: [PresentationStep, MainStep, ThanksStep],
         currentStep: 0,
         thanks: {
-            toContact: undefined,
-            toInform: undefined
+            toContact: false,
+            toInform: false
         }
     });
 
@@ -45,7 +45,7 @@
         const { results, thanks } = $state;
 
         try {
-            await axios.post(`http://localhost:3000/api/results/saveResults/${experience.id}`, { results, thanks });
+            await axios.post(`http://localhost:3000/api/results/saveResults/${experience._id}`, { results, thanks });
             await push('#/home-p');
         } catch (e) {
             console.error(e);
@@ -55,7 +55,7 @@
 </script>
 
 <div class="exp-container">
-    <h1 class="exp-title">{experience.presentation.title}</h1>
+    <h1 class="exp-title">{experience.title}</h1>
     <ProgressBar value={$state.currentStep} total={$state.steps.length}/>
 
     <svelte:component this={$state.steps[$state.currentStep]} />

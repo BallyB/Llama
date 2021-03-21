@@ -43,7 +43,7 @@ module.exports = (req, res, next) => {
                 if (req.body.userId && req.body.userId !== userId) {
                     throw 'Invalid user ID';
                 } else {
-                    Participant.findOne({ _id: req.body.userId }).then(
+                    Participant.findOne({ _id: userId }).then(
                         (participant) => {
                             if (!participant) {
                                 return res.status(401).json({

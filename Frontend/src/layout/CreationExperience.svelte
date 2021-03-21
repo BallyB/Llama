@@ -7,7 +7,7 @@
 
     function addSentence () {
         if (newSentence.length > 0){
-            $context.formData.experience.sentences = [...$context.formData.experience.sentences,{
+            $context.formData.content.sentences = [...$context.formData.content.sentences,{
             name: newSentence,
             id: Date.now()
         }]
@@ -15,15 +15,15 @@
         
     }    
     function deleteSentence (sentence) {
-        $context.formData.experience.sentences = $context.formData.experience.sentences.filter(s => s !== sentence)
+        $context.formData.content.sentences = $context.formData.content.sentences.filter(s => s !== sentence)
     }
     
 </script>
 
 <div class="input-container">
-    <input type="text" name="question" bind:value={$context.formData.experience.question} placeholder="Question / énoncé">
+    <input type="text" name="question" bind:value={$context.formData.content.question} placeholder="Question / énoncé">
 
-    <select  name="slider" bind:value={$context.formData.experience.slider}>
+    <select  name="slider" bind:value={$context.formData.content.slider}>
         <option value="" disabled selected>Sélectionnez un type de curseur</option>
         <option value="discrete">Discret (e.g.)</option>
         <option value="continuous">Continu (e.g.)</option>
@@ -31,8 +31,8 @@
 
     <p> Phrases pour jugement d'acceptabilité </p>
     <ul>
-        {#each $context.formData.experience.sentences as sentence (sentence.id)}
-            <!-- name="sentenceID" bind:value={$context.formData.experience.sentenceID} -->
+        {#each $context.formData.content.sentences as sentence (sentence.id)}
+            <!-- name="sentenceID" bind:value={$context.formData.content.sentenceID} -->
             <Sentence
                 sentence={sentence}
                 on:delete={() => deleteSentence(sentence)}

@@ -2,35 +2,31 @@
     import { getContext } from "svelte";
 
     const state = getContext("experience");
+
+    const filters = [
+        { label: 'Age', value: 'age' },
+        { label: 'Langue maternelle', value: 'motherTongue' },
+        { label: 'Langue parlée', value: 'spokenLanguage' },
+        { label: 'Département', value: 'department' },
+        { label: 'Niveau scolaire', value: 'schoolLevel' },
+        { label: 'Trouble du langage', value: 'trouble' },
+    ]
+        .map(filter => ({ label: filter.label, value: $state.experience[filter.value] }))
+        .filter(({ value }) => !!value);
 </script>
 
 <div class="presentation-container">
-    <p>{$state.experience.presentation.description}</p>
-    <p>{$state.experience.presentation.instruction}</p>
-    <p>{$state.experience.presentation.consent}</p>
+    <p>{$state.experience.description}</p>
+    <p>{$state.experience.guideline}</p>
+    <p>{$state.experience.consentForm}</p>
     
     <p>Cette expérience est destinée à :</p>
     <div class="filter-container">
-        <div class="filter-item">
-            <div>Age : {$state.experience.filter.age}</div>
-        </div>
-        <div class="filter-item">
-            <div>
-                Langue maternelle : {$state.experience.filter.motherTongue}
+        {#each filters as filter}
+            <div class="filter-item">
+                <div>{filter.label} : {filter.value}</div>
             </div>
-        </div>
-        <div class="filter-item">
-            <div>Langue parlée : {$state.experience.filter.spokenLanguage}</div>
-        </div>
-        <div class="filter-item">
-            <div>Département : {$state.experience.filter.department}</div>
-        </div>
-        <div class="filter-item">
-            <div>Niveau scolaire : {$state.experience.filter.schoolLevel}</div>
-        </div>
-        <div class="filter-item">
-            <div>Trouble du langage ? {$state.experience.filter.trouble}</div>
-        </div>
+        {/each}
     </div>
 </div>
 

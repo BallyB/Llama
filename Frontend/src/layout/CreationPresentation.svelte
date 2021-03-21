@@ -5,10 +5,10 @@
 </script>
 
     <div class="input-container">
-        <input type="text" name="title" bind:value={$context.formData.presentation.title} placeholder="Titre de l'expérience"/>
-        <textarea type="text" id="description" name="description" bind:value={$context.formData.presentation.description} placeholder="Description de l'expérience"></textarea>
-        <textarea type="text" id="instruction" name="instruction" bind:value={$context.formData.presentation.instruction} placeholder="Consigne de l'expérience"></textarea>
-        <textarea type="text" id="consent" name="consent" bind:value={$context.formData.presentation.consent} placeholder="Formulaire de consentement"></textarea>
+        <input type="text" name="title" bind:value={$context.formData.title} placeholder="Titre de l'expérience"/>
+        <textarea type="text" id="description" name="description" bind:value={$context.formData.description} placeholder="Description de l'expérience"></textarea>
+        <textarea type="text" id="instruction" name="instruction" bind:value={$context.formData.instruction} placeholder="Consigne de l'expérience"></textarea>
+        <textarea type="text" id="consent" name="consent" bind:value={$context.formData.consent} placeholder="Formulaire de consentement"></textarea>
 
         <!-- <select  name="expType" bind:value={$context.formData.presentation.expType}>
             <option value="" disabled selected>Sélectionnez un type d'expérience</option>

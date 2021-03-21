@@ -1,37 +1,36 @@
 <script>
-  import {onMount} from "svelte";
   export let value1, label1, value2, label2;
 
-  onMount(() => {
-        const switchButton = document.querySelector('.switch-button');
-        const switchBtnRight = document.querySelector('.switch-button-case.right');
-        const switchBtnLeft = document.querySelector('.switch-button-case.left');
-        const activeSwitch = document.querySelector('.active');
-        function switchLeft() {
-            switchBtnRight.classList.remove('active-case');
-            switchBtnLeft.classList.add('active-case');
-            activeSwitch.style.left = '0%';
-        }
-        function switchRight() {
-            switchBtnRight.classList.add('active-case');
-            switchBtnLeft.classList.remove('active-case');
-            activeSwitch.style.left = '50%';
-        }
-        switchBtnLeft.addEventListener('click', event => {
-            event.preventDefault();
-            switchLeft();
-        }, false);
-        switchBtnRight.addEventListener('click', event => {
-            event.preventDefault();
-            switchRight();
-        }, false);
-	});
+  let switchBtnRight;
+  let switchBtnLeft;
+  let activeSwitch;
+
+  function switchLeft() {
+      switchBtnRight.classList.remove('active-case');
+      switchBtnLeft.classList.add('active-case');
+      activeSwitch.style.left = '0%';
+  }
+  function switchRight() {
+      switchBtnRight.classList.add('active-case');
+      switchBtnLeft.classList.remove('active-case');
+      activeSwitch.style.left = '50%';
+  }
+
+  const handleLeftClick = () => {
+    switchLeft();
+    value1();
+  };
+
+  const handleRightClick = () => {
+    switchRight();
+    value2();
+  };
 </script>
 
 <div class="switch-button">
-  <span class="active"></span>
-  <button class="switch-button-case left active-case" on:click={value1}>{label1}</button>
-  <button class="switch-button-case right" on:click={value2}>{label2}</button>
+  <span class="active" bind:this={activeSwitch} ></span>
+  <button class="switch-button-case left active-case" bind:this={switchBtnLeft} on:click|preventDefault={handleLeftClick}>{label1}</button>
+  <button class="switch-button-case right" bind:this={switchBtnRight} on:click|preventDefault={handleRightClick}>{label2}</button>
 </div>
 
 

@@ -6,7 +6,7 @@
     const state = getContext('experience')
     let currentSentence = 0;
 
-    const sentences = $state.experience.experience.sentences
+    const sentences = $state.experience.content.sentences
 
     onMount(() => {
        $state.results.sentences = sentences.map(() => ({ value: null, comment: null }));
@@ -42,7 +42,7 @@
     {#if Array.isArray($state.results.sentences) && sentences && sentences.length > 0}
         <ProgressBar showBullets={false} value={currentSentence} total={sentences.length}/>
 
-        <h3>{$state.experience.experience.question}</h3>
+        <h3>{$state.experience.content.question}</h3>
 
         <p class="sentence">{sentences[currentSentence].name}</p>
 

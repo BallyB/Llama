@@ -41,12 +41,12 @@
 
     function handleSelectForFilter(filterName) {
         return event => {
-            $context.formData.filter[filterName] = (event.detail || []).map(item => item.value);
+            $context.formData[filterName] = (event.detail || []).map(item => item.value);
         }
     }
 
     function handleSelectTrouble(event) {
-        $context.formData.filter.trouble = event.detail ? event.detail.value : null;
+        $context.formData.trouble = event.detail ? event.detail.value : null;
     }
 
 </script>
