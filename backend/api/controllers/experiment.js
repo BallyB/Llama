@@ -94,14 +94,17 @@ exports.getExperiment = (req, res, next) => {
 
 exports.saveExperimentAnswer = (req, res, next) => {
     const experimentAnswer = new ExperimentAnswer({
-        participantID: req.body.participantID,
-        experimentID: req.body.experimentID,
-        content: req.body.content
+        participantId: req.body.participantId,
+        experimentId: req.body.experimentId,
+        content: req.body.content,
+        contact: req.body.contact,
+        notification: req.body.notification
       });
       experimentAnswer.save().then(
-          () => {
+          (experimentAnswer) => {
               res.status(201).json({
-                  message: 'Answer successfully created!'
+                  message: 'Answer successfully created!',
+                  content: experimentAnswer.content
               });
           }
       ).catch(
