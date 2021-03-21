@@ -25,6 +25,30 @@ exports.getAllLanguages = (req, res, next) => {
     );
 }
 
+exports.getExperiment = (req, res, next) => {
+    Experiment.findOne({ _id: req.params.id }).then(
+        (experiment) => {
+            if (!experiment) {
+                return res.status(401).json({
+                    error: new Error('No experiment found!')
+                });
+            }
+            else{
+                return res.status(200).json({
+                    data: experiment
+                });
+            }
+        }
+    ).catch(
+        (error) => {
+            res.status(500).json({
+                error: error
+            });
+        }
+    );
+}
+
+
 exports.getAllRegions = (req, res, next) => {
     Region.find().then(
         (region) => {
@@ -52,7 +76,7 @@ exports.getAllschoolDegrees = (req, res, next) => {
     SchoolDegree.find().then(
         (schoolDegree) => {
             if (!schoolDegree) {
-                return res.status(200).json({
+                return res.status(400).json({
                     error: new Error('No school degree found!')
                 });
             }
@@ -76,7 +100,7 @@ exports.getAllLaboratories = (req, res, next) => {
     Laboratory.find().then(
         (laboratory) => {
             if (!laboratory) {
-                return res.status(200).json({
+                return res.status(400).json({
                     error: new Error('No laboratory found!')
                 });
             }
