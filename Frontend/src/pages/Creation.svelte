@@ -74,12 +74,15 @@
                 consentForm : $state.formData.presentation.consent,
                 content : JSON.stringify($state.formData.experience),
                 experimentType : 1,
-                ageFilter : $state.formData.filter.age,
-                spokenLanguage : $state.formData.filter.spokenLanguage,
-                nativeLanguage :$state.formData.filter.motherTongue,
-                region : $state.formData.filter.department,
-                schoolLevel : $state.formData.filter.schoolLevel,
-                trouble : $state.formData.filter.trouble
+                ageFilter : $state.formData.filter.age.toString(),
+                spokenLanguage : $state.formData.filter.spokenLanguage.toString(),
+                nativeLanguage :$state.formData.filter.motherTongue.toString(),
+                region : $state.formData.filter.department.toString(),
+                schoolLevel : $state.formData.filter.schoolLevel.toString(),
+                trouble : $state.formData.filter.trouble,
+                result : '',
+                researcherId : $auth.userId,
+
             }, {
                 headers: {
                     authorization: `Bearer ${$auth.token}`,
