@@ -8,6 +8,7 @@ const authboth = require('../middleware/authboth');
 
 //router.use(checktoken);
 router.get('/languages', authboth, indexCtrl.getAllLanguages);
+router.get('/languages/:id', authboth, indexCtrl.getLanguage);
 router.get('/regions', authboth, indexCtrl.getAllRegions);
 router.get('/laboratories', authboth, indexCtrl.getAllLaboratories);
 router.get('/schoolDegrees', authboth, indexCtrl.getAllschoolDegrees);
