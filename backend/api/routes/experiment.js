@@ -11,6 +11,7 @@ const experimentCtrl = require('../controllers/experiment');
 //router.get('/:id', exempleCtr.findOneExemple);
 //router.get('/', exempleCtr.getAllExemple);
 //router.use(checktoken);
+
 router.get('/experiment', authboth, experimentCtrl.getAllExperiments);
 router.get('/experiment/:id', authboth, experimentCtrl.getExperiment);
 //Possible de faire la même chose pour une inscription, supression, ...
