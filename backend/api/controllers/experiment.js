@@ -16,7 +16,7 @@ exports.saveExperiment = (req, res, next) => {
         schoolLevel: req.body.schoolLevel,
         trouble: req.body.trouble,
         result: ' ',
-        researcherId: req.body.userId
+        researcherId: req.body.researcherId
 
       });
       experiment.save().then(
