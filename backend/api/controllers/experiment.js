@@ -14,8 +14,10 @@ exports.saveExperiment = (req, res, next) => {
         nativeLanguage: req.body.nativeLanguage,
         regionID: req.body.regionID,
         schoolLevel: req.body.schoolLevel,
-        trouble: req.body.trouble
-        //Ajouter researcherID
+        trouble: req.body.trouble,
+        result: ' ',
+        researcherId: req.body.userId
+
       });
       experiment.save().then(
           (experiment) => {
@@ -28,7 +30,8 @@ exports.saveExperiment = (req, res, next) => {
       ).catch(
           (error) => {
               res.status(500).json({
-                  error: new Error('experiment impossible to save')
+                  error: new Error('experiment impossible to save'),
+                  message: 'Experiment impossible to save'
               });
           }
       );
