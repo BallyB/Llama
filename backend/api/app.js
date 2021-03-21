@@ -36,10 +36,6 @@ app.use(bodyParser.json());
 app.use('/api/auth', userRoutes);
 app.use('/api/experiment', experimentRoutes);
 app.use('/api/index', indexRoutes);
-/*app.use((req, res, next) => {
-  res.status(201).json({
-    message: 'request received successfully!'
-  });
-});*/
+
 
 module.exports = app;
