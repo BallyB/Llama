@@ -11,8 +11,8 @@ const experimentSchema = mongoose.Schema({
   ageFilter: {type: String, required: false},
   spokenLanguage: {type: String, required: false},
   nativeLanguage: {type: String, required: true},
-  regionID: {type: Number, require: false},
-  schoolLevel: {type: Number, required: false},
+  regionID: {type: String, require: false},
+  schoolLevel: {type: String, required: false},
   trouble: {type: Boolean, required: true},
   result: {type: String, required: false},
   researcherId: {type: String, required: true}
