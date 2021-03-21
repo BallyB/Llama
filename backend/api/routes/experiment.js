@@ -14,7 +14,7 @@ router.use(checktoken);
 //router.get('/experiment/:id', experimentCtrl.getExperiment);
 //Possible de faire la même chose pour une inscription, supression, ...
 
-router.post('/createExperiment', experimentCtrl.saveExperiment);
+router.post('/createExperiment', authresearcher, experimentCtrl.saveExperiment);
 //router.post('/saveExperiment', authresearcher, experimentCtrl.saveExperiment);
 //router.put('/:id', exempleCtr.updateExemple); --> Modification dans la base
 //router.delete('/:id', exempleCtr.deleteExemple); --> Supression dans la base
