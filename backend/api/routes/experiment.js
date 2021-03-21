@@ -12,11 +12,11 @@ const experimentCtrl = require('../controllers/experiment');
 //router.get('/', exempleCtr.getAllExemple);
 router.use(checktoken);
 router.get('/experiment', authboth, experimentCtrl.getAllExperiments);
-router.get('/experiment/:id', experimentCtrl.getExperiment);
+router.get('/experiment/:id', authboth, experimentCtrl.getExperiment);
 //Possible de faire la même chose pour une inscription, supression, ...
 
 router.post('/createExperiment', authresearcher, experimentCtrl.saveExperiment);
-//router.post('/saveExperiment', authresearcher, experimentCtrl.saveExperiment);
+router.post('/passExperiment', authparticipant, experimentCtrl.saveExperimentAnswer);
 //router.put('/:id', exempleCtr.updateExemple); --> Modification dans la base
 //router.delete('/:id', exempleCtr.deleteExemple); --> Supression dans la base
 //router.post('/', exempleCtr.createExemple); --> Ajout dans la base

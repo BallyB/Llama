@@ -10,7 +10,7 @@ exports.signupParticipant = (req, res, next) => {
           const participant = new Participant({
             nickname: req.body.nickname,
             email: req.body.email,
-            password: hash, //Faire vérification MDP
+            password: hash,
             birthDate: req.body.birthDate,
             sex: req.body.sex,
             disorder: req.body.disorder,

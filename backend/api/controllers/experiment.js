@@ -14,19 +14,24 @@ exports.saveExperiment = (req, res, next) => {
         nativeLanguage: req.body.nativeLanguage,
         regionID: req.body.regionID,
         schoolLevel: req.body.schoolLevel,
-        trouble: req.body.trouble
-        //Ajouter researcherID
+        trouble: req.body.trouble,
+        result: ' ',
+        researcherId: req.body.userId
+
       });
       experiment.save().then(
-          () => {
+          (experiment) => {
               res.status(201).json({
-                  message: 'Experiment successfully created!'
+                  message: 'Experiment successfully created!',
+                  experimentId: experiment._id,
+                  content: experiment.content
               });
           }
       ).catch(
           (error) => {
               res.status(500).json({
-                  error: new Error('experiment impossible to save')
+                  error: new Error('experiment impossible to save'),
+                  message: 'Experiment impossible to save'
               });
           }
       );
@@ -48,7 +53,7 @@ exports.getAllExperiments = (req, res, next) => {
                 });
             }
             else{
-                return res.status(401).json({
+                return res.status(200).json({
                     data: experiment
                 });
             }
@@ -72,7 +77,7 @@ exports.getExperiment = (req, res, next) => {
                 });
             }
             else{
-                return res.status(401).json({
+                return res.status(200).json({
                     data: experiment
                 });
             }
@@ -89,14 +94,17 @@ exports.getExperiment = (req, res, next) => {
 
 exports.saveExperimentAnswer = (req, res, next) => {
     const experimentAnswer = new ExperimentAnswer({
-        participantID: req.body.participantID,
-        experimentID: req.body.experimentID,
-        content: req.body.content
+        participantId: req.body.participantId,
+        experimentId: req.body.experimentId,
+        content: req.body.content,
+        contact: req.body.contact,
+        notification: req.body.notification
       });
       experimentAnswer.save().then(
-          () => {
+          (experimentAnswer) => {
               res.status(201).json({
-                  message: 'Answer successfully created!'
+                  message: 'Answer successfully created!',
+                  content: experimentAnswer.content
               });
           }
       ).catch(
