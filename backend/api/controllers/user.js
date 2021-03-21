@@ -132,7 +132,7 @@ exports.signupResearcher = (req, res, next) => {
                     }
                     payload = { user_id: researcher._id, kind: 'researcher' }
                     const token = jwt.sign({ researcherId: researcher._id },
-                        'FannyMarineFlorenceLisaEstefaniaMarusyaRebeccaAliceMarieHélèneJulietteMBSolangeBérengèreElsa',
+                        'AnthonyMorganLaetitiaAdrienCelinaClaraThibaultJuanitoGuillaumeElisaLéaCinthiaAmélie',
                         { expiresIn: '24h'},
                         { data: payload});
                     res.status(200).json({

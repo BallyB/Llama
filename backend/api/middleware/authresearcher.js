@@ -22,7 +22,7 @@ module.exports = (req, res, next) => {
       ).catch(
         (error) => {
           res.status(500).json({
-            error: error
+            error: new Error('impossible de recherche dans la base')
           });
         }
       );

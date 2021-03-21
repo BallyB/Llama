@@ -12,7 +12,7 @@ exports.saveExperiment = (req, res, next) => {
         ageFilter: req.body.ageFilter,
         spokenLanguage: req.body.spokenLanguage,
         nativeLanguage: req.body.nativeLanguage,
-        departement: req.body.departement,
+        regionID: req.body.regionID,
         schoolLevel: req.body.schoolLevel,
         trouble: req.body.trouble
         //Ajouter researcherID
@@ -26,15 +26,20 @@ exports.saveExperiment = (req, res, next) => {
       ).catch(
           (error) => {
               res.status(500).json({
-                  error: error
+                  error: new Error('experiment impossible to save')
               });
           }
       );
 };
 
 
+/*exports.saveExperiment = (req, res, next) => {
+    return res.status(201).json({
+        message: 'Coucou successfully created!'
+    });
+};*/
 // A PRECISER PLUS TARD AVEC LES PROFILS UTILISATEURS
-exports.getAllExperiments = (req, res, next) => {
+/*exports.getAllExperiments = (req, res, next) => {
     Experiment.find().then(
         (experiment) => {
             if (!experiment) {
@@ -101,4 +106,4 @@ exports.saveExperimentAnswer = (req, res, next) => {
               });
           }
       );
-};
+};*/
