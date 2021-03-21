@@ -62,7 +62,7 @@
             const { token, participantId } = res.data;
 
             auth.setAuth({ userType, participantId, token });
-            await push('/home');
+            await push('/home-p');
         } catch (error) {
             console.log(error)
         }

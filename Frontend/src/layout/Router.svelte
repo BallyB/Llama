@@ -22,7 +22,7 @@
     }
 
     function isResearcher() {
-        return $auth.userType === "chercheur"
+        return $auth.userType === "researcher"
     }
 
     function isParticipant() {

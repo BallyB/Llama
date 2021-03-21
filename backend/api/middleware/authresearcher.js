@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
     if (req.body.userId && req.body.userId !== userId) {
       throw 'Invalid user ID';
     } else {
-      Researcher.findOne({ _id: req.body.userId }).then(
+      Researcher.findOne({ _id: userId }).then(
         (researcher) => {
           if (!researcher) {
             return res.status(401).json({

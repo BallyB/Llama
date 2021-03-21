@@ -1,35 +1,36 @@
 <script>
     import auth from "../store/auth";
-    import {push} from 'svelte-spa-router'
+    import {replace} from 'svelte-spa-router'
     import axios from 'axios';
     import Toggle from './Toggle.svelte'
 
 
-    let userType = "chercheur";
+    let userType = "researcher";
     let email;
     let password;
 
-    async function request(route, targetRoute, property) {
+    async function request(route, targetRoute) {
         const res = await axios.post(`http://localhost:3000/api/auth/${route}`, {
             email,
             password
         });
 
         const { token } = res.data;
+        const user = res.data[userType];
+        const userId = res.data[`${userType}Id`];
 
-        auth.setAuth({ userType, userId: res.data[property], token});
-        console.log(localStorage);
+        auth.setAuth({ userType, userId, user, token});
         localStorage.setItem("jwt", token);
-        await push(targetRoute);
+
+        await replace(targetRoute);
     }
 
     async function login(e) {
         e.preventDefault();
-
-        if (userType === 'chercheur') {
-            await request('signinResearcher', '/home-r', 'chercheurId');
+        if (userType === 'researcher') {
+            await request('signinResearcher', '/home-r');
         } else {
-            await request('signinParticipant', '/home-p', 'participantId');
+            await request('signinParticipant', '/home-p');
         }
     }
 
