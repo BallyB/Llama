@@ -39,7 +39,7 @@ exports.saveExperiment = (req, res, next) => {
     });
 };*/
 // A PRECISER PLUS TARD AVEC LES PROFILS UTILISATEURS
-/*exports.getAllExperiments = (req, res, next) => {
+exports.getAllExperiments = (req, res, next) => {
     Experiment.find().then(
         (experiment) => {
             if (!experiment) {
@@ -106,4 +106,4 @@ exports.saveExperimentAnswer = (req, res, next) => {
               });
           }
       );
-};*/
+};

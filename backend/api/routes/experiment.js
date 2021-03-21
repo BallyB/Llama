@@ -5,13 +5,14 @@ const router = new express.Router();
 const checktoken = require('../middleware/checktoken');
 const authparticipant = require('../middleware/authparticipant');
 const authresearcher = require('../middleware/authresearcher');
+const authboth = require('../middleware/authboth');
 const experimentCtrl = require('../controllers/experiment');
 // Routes de type GET pour récupérer des objets dans la base de données
 //router.get('/:id', exempleCtr.findOneExemple);
 //router.get('/', exempleCtr.getAllExemple);
 router.use(checktoken);
-//router.get('/experiment', experimentCtrl.getAllExperiments);
-//router.get('/experiment/:id', experimentCtrl.getExperiment);
+router.get('/experiment', authboth, experimentCtrl.getAllExperiments);
+router.get('/experiment/:id', experimentCtrl.getExperiment);
 //Possible de faire la même chose pour une inscription, supression, ...
 
 router.post('/createExperiment', authresearcher, experimentCtrl.saveExperiment);
