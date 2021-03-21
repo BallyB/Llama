@@ -1,4 +1,5 @@
 const Language = require('../models/language');
+const Region = require('../models/region');
 
 
 exports.getAllLanguages = (req, res, next) => {
@@ -12,6 +13,29 @@ exports.getAllLanguages = (req, res, next) => {
             else{
                 return res.status(401).json({
                     data: language
+                });
+            }
+        }
+    ).catch(
+        (error) => {
+            res.status(500).json({
+                error: error
+            });
+        }
+    );
+}
+
+exports.getAllRegions = (req, res, next) => {
+    Region.find().then(
+        (region) => {
+            if (!region) {
+                return res.status(401).json({
+                    error: new Error('No regions found!')
+                });
+            }
+            else{
+                return res.status(401).json({
+                    data: region
                 });
             }
         }
