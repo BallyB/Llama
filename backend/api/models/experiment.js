@@ -13,7 +13,10 @@ const experimentSchema = mongoose.Schema({
   nativeLanguage: {type: String, required: true},
   regionID: {type: Number, require: false},
   schoolLevel: {type: Number, required: false},
-  trouble: {type: Boolean, required: true}
+  trouble: {type: Boolean, required: true},
+  result: {type: String, required: false},
+  researcherId: {type: String, required: true}
+  //Resultats 
   //Ajouter researcherID
 });
 

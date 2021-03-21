@@ -14,8 +14,10 @@ exports.saveExperiment = (req, res, next) => {
         nativeLanguage: req.body.nativeLanguage,
         regionID: req.body.regionID,
         schoolLevel: req.body.schoolLevel,
-        trouble: req.body.trouble
-        //Ajouter researcherID
+        trouble: req.body.trouble,
+        result: ' ',
+        researcherId: req.body.userId
+
       });
       experiment.save().then(
           (experiment) => {
@@ -27,7 +29,10 @@ exports.saveExperiment = (req, res, next) => {
           }
       ).catch(
           (error) => {
-              res.status(400).json(error);
+              res.status(500).json({
+                  error: new Error('experiment impossible to save'),
+                  message: 'Experiment impossible to save'
+              });
           }
       );
 };
@@ -89,14 +94,17 @@ exports.getExperiment = (req, res, next) => {
 
 exports.saveExperimentAnswer = (req, res, next) => {
     const experimentAnswer = new ExperimentAnswer({
-        participantID: req.body.participantID,
-        experimentID: req.body.experimentID,
-        content: req.body.content
+        participantId: req.body.participantId,
+        experimentId: req.body.experimentId,
+        content: req.body.content,
+        contact: req.body.contact,
+        notification: req.body.notification
       });
       experimentAnswer.save().then(
-          () => {
+          (experimentAnswer) => {
               res.status(201).json({
-                  message: 'Answer successfully created!'
+                  message: 'Answer successfully created!',
+                  content: experimentAnswer.content
               });
           }
       ).catch(
