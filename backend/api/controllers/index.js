@@ -11,7 +11,7 @@ exports.getAllLanguages = (req, res, next) => {
                 });
             }
             else{
-                return res.status(401).json({
+                return res.status(200).json({
                     data: language
                 });
             }
@@ -34,7 +34,7 @@ exports.getAllRegions = (req, res, next) => {
                 });
             }
             else{
-                return res.status(401).json({
+                return res.status(200).json({
                     data: region
                 });
             }

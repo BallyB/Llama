@@ -18,9 +18,11 @@ exports.saveExperiment = (req, res, next) => {
         //Ajouter researcherID
       });
       experiment.save().then(
-          () => {
+          (experiment) => {
               res.status(201).json({
-                  message: 'Experiment successfully created!'
+                  message: 'Experiment successfully created!',
+                  experimentId: experiment._id,
+                  content: experiment.content
               });
           }
       ).catch(
@@ -48,7 +50,7 @@ exports.getAllExperiments = (req, res, next) => {
                 });
             }
             else{
-                return res.status(401).json({
+                return res.status(200).json({
                     data: experiment
                 });
             }
@@ -72,7 +74,7 @@ exports.getExperiment = (req, res, next) => {
                 });
             }
             else{
-                return res.status(401).json({
+                return res.status(200).json({
                     data: experiment
                 });
             }
