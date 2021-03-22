@@ -39,8 +39,8 @@
         formData: {
             title: '',
           description: '',
-          instruction: '',
-          consent: '',
+          guideline: '',
+          consentForm: '',
           age: [] ,
           spokenLanguage: [],
           motherTongue: [],
@@ -66,8 +66,8 @@
             const res = await axios.post('http://localhost:3000/api/experiment/createExperiment', {
                 title : $state.formData.title,
                 description : $state.formData.description,
-                guideline : $state.formData.instruction,
-                consentForm : $state.formData.consent,
+                guideline : $state.formData.guideline,
+                consentForm : $state.formData.consentForm,
                 content : JSON.stringify($state.formData.content),
                 experimentType : 1,
                 ageFilter : JSON.stringify($state.formData.age),
