@@ -3,7 +3,6 @@
     import ConnexionComponent from "../layout/connexionComponent.svelte";
     import SignupResearchers from "../layout/SignupResearchersComponent.svelte";
     import SignupParticipants from "../layout/signupParticipantComponent.svelte";
-    import ResultsCreation from "../layout/results/ResultsCreation.svelte";
 </script>
         <div class="container">
 
@@ -11,7 +10,6 @@
                 <div class="logo">
                     <img id="logo" class="logo" src="images/logo.png" alt="Logo" />
                 </div>
-                <div></div>
                 <div>
                     <p class="accroche">
                         Participez à des expériences en <em>linguistique </em> et
@@ -197,11 +195,11 @@
             justify-content: space-between;
         }
         #creation{
-            width: 30%;
+            width: 50%;
             /* width: 3em; */
         }
         .creation{
-            font-size: 1.5em;
+            font-size: 1.7em;
             display: inline-flex;
             flex-direction: row;
             align-items: center;
@@ -209,11 +207,11 @@
             color: #313131;
         }
         #participants{
-            width: 30%;
+            width: 50%;
             /* width: 3em; */
         }
         .participants{
-            font-size: 1.5em;
+            font-size: 1.7em;
             display: inline-flex;
             flex-direction: row;
             align-items: center;
@@ -221,11 +219,11 @@
             color: #313131;
         }
         #followup{
-            width: 30%;
+            width: 50%;
             /* width: 3em; */
         }
         .followup{
-            font-size: 1.5em;
+            font-size: 1.7em;
             display: inline-flex;
             flex-direction: row;
             align-items: center;
@@ -238,11 +236,11 @@
         }
 
         #participation{
-            width: 30%;
+            width: 50%;
             /* width: 3em; */
         }
         .participation{
-            font-size: 1.5em;
+            font-size: 1.7em;
             display: inline-flex;
             flex-direction: row;
             align-items: center;
@@ -250,11 +248,11 @@
             color: #313131;
         }
         #results{
-            width: 30%;
+            width: 50%;
             /* width: 3em; */
         }
         .results{
-            font-size: 1.5em;
+            font-size: 1.7em;
             display: inline-flex;
             flex-direction: row;
             align-items: center;
@@ -262,11 +260,11 @@
             color: #313131;
         }
         #reward{
-            width: 30%;
+            width: 50%;
             /* width: 3em; */
         }
         .reward{
-            font-size: 1.5em;
+            font-size: 1.7em;
             display: inline-flex;
             flex-direction: row;
             align-items: center;
