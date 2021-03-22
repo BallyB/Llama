@@ -10,7 +10,6 @@
     import axios from "axios";
     import {replace} from "svelte-spa-router";
     import auth from "../store/auth";
-
     let items = [
         {
             label: "Présentation",
@@ -38,36 +37,32 @@
         activeItem: items[0].value,
         formData: {
             title: '',
-            description: '',
-            instruction: '',
-            consent: '',
-            age: [] ,
-            spokenLanguage: [],
-            motherTongue: [],
-            department: [],
-            schoolLevel: [],
-            trouble: false,
-            content: {
-                question: '',
-                slider: '',
-                sentences: [],
-            }
-
+          description: '',
+          guideline: '',
+          consentForm: '',
+          age: [] ,
+          spokenLanguage: [],
+          motherTongue: [],
+          department: [],
+          schoolLevel: [],
+          trouble: false,
+        content: {
+            question: '',
+            slider: '',
+            sentences: [],
+        }
             //...
         },
     });
     setContext('creation-form', state);
-
-
     async function creation(e) {
         e.preventDefault();
-
         try {
             const res = await axios.post('http://localhost:3000/api/experiment/createExperiment', {
                 title : $state.formData.title,
                 description : $state.formData.description,
-                guideline : $state.formData.instruction,
-                consentForm : $state.formData.consent,
+                guideline : $state.formData.guideline,
+                consentForm : $state.formData.consentForm,
                 content : JSON.stringify($state.formData.content),
                 experimentType : 1,
                 ageFilter : JSON.stringify($state.formData.age),
@@ -78,7 +73,6 @@
                 trouble : $state.formData.trouble,
                 result : '',
                 researcherId : $auth.userId,
-
             }, {
                 headers: {
                     authorization: `Bearer ${$auth.token}`,
@@ -86,14 +80,11 @@
             });
             console.log(res);
             alert('Votre experience a bien été enregistrée');
-
             await replace('#/home-r');
         } catch (error) {
             console.log(error);
         }
     }
-
-
 </script>
 
 <body>
