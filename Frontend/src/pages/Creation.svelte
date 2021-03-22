@@ -38,20 +38,20 @@
         activeItem: items[0].value,
         formData: {
             title: '',
-          description: '',
-          instruction: '',
-          consent: '',
-          age: [] ,
-          spokenLanguage: [],
-          motherTongue: [],
-          department: [],
-          schoolLevel: [],
-          trouble: false,
-        content: {
-            question: '',
-            slider: '',
-            sentences: [],
-        }
+            description: '',
+            instruction: '',
+            consent: '',
+            age: [] ,
+            spokenLanguage: [],
+            motherTongue: [],
+            department: [],
+            schoolLevel: [],
+            trouble: false,
+            content: {
+                question: '',
+                slider: '',
+                sentences: [],
+            }
 
             //...
         },
