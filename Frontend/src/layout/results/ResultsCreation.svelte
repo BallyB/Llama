@@ -23,7 +23,7 @@
     export const state = writable({
         items,
         activeItem: items[0].value,
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt risus quis turpis iaculis rutrum. Vestibulum pretium molestie felis ac venenatis.',
+        content: '',
         deltas: [],
     });
 
@@ -41,7 +41,7 @@
 
 </script>
 
-<h2>{experience.title}</h2>
+<!--<h2>{experience.title}</h2>-->
 
 <ResultsTabs/>
 
