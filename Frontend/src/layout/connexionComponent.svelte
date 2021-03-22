@@ -16,9 +16,7 @@
 </script>
 
 <section>
-    <button type="submit" class="primary-button" on:click={showPopup}
-        ><b>Connexion !</b></button
-    >
+    <button type="submit" class="primary-button" on:click={showPopup}><b>Connexion !</b></button>
 
     <div>
         {#if opening}

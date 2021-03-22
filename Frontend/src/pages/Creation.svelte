@@ -102,8 +102,7 @@
     <h1>Jugement d'acceptabilité</h1>
 
     <form>
-        <Tabs />
-        {JSON.stringify($state)}
+        <Tabs/>
         <div class="flex-container">
             {#if $state.activeItem > 1 }
                 <button on:click={e => {

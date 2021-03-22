@@ -30,6 +30,5 @@
 <Navbar selectedParticipation={"selected"}/>
 
 {#if (experience)}
-    {JSON.stringify(experience)}
     <Experience isPreview={false} experience={experience}/>
 {/if}
