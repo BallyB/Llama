@@ -1,13 +1,12 @@
 
-back :
+back-end :
 se placer dans /backend puis :
 $ docker-compose up
 
 
-front :
+front-end :
 se placer dans /Frontend puis :
-$ npm install -D rollup rollup-plugin-terser @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-babel @babel/preset-env
-$ npm run build
-$ npm run start
+$ npm install
+$ npm run dev
 
 http://localhost:5000/
