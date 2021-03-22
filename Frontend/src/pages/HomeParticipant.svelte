@@ -47,8 +47,9 @@
     }
 
     h2 {
-        font-size: 35px;
-        font-weight: bolder
+        font-weight: bolder;
+        margin:0;
+        padding:0;
     }
 
     .type-exp {
@@ -72,7 +73,7 @@
     }
 
     .experiment-card {
-        width: 338px;
+        width: 420px;
         height: 244px;
         background: #FFFFFF;
         box-sizing: border-box;
@@ -83,14 +84,14 @@
     }
 
     .experiment-card1 {
-        width: 338px;
+        width: 420px;
         height: 122px;
         background: linear-gradient(89.82deg, #F6B93B 0.11%, rgba(229, 80, 57, 0.74) 99.8%);
         box-shadow: 0 7px 15px -10px rgba(150,170,180);
     }
 
    .description {
-       font-size: 12px;
+       font-size: 13px;
        font-family: "Varta", sans-serif;
        text-align: justify;
        padding: 13px;
@@ -100,7 +101,6 @@
    .buttonLink {
        display: flex;
        justify-content: flex-end;
-       margin-top: -8px;
    }
 
    a.participationLink {
