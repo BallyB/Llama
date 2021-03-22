@@ -17,8 +17,8 @@
 
 <div class="presentation-container">
     <p>{$state.experience.description}</p>
-    <p>{$state.experience.guideline}</p>
-    <p>{$state.experience.consentForm}</p>
+    <p>{$state.experience.instruction}</p>
+    <p>{$state.experience.consent}</p>
     
     <p>Cette expérience est destinée à :</p>
     <div class="filter-container">
